@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ci3qj68bshm1i"]
 
-[ext_resource type="Script" uid="uid://beya4ejmuc3gs" path="res://meniu_select_nivel.gd" id="1_v65bf"]
+[ext_resource type="Script" uid="uid://beya4ejmuc3gs" path="res://scrips/meniu_select_nivel.gd" id="1_v65bf"]
 [ext_resource type="Texture2D" uid="uid://dd2135dugpipd" path="res://sprites/Background.png" id="2_w1gx8"]
 [ext_resource type="Texture2D" uid="uid://pss3u4uv27ef" path="res://sprites/image.png" id="3_0mf17"]
 

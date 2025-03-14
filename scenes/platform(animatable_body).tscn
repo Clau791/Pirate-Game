@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://cnrtpnrw4jjj5"]
+
+[ext_resource type="Texture2D" uid="uid://ddgxwmkmr4nl1" path="res://sprites/_Spritesheet.png" id="1_pi2b3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0q2x2"]
+size = Vector2(90, 4.75)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5kh02"]
+radius = 6.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_jmw24"]
+a = Vector2(190.333, 76.5)
+b = Vector2(-374.665, 75.6687)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_p76g0"]
+a = Vector2(-41, 1)
+b = Vector2(41, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_10qg3"]
+radius = 4.0
+height = 9.5
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wwhsu"]
+radius = 4.0
+height = 9.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0lam7"]
+radius = 5.09902
+
+[node name="Platform(AnimatableBody)" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.38419e-07, 2.38419e-07)
+scale = Vector2(0.149467, 0.211448)
+texture = ExtResource("1_pi2b3")
+region_enabled = true
+region_rect = Rect2(49, 834, 668, 214)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4.375)
+shape = SubResource("RectangleShape2D_0q2x2")
+one_way_collision_margin = 0.0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(39, -7)
+shape = SubResource("CircleShape2D_5kh02")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(14, -29)
+scale = Vector2(0.149467, 0.211448)
+shape = SubResource("SegmentShape2D_jmw24")
+one_way_collision_margin = 0.0
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(0, -13)
+shape = SubResource("SegmentShape2D_p76g0")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2(40, -9)
+shape = SubResource("CapsuleShape2D_10qg3")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="."]
+position = Vector2(-40, -9)
+shape = SubResource("CapsuleShape2D_wwhsu")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="."]
+position = Vector2(-40, -7)
+shape = SubResource("CircleShape2D_0lam7")
