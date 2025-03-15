@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwc3jiuugfn8n"]
+
+[ext_resource type="Texture2D" uid="uid://dleobxnnp2com" path="res://sprites/Medieval_props_free.png" id="1_5s60s"]
+
+[node name="Scara" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.964286, -13)
+scale = Vector2(0.930952, 1)
+texture = ExtResource("1_5s60s")
+region_enabled = true
+region_rect = Rect2(227.5, 87.6238, 30, 56.9282)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-1, -55)
+scale = Vector2(0.930952, 1)
+texture = ExtResource("1_5s60s")
+region_enabled = true
+region_rect = Rect2(227.5, 86.7009, 30, 57.8511)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(-1, -98)
+scale = Vector2(0.930952, 1)
+texture = ExtResource("1_5s60s")
+region_enabled = true
+region_rect = Rect2(227.5, 85.5229, 30, 59.0291)
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]

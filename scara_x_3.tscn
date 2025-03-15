@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bngg3bp1ogsqt"]
+
+[ext_resource type="PackedScene" uid="uid://bwc3jiuugfn8n" path="res://scenes/scara.tscn" id="1_6odfr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6odfr"]
+size = Vector2(16, 300)
+
+[node name="scaraX3" type="Area2D"]
+
+[node name="Scara3" parent="." instance=ExtResource("1_6odfr")]
+position = Vector2(0, -112)
+
+[node name="Scara2" parent="." instance=ExtResource("1_6odfr")]
+position = Vector2(0, -175)
+
+[node name="Scara" parent="." instance=ExtResource("1_6odfr")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -140)
+shape = SubResource("RectangleShape2D_6odfr")
