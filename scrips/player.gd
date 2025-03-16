@@ -5,9 +5,38 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 const CLIMB_SPEED = 150
 
+@onready var Attack_Hitbox = $Attack_Hitbox
+@onready var Attack_Cooldown = $Attack_Cooldown
 @onready var sprite = $sprite
 
 var on_ladder = false
+
+var max_health = 100
+var health = max_health
+var damage = 20  # Cât damage dă jucătorul
+var can_attack = true
+
+# functii pentru health/ take damage
+func _on_ready() -> void: # incepe cu maxim health
+	$HealthBar.value = health
+
+func take_damage(amount):
+	health -= amount
+	$HealthBar.value = health
+	if health <= 0:
+		die()
+
+func die():
+	print("Ai murit!")
+	get_tree().reload_current_scene()
+
+
+func attack_enemy(enemy):
+	if enemy.has_method("take_damage"):
+		enemy.take_damage(damage)
+
+#
+
 
 #urcare verticala scara
 func _on_ladder_body_entered(body: Node2D) -> void:
@@ -18,8 +47,7 @@ func _on_ladder_body_exited(body: Node2D) -> void:
 	on_ladder = false
 		
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	
+		
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -51,6 +79,23 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		sprite.play("idle")	
+	
+	
+	if Input.is_action_pressed("ui_attack") and can_attack:
+		#play here animation
+		can_attack = false
+		$Attack_Cooldown.start()
+		if Attack_Hitbox.is_colliding():
+			print("colliding")
+			var enemy = Attack_Hitbox.get_collider()
+			print(enemy)
+			#for i in Attack_Hitbox.get_collider(): # pentru un attack de tip multiple
+			if enemy and ( enemy.is_in_group("Enemies") or enemy.is_in_group("Enemy") ):
+				print("Atac")
+				enemy.take_damage(damage)
 		
 	move_and_slide()
-	
+
+# pentru a pune un cooldown pe attack
+func _on_cooldown_timeout() -> void:
+	can_attack = true

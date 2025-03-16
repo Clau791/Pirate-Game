@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=4 uid="uid://crewmc6wv21u3"]
+[gd_scene load_steps=11 format=4 uid="uid://crewmc6wv21u3"]
 
-[ext_resource type="PackedScene" uid="uid://bngg3bp1ogsqt" path="res://scara_x_3.tscn" id="1_ombrs"]
+[ext_resource type="PackedScene" uid="uid://1pbsc0n22mos" path="res://scenes/Enemy.tscn" id="1_ifsd8"]
+[ext_resource type="PackedScene" uid="uid://bngg3bp1ogsqt" path="res://scenes/scara_x_3.tscn" id="1_ombrs"]
 [ext_resource type="PackedScene" uid="uid://dwdogdedcqe0a" path="res://scenes/kill_zone.tscn" id="1_ti8r7"]
 [ext_resource type="Texture2D" uid="uid://dleobxnnp2com" path="res://sprites/Medieval_props_free.png" id="1_y824y"]
 [ext_resource type="Texture2D" uid="uid://codojrqnxp7bj" path="res://sprites/Medieval_tiles_free2.png" id="2_hi78g"]
@@ -2573,12 +2574,15 @@ distance = -229.0
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Enemy" parent="." groups=["Enemies", "Enemy"] instance=ExtResource("1_ifsd8")]
+position = Vector2(1531, 55)
+
 [node name="Ladder" parent="." instance=ExtResource("1_ombrs")]
 position = Vector2(1616, 51)
 collision_mask = 2
 
 [node name="player" parent="." instance=ExtResource("2_ombrs")]
-position = Vector2(70, 23)
+position = Vector2(1426, 38)
 scale = Vector2(2, 2)
 collision_layer = 3
 collision_mask = 3
