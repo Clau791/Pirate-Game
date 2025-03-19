@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://6enoj0jns83w"]
+
+[ext_resource type="Script" uid="uid://dkn2wqjxg7p3c" path="res://rigid_body_2d.gd" id="1_rx5id"]
+[ext_resource type="Texture2D" uid="uid://qcf38c7xi1x7" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/22-Sword Spinning/Sword Spinning 01.png" id="2_v4ynp"]
+[ext_resource type="Texture2D" uid="uid://drpgf4yfo6v85" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/22-Sword Spinning/Sword Spinning 02.png" id="3_83fnj"]
+[ext_resource type="Texture2D" uid="uid://ca5hdmot62nlo" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/22-Sword Spinning/Sword Spinning 03.png" id="4_fahsa"]
+[ext_resource type="Texture2D" uid="uid://bd57edqqg7smh" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/22-Sword Spinning/Sword Spinning 04.png" id="5_1o1wo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4l2t"]
+size = Vector2(19, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12tba"]
+size = Vector2(19, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u2t1x"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_v4ynp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_83fnj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fahsa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1o1wo")
+}],
+"loop": true,
+"name": &"throw",
+"speed": 10.0
+}]
+
+[node name="Sword" type="RigidBody2D"]
+mass = 10.68
+linear_velocity = Vector2(1000, 0)
+script = ExtResource("1_rx5id")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_k4l2t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_12tba")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_u2t1x")
+animation = &"throw"
+autoplay = "throw"
+frame_progress = 0.492027
+
+[connection signal="body_entered" from="." to="." method="body_entered"]
+[connection signal="body_exited" from="." to="." method="body_exited"]
+[connection signal="body_shape_entered" from="." to="." method="body_entered"]
+[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]
+[connection signal="area_shape_entered" from="Area2D" to="." method="body_entered"]
+[connection signal="area_shape_exited" from="Area2D" to="." method="body_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="body_exited"]

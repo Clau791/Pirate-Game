@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=4 uid="uid://b4omaepqlemwc"]
+[gd_scene load_steps=25 format=4 uid="uid://b4omaepqlemwc"]
 
 [ext_resource type="Texture2D" uid="uid://biwipjgwidjah" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png" id="1_1c1lq"]
 [ext_resource type="PackedScene" uid="uid://bw12ss2iy2k5a" path="res://scenes/player.tscn" id="1_gkam7"]
 [ext_resource type="PackedScene" uid="uid://bfttwx7d1o55q" path="res://scenes/palm_tree.tscn" id="1_n2x3i"]
+[ext_resource type="PackedScene" uid="uid://1pbsc0n22mos" path="res://scenes/Enemy.tscn" id="1_wqmf1"]
 [ext_resource type="Texture2D" uid="uid://cvimjwlokfcxe" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 01.png" id="2_gkam7"]
 [ext_resource type="Texture2D" uid="uid://deas6tenrv4e7" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 02.png" id="3_n2x3i"]
 [ext_resource type="Texture2D" uid="uid://2y2dwbexy4m6" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 01.png" id="4_wqmf1"]
@@ -737,15 +738,23 @@ texture = ExtResource("9_do4xf")
 33:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_hi1ci"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 15
+physics_layer_0/collision_mask = 255
 sources/0 = SubResource("TileSetAtlasSource_rbkpy")
 
 [node name="PirateIsland" type="Node2D"]
+position = Vector2(1, 0)
+
+[node name="Enemy" parent="." groups=["Enemies"] instance=ExtResource("1_wqmf1")]
+position = Vector2(-31, 26)
+collision_layer = 3
 
 [node name="Palm_Tree" parent="." instance=ExtResource("1_n2x3i")]
+z_index = -1
 position = Vector2(-30, 18)
 
-[node name="player" parent="." instance=ExtResource("1_gkam7")]
+[node name="player" parent="." groups=["player"] instance=ExtResource("1_gkam7")]
+collision_mask = 2
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(3, 3)

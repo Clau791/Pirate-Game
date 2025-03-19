@@ -4,7 +4,7 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 const CLIMB_SPEED = 150
 
-var health = 50
+var health = 20
 var damage = 10
 
 @onready var timer = $DamageTimer
@@ -19,15 +19,15 @@ func _ready() -> void:
 	
 func _process(delta):
 	
-	#if not is_on_floor():
-		#velocity += get_gravity() * delta
+	if not is_on_floor():
+		velocity += get_gravity() * delta
 		#
 	if player_in_range :
 		last_damage_time += delta # pentru a primi damage in mod controlat la 1sec
 		if last_damage_time >= damage_interval:
 			_on_damage_timer_timeout()
 			last_damage_time = 0.0
-	#move_and_slide()
+	move_and_slide()
 	
 func take_damage(amount):
 	health -= amount

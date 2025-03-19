@@ -9,6 +9,7 @@ const CLIMB_SPEED = 150
 @onready var Attack_Cooldown = $Attack_Cooldown
 @onready var sprite = $sprite
 @onready var attacking = $Attack_Animation
+@export var sword_scene = preload("res://sword.tscn")  # Scena sabiei fizice
 
 var on_ladder = false
 
@@ -17,6 +18,8 @@ var health = max_health
 var damage = 20  # Cât damage dă jucătorul
 var can_attack = true
 var is_attacking = false # flag pentru a nu se intrerupe animatiile
+var has_sword = true
+var can_pickup_sword = false
 
 # functii pentru health/ take damage
 func _on_ready() -> void: # incepe cu maxim health
@@ -69,20 +72,34 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
-	
 	if direction and not is_attacking :
 		
 		velocity.x = direction * SPEED
 		
 		if direction > 0 :  # >0 adica se misca pozitiv pe x, animatie normala de walk
-			sprite.flip_h = false; # flip imagine horizontal
-			sprite.play("walk")
+			if has_sword :
+				sprite.flip_h = false; # flip imagine horizontal
+				sprite.play("walk")
+			else: 
+				sprite.flip_h = false; # flip imagine horizontal
+				sprite.play("walk_ns")
+				
 		else:
-			sprite.flip_h = true;
-			sprite.play("walk")
-	elif not is_attacking:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		sprite.play("idle")	
+			if has_sword :
+				sprite.flip_h = true;
+				sprite.play("walk")
+			else: 
+				sprite.flip_h = true; # flip imagine horizontal
+				sprite.play("walk_ns")
+
+	else:
+		if not is_attacking:
+			if has_sword:
+				velocity.x = move_toward(velocity.x, 0, SPEED)
+				sprite.play("idle")	
+			else: 
+				velocity.x = move_toward(velocity.x, 0, SPEED)
+				sprite.play("idle_hs")	
 	
 	
 	if Input.is_action_pressed("ui_attack") and can_attack:
@@ -90,7 +107,7 @@ func _physics_process(delta: float) -> void:
 		can_attack = false # pentru a nu se face spam de attack
 		is_attacking = true # pentru a nu interveni alte animatii
 		attacking.start()
-		sprite.play("attack")
+		sprite.play("attack_1")
 		Attack_Cooldown.start()
 		
 		if Attack_Hitbox.is_colliding():
@@ -100,7 +117,23 @@ func _physics_process(delta: float) -> void:
 			#for i in Attack_Hitbox.get_collider(): # pentru un attack de tip multiple
 			if enemy and ( enemy.is_in_group("Enemies") or enemy.is_in_group("Enemy") ):
 				print("Atac")
-				enemy.take_damage(damage)
+				if has_sword:
+					enemy.take_damage(damage)
+				else:
+					print(" You have no weapon !!! ")
+	
+		# Aruncă sabia
+	if has_sword and Input.is_action_just_pressed("throw_sword"):
+		throw_sword()
+
+	# Ridică sabia , este apelata din sword
+	
+	#if can_pickup_sword and Input.is_action_just_pressed("pickup"):
+		#pickup_sword()
+		#print("picked up")
+		
+	if Input.is_action_just_pressed("Restart"):
+		get_tree().reload_current_scene();
 
 
 	move_and_slide()
@@ -111,4 +144,34 @@ func _on_cooldown_timeout() -> void:
 	
 
 func _on_attack_animation_timeout() -> void:
-	is_attacking = false # Replace with function body.
+	is_attacking = false 
+	
+# sword mechanics
+func throw_sword():
+	
+	
+	is_attacking = true
+	
+	#sprite.play("sword_throw")
+	
+	attacking.start()
+	has_sword = false
+
+	var sword = sword_scene.instantiate()
+	
+	sword.global_position = global_position
+	
+	get_parent().add_child(sword)
+
+	# Setează direcția aruncării
+
+	
+	var throw_direction = Vector2( 1 if not sprite.flip_h else -1 ,  - 1)
+	# maybe better ??
+	# sword.throw_sword((throw_direction * 300) + velocity * 0.5)  
+	sword.throw_sword(throw_direction * 200)
+	
+func pickup_sword():
+	has_sword = true
+	can_pickup_sword = false
+	
