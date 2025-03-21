@@ -22,8 +22,9 @@ var has_sword = true
 var can_pickup_sword = false
 
 # functii pentru health/ take damage
-func _on_ready() -> void: # incepe cu maxim health
+func _ready():
 	$HealthBar.value = health
+
 
 func take_damage(amount):
 	health -= amount
@@ -40,12 +41,9 @@ func attack_enemy(enemy):
 	if enemy.has_method("take_damage"):
 		enemy.take_damage(damage)
 
-#
-
 
 #urcare verticala scara
 func _on_ladder_body_entered(body: Node2D) -> void:
-	
 	on_ladder = true
 
 func _on_ladder_body_exited(body: Node2D) -> void:
@@ -72,6 +70,7 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
+	
 	if direction and not is_attacking :
 		
 		velocity.x = direction * SPEED
@@ -82,8 +81,7 @@ func _physics_process(delta: float) -> void:
 				sprite.play("walk")
 			else: 
 				sprite.flip_h = false; # flip imagine horizontal
-				sprite.play("walk_ns")
-				
+				sprite.play("walk_ns")	
 		else:
 			if has_sword :
 				sprite.flip_h = true;
@@ -91,7 +89,7 @@ func _physics_process(delta: float) -> void:
 			else: 
 				sprite.flip_h = true; # flip imagine horizontal
 				sprite.play("walk_ns")
-
+	
 	else:
 		if not is_attacking:
 			if has_sword:
@@ -101,7 +99,6 @@ func _physics_process(delta: float) -> void:
 				velocity.x = move_toward(velocity.x, 0, SPEED)
 				sprite.play("idle_hs")	
 	
-	
 	if Input.is_action_pressed("ui_attack") and can_attack:
 		#play here animation
 		can_attack = false # pentru a nu se face spam de attack
@@ -110,17 +107,38 @@ func _physics_process(delta: float) -> void:
 		sprite.play("attack_1")
 		Attack_Cooldown.start()
 		
-		if Attack_Hitbox.is_colliding():
-			print("colliding")
-			var enemy = Attack_Hitbox.get_collider()
-			print(enemy)
-			#for i in Attack_Hitbox.get_collider(): # pentru un attack de tip multiple
-			if enemy and ( enemy.is_in_group("Enemies") or enemy.is_in_group("Enemy") ):
-				print("Atac")
-				if has_sword:
-					enemy.take_damage(damage)
-				else:
-					print(" You have no weapon !!! ")
+		# verificam in ce directie se uita playerul pentru a lua hitboxul de acolo
+		var facing = 1 ; # 1 in fata , -1 in spate 
+		if sprite.flip_h == true :
+			facing = -1;
+		
+		if facing  == 1: 
+			if Attack_Hitbox.is_colliding():
+				print("colliding")
+				var enemy = Attack_Hitbox.get_collider()
+				print(enemy.name)
+
+				#for i in Attack_Hitbox.get_collider(): # pentru un attack de tip multiple
+				if enemy and ( enemy.name == "Enemy"):
+					print("Atac")
+					if has_sword:
+						enemy.take_damage(damage)
+					else:
+						print(" You have no weapon !!! ")
+		else: # se uita in spate damage in spate
+			print("behind")
+			if $Attack_Hitbox_behind.is_colliding():
+				print("colliding")
+				var enemy = $Attack_Hitbox_behind.get_collider()
+				print(enemy.name)
+
+				#for i in Attack_Hitbox.get_collider(): # pentru un attack de tip multiple
+				if enemy and ( enemy.name == "Enemy"):
+					print("Atac")
+					if has_sword:
+						enemy.take_damage(damage)
+					else:
+						print(" You have no weapon !!! ")
 	
 		# Aruncă sabia
 	if has_sword and Input.is_action_just_pressed("throw_sword"):
@@ -144,32 +162,27 @@ func _on_cooldown_timeout() -> void:
 	
 
 func _on_attack_animation_timeout() -> void:
-	is_attacking = false 
+	is_attacking = false
+
 	
 # sword mechanics
 func throw_sword():
 	
-	
 	is_attacking = true
-	
-	#sprite.play("sword_throw")
-	
-	attacking.start()
+	sprite.play("sword_throw")
+	attacking.start(0.2)
 	has_sword = false
 
 	var sword = sword_scene.instantiate()
-	
 	sword.global_position = global_position
-	
 	get_parent().add_child(sword)
 
 	# Setează direcția aruncării
-
-	
-	var throw_direction = Vector2( 1 if not sprite.flip_h else -1 ,  - 1)
+	var throw_direction = Vector2( 1 if not sprite.flip_h else -1 ,  0)
 	# maybe better ??
-	# sword.throw_sword((throw_direction * 300) + velocity * 0.5)  
-	sword.throw_sword(throw_direction * 200)
+	sword.throw_sword((throw_direction) + velocity * 0.5)  
+	#sword.throw_sword(throw_direction * 200)
+	#sword.throw_sword(throw_direction.normalized() * 600)  # Adjust 600 to desired speed
 	
 func pickup_sword():
 	has_sword = true

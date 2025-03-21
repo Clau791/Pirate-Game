@@ -56,6 +56,12 @@ pickup={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_1="Terrain"
+2d_render/layer_2="Enemies"
+2d_render/layer_3="Player"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

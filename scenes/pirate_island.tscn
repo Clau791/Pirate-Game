@@ -738,23 +738,22 @@ texture = ExtResource("9_do4xf")
 33:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_hi1ci"]
-physics_layer_0/collision_layer = 15
-physics_layer_0/collision_mask = 255
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_rbkpy")
 
 [node name="PirateIsland" type="Node2D"]
 position = Vector2(1, 0)
 
 [node name="Enemy" parent="." groups=["Enemies"] instance=ExtResource("1_wqmf1")]
-position = Vector2(-31, 26)
-collision_layer = 3
+position = Vector2(69, 16)
 
 [node name="Palm_Tree" parent="." instance=ExtResource("1_n2x3i")]
 z_index = -1
 position = Vector2(-30, 18)
 
 [node name="player" parent="." groups=["player"] instance=ExtResource("1_gkam7")]
-collision_mask = 2
+collision_layer = 4
+collision_mask = 3
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(3, 3)

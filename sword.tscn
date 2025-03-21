@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bd57edqqg7smh" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/22-Sword Spinning/Sword Spinning 04.png" id="5_1o1wo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4l2t"]
-size = Vector2(19, 16)
+size = Vector2(21, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12tba"]
 size = Vector2(19, 16)
@@ -38,13 +38,15 @@ animations = [{
 }]
 
 [node name="Sword" type="RigidBody2D"]
+collision_layer = 9
+collision_mask = 7
 mass = 10.68
 linear_velocity = Vector2(1000, 0)
 script = ExtResource("1_rx5id")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 3
-collision_mask = 3
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0.5, -1)
@@ -55,6 +57,7 @@ position = Vector2(0.5, -1)
 shape = SubResource("RectangleShape2D_12tba")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_u2t1x")
 animation = &"throw"
 autoplay = "throw"
