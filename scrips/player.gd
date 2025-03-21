@@ -9,7 +9,7 @@ const CLIMB_SPEED = 150
 @onready var Attack_Cooldown = $Attack_Cooldown
 @onready var sprite = $sprite
 @onready var attacking = $Attack_Animation
-@export var sword_scene = preload("res://sword.tscn")  # Scena sabiei fizice
+@export var sword_scene = preload("res://scenes/sword.tscn")  # Scena sabiei fizice
 
 var on_ladder = false
 
