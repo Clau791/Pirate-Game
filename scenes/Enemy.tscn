@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://1pbsc0n22mos"]
 
-[ext_resource type="Script" uid="uid://bc57thurrsj8r" path="res://character_body_2d.gd" id="1_s7bn3"]
+[ext_resource type="Script" uid="uid://bc57thurrsj8r" path="res://scrips/Enemy.gd" id="1_s7bn3"]
 [ext_resource type="Texture2D" uid="uid://ccps513r6g35l" path="res://sprites/slime_green.png" id="2_2hac7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6d4v"]

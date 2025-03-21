@@ -112,6 +112,7 @@ func _physics_process(delta: float) -> void:
 		if sprite.flip_h == true :
 			facing = -1;
 		
+		#aici se poate implementa o functie ca este redundanta scrierea
 		if facing  == 1: 
 			if Attack_Hitbox.is_colliding():
 				print("colliding")
