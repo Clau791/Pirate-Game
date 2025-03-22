@@ -1,5 +1,9 @@
-extends CharacterBody2D
+#cd onedrive\documente\pirate-game
+#git add .
+#git commit -m "Commit #8 : new enemy "
+#git push origin main
 
+extends CharacterBody2D
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
@@ -29,6 +33,7 @@ func _ready():
 func take_damage(amount):
 	health -= amount
 	$HealthBar.value = health
+	$HealthBar/TextureProgressBar.update(health, max_health)
 	if health <= 0:
 		die()
 

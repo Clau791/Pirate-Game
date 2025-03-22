@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://bw12ss2iy2k5a"]
+[gd_scene load_steps=54 format=3 uid="uid://bw12ss2iy2k5a"]
 
 [ext_resource type="Script" uid="uid://bbqf8b1b7cuw7" path="res://scrips/player.gd" id="1_6qdiq"]
 [ext_resource type="Texture2D" uid="uid://bgc28jbve86le" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/15-Attack 1/Attack 1 01.png" id="2_60mlk"]
@@ -46,6 +46,11 @@
 [ext_resource type="Texture2D" uid="uid://cn8qe3xxxrt1p" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 04.png" id="43_ha2mi"]
 [ext_resource type="Texture2D" uid="uid://b5a5nwxn3ltp3" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 05.png" id="44_apa73"]
 [ext_resource type="Texture2D" uid="uid://cu0ate7gkt8cd" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 06.png" id="45_74r1k"]
+[ext_resource type="Texture2D" uid="uid://dwqhy6u7j7t3o" path="res://sprites/Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Medium Bars/1.png" id="47_2gdjj"]
+[ext_resource type="Script" uid="uid://bhoi7gqo7ibf5" path="res://scenes/Health_bar.gd" id="49_lxlsd"]
+[ext_resource type="Texture2D" uid="uid://bdiv2gfqqw4tn" path="res://sprites/Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Colors/4.png" id="50_2gdjj"]
+[ext_resource type="Texture2D" uid="uid://5jwxq5np2mh1" path="res://sprites/Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Medium Bars/5.png" id="50_ha2mi"]
+[ext_resource type="Texture2D" uid="uid://ceajbkaeem2hi" path="res://sprites/Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Medium Bars/4.png" id="51_apa73"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2hs0m"]
 animations = [{
@@ -259,11 +264,6 @@ position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_f1ej7")
 one_way_collision_margin = 0.0
 
-[node name="HealthBar" type="ProgressBar" parent="."]
-offset_right = 4.0
-offset_bottom = 27.0
-show_percentage = false
-
 [node name="Attack_Hitbox" type="RayCast2D" parent="."]
 position = Vector2(1, -2)
 scale = Vector2(2, 2)
@@ -286,6 +286,39 @@ scale = Vector2(2, 2)
 target_position = Vector2(-15.5, 0)
 collision_mask = 2
 collide_with_areas = true
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -96.0
+offset_top = -69.0
+offset_right = -51.0
+offset_bottom = -42.0
+value = 100.0
+
+[node name="5" type="Sprite2D" parent="HealthBar"]
+position = Vector2(51, 37)
+texture = ExtResource("50_ha2mi")
+
+[node name="1" type="Sprite2D" parent="HealthBar"]
+position = Vector2(-11, 37)
+texture = ExtResource("47_2gdjj")
+
+[node name="4" type="Sprite2D" parent="HealthBar"]
+position = Vector2(21, 37)
+texture = ExtResource("51_apa73")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthBar"]
+offset_left = 1.0
+offset_top = 36.0
+offset_right = 51.0
+offset_bottom = 76.0
+scale = Vector2(1.53846, 0.869836)
+value = 100.0
+texture_progress = ExtResource("50_2gdjj")
+script = ExtResource("49_lxlsd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 8
+follow_viewport_enabled = true
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="Attack_Cooldown" to="." method="_on_cooldown_timeout"]
