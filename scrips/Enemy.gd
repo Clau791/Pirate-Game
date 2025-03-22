@@ -24,6 +24,7 @@ func _process(delta):
 		#
 	if player_in_range :
 		last_damage_time += delta # pentru a primi damage in mod controlat la 1sec
+		$Animatii.play("Attack")
 		if last_damage_time >= damage_interval:
 			_on_damage_timer_timeout()
 			last_damage_time = 0.0
@@ -48,6 +49,7 @@ func _on_body_exited(body):
 	if body.name == "player":
 		player_in_range = null
 		print("Player ieșit din zonă!")
+		$Animatii.play("default")
 
 # Damage în buclă cât timp jucătorul e în zonă
 func _on_damage_timer_timeout():

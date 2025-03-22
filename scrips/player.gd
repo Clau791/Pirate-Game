@@ -16,6 +16,7 @@ var on_ladder = false
 var max_health = 100
 var health = max_health
 var damage = 20  # Cât damage dă jucătorul
+
 var can_attack = true
 var is_attacking = false # flag pentru a nu se intrerupe animatiile
 var has_sword = true
@@ -24,7 +25,6 @@ var can_pickup_sword = false
 # functii pentru health/ take damage
 func _ready():
 	$HealthBar.value = health
-
 
 func take_damage(amount):
 	health -= amount
@@ -35,7 +35,6 @@ func take_damage(amount):
 func die():
 	print("Ai murit!")
 	get_tree().reload_current_scene()
-
 
 func attack_enemy(enemy):
 	if enemy.has_method("take_damage"):
