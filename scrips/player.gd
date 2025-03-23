@@ -1,6 +1,6 @@
 #cd onedrive\documente\pirate-game
 #git add .
-#git commit -m "Commit #8 : new enemy "
+#git commit -m "Commit #9 : UI for player healthBar "
 #git push origin main
 
 extends CharacterBody2D
@@ -75,33 +75,31 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
 	
-	if direction and not is_attacking :
-		
-		velocity.x = direction * SPEED
-		
-		if direction > 0 :  # >0 adica se misca pozitiv pe x, animatie normala de walk
-			if has_sword :
-				sprite.flip_h = false; # flip imagine horizontal
-				sprite.play("walk")
-			else: 
-				sprite.flip_h = false; # flip imagine horizontal
-				sprite.play("walk_ns")	
-		else:
-			if has_sword :
-				sprite.flip_h = true;
-				sprite.play("walk")
-			else: 
-				sprite.flip_h = true; # flip imagine horizontal
-				sprite.play("walk_ns")
-	
+	if abs(direction) > 0 :
+		velocity.x = direction * SPEED 
+		if not is_attacking :
+			if direction > 0 :  # >0 adica se misca pozitiv pe x, animatie normala de walk
+				if has_sword :
+					sprite.flip_h = false; # flip imagine horizontal
+					sprite.play("walk")
+				else: 
+					sprite.flip_h = false; # flip imagine horizontal
+					sprite.play("walk_ns")	
+			else:
+				if has_sword :
+					sprite.flip_h = true;
+					sprite.play("walk")
+				else: 
+					sprite.flip_h = true; # flip imagine horizontal
+					sprite.play("walk_ns")
 	else:
-		if not is_attacking:
-			if has_sword:
-				velocity.x = move_toward(velocity.x, 0, SPEED)
-				sprite.play("idle")	
-			else: 
-				velocity.x = move_toward(velocity.x, 0, SPEED)
-				sprite.play("idle_hs")	
+		velocity.x = move_toward(velocity.x, 0, SPEED) # oprim caracterul
+		if has_sword:
+			sprite.play("idle")
+				
+		else: 
+			sprite.play("idle_hs")	
+			print("idle_hs")
 	
 	if Input.is_action_pressed("ui_attack") and can_attack:
 		#play here animation
@@ -175,7 +173,7 @@ func throw_sword():
 	
 	is_attacking = true
 	sprite.play("sword_throw")
-	attacking.start(0.2)
+	attacking.start(0.2) # pentru afisare animatie 
 	has_sword = false
 
 	var sword = sword_scene.instantiate()

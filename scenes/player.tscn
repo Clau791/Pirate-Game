@@ -183,7 +183,7 @@ animations = [{
 "texture": ExtResource("30_6e8lb")
 }],
 "loop": false,
-"name": &"idle_ns",
+"name": &"idle_hs",
 "speed": 10.0
 }, {
 "frames": [{
@@ -198,7 +198,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"sword_throw",
-"speed": 8.0
+"speed": 2.5
 }, {
 "frames": [{
 "duration": 1.0,
@@ -242,7 +242,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("45_74r1k")
 }],
-"loop": true,
+"loop": false,
 "name": &"walk_ns",
 "speed": 10.0
 }]
@@ -256,8 +256,9 @@ script = ExtResource("1_6qdiq")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2hs0m")
-animation = &"attack_1"
-autoplay = "walk"
+animation = &"sword_throw"
+frame = 2
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -0.5)
@@ -278,7 +279,6 @@ script = ExtResource("4_dqkch")
 
 [node name="Attack_Animation" type="Timer" parent="."]
 wait_time = 0.207
-one_shot = true
 
 [node name="Attack_Hitbox_behind" type="RayCast2D" parent="."]
 position = Vector2(1, -2)
@@ -288,10 +288,11 @@ collision_mask = 2
 collide_with_areas = true
 
 [node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -96.0
-offset_top = -69.0
-offset_right = -51.0
-offset_bottom = -42.0
+z_index = 10
+offset_left = -177.0
+offset_top = -100.0
+offset_right = -132.0
+offset_bottom = -73.0
 value = 100.0
 
 [node name="5" type="Sprite2D" parent="HealthBar"]
@@ -307,6 +308,7 @@ position = Vector2(21, 37)
 texture = ExtResource("51_apa73")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="HealthBar"]
+layout_mode = 0
 offset_left = 1.0
 offset_top = 36.0
 offset_right = 51.0
@@ -315,10 +317,6 @@ scale = Vector2(1.53846, 0.869836)
 value = 100.0
 texture_progress = ExtResource("50_2gdjj")
 script = ExtResource("49_lxlsd")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 8
-follow_viewport_enabled = true
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="Attack_Cooldown" to="." method="_on_cooldown_timeout"]
