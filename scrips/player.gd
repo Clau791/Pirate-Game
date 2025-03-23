@@ -1,11 +1,11 @@
 #cd onedrive\documente\pirate-game
 #git add .
-#git commit -m "Commit #9 : UI for player healthBar "
+#git commit -m "Commit #10 : Fixed animations, Movement "
 #git push origin main
 
 extends CharacterBody2D
 
-const SPEED = 150.0
+const SPEED = 150.1
 const JUMP_VELOCITY = -400.0
 const CLIMB_SPEED = 150
 
@@ -75,9 +75,11 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
 	
+	# am pus 2 if-uri pentru a nu bloca miscarea jucatorului in timpul atacului, doar animatia
 	if abs(direction) > 0 :
 		velocity.x = direction * SPEED 
 		if not is_attacking :
+			# animatii
 			if direction > 0 :  # >0 adica se misca pozitiv pe x, animatie normala de walk
 				if has_sword :
 					sprite.flip_h = false; # flip imagine horizontal
