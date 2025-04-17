@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8gf0ulj67480"]
+
+[ext_resource type="Script" uid="uid://cf7f2phll6vnx" path="res://scenes/cloud1.gd" id="1_l2voo"]
+[ext_resource type="Texture2D" uid="uid://5e4aqpcl4sl1" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 2.png" id="2_v37e3"]
+[ext_resource type="Script" uid="uid://dnliwt5lxlobh" path="res://scrips/cloud_1.gd" id="3_347lt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ihijd"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_v37e3")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 10.0
+}]
+
+[node name="Cloud1" type="Node2D"]
+script = ExtResource("1_l2voo")
+
+[node name="Cloud1" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ihijd")
+animation = &"new_animation"
+frame_progress = 0.178303
+script = ExtResource("3_347lt")
+
+[node name="Dynamic_Speed_Timer" type="Timer" parent="Cloud1"]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Cloud1/Dynamic_Speed_Timer" to="Cloud1" method="set_animation_stopped"]

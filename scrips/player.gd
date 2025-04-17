@@ -1,8 +1,4 @@
-#cd onedrive\documente\pirate-game
-#git add .
-#git commit -m "Commit #10 : Fixed animations, Movement "
-#git push origin main
-
+#t
 # contrls 
 #-> movement : arrows
 #-> attack 1,2,3 : F,G,H
@@ -125,7 +121,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED) # oprim caracterul
 		if not animation_flag:
-			print("idle")
 			if has_sword:
 				sprite.play("idle")
 					
@@ -186,7 +181,7 @@ func throw_sword():
 	var throw_direction = Vector2( 1 if not sprite.flip_h else -1 ,  0)
 	# maybe better ??
 	sword.throw_sword((throw_direction) + velocity * 0.5)
-	print(throw_direction)  
+	#print(throw_direction)  
 	#sword.throw_sword(throw_direction * 200)
 	#sword.throw_sword(throw_direction.normalized() * 600)  # Adjust 600 to desired speed
 	
