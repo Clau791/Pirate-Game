@@ -212,7 +212,7 @@ func attack(attack_animation):
 			if enemy and ( enemy.name == "Enemy"):
 				print("Atac")
 				if has_sword:
-					enemy.take_damage(damage)
+					enemy.take_damage(damage, facing)
 				else:
 					print(" You have no weapon !!! ")
 	else: # se uita in spate damage in spate
@@ -226,7 +226,7 @@ func attack(attack_animation):
 			if enemy and ( enemy.name == "Enemy"):
 				print("Atac")
 				if has_sword:
-					enemy.take_damage(damage)
+					enemy.take_damage(damage, facing)
 				else:
 					print(" You have no weapon !!! ")
 
