@@ -60,6 +60,7 @@ func attack_enemy(enemy):
 #urcare verticala scara
 func _on_ladder_body_entered(body: Node2D) -> void:
 	on_ladder = true
+	
 
 func _on_ladder_body_exited(body: Node2D) -> void:
 	on_ladder = false
@@ -88,7 +89,7 @@ func _physics_process(delta: float) -> void:
 		
 	# Cățărare pe scară
 	if on_ladder:
-		velocity.y = 0
+		velocity.y = CLIMB_SPEED * 0.4
 		if Input.is_action_pressed("ui_up"):
 			velocity.y = -CLIMB_SPEED
 		if Input.is_action_pressed("ui_down"):

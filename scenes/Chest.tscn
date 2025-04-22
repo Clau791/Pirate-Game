@@ -1,0 +1,107 @@
+[gd_scene load_steps=24 format=3 uid="uid://dtvftvxutbgkd"]
+
+[ext_resource type="Script" uid="uid://d1o8pswfxn0rr" path="res://area_2d.gd" id="1_8ns5j"]
+[ext_resource type="Texture2D" uid="uid://dkiccg5neqxgb" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Close 01.png" id="2_rygv1"]
+[ext_resource type="Texture2D" uid="uid://dcjhygmn61l65" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Close 02.png" id="3_s7sot"]
+[ext_resource type="Texture2D" uid="uid://bmevl7mkoj6ba" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Close 03.png" id="4_rpdfj"]
+[ext_resource type="Texture2D" uid="uid://cx63ctmvy1jmv" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Close 04.png" id="5_umdoo"]
+[ext_resource type="Texture2D" uid="uid://cyelsolsm1kts" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Close 05.png" id="6_lnsrm"]
+[ext_resource type="Texture2D" uid="uid://d4bxqh3iancty" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Close 06.png" id="7_4jshn"]
+[ext_resource type="Texture2D" uid="uid://c58ojvxk2mm63" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Close 07.png" id="8_6lx5x"]
+[ext_resource type="Texture2D" uid="uid://blkqwbb1pukxy" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Close 08.png" id="9_0lh0g"]
+[ext_resource type="Texture2D" uid="uid://bsp5l63v8py6x" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Close 09.png" id="10_6a5yy"]
+[ext_resource type="Texture2D" uid="uid://2mypy0egv2av" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Close 10.png" id="11_oi1n0"]
+[ext_resource type="Texture2D" uid="uid://d2jvleu8eb6dr" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Open 01.png" id="12_sysaw"]
+[ext_resource type="Texture2D" uid="uid://b8rdn3ud8uui0" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Open 02.png" id="13_jcswq"]
+[ext_resource type="Texture2D" uid="uid://125iell0bct" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Open 03.png" id="14_twyft"]
+[ext_resource type="Texture2D" uid="uid://dt2omwn85d2a6" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Open 04.png" id="15_f2jwj"]
+[ext_resource type="Texture2D" uid="uid://ci8l4gpqju4dj" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Open 05.png" id="16_lsyih"]
+[ext_resource type="Texture2D" uid="uid://d00d8w2aj3r00" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Open 06.png" id="17_n8dpc"]
+[ext_resource type="Texture2D" uid="uid://h1xvtxxm0bl3" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Open 07.png" id="18_4bmg6"]
+[ext_resource type="Texture2D" uid="uid://dpa7wg5ch636i" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Open 08.png" id="19_l0m26"]
+[ext_resource type="Texture2D" uid="uid://bkc2sc45qy1s1" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Open 09.png" id="20_t4gel"]
+[ext_resource type="Texture2D" uid="uid://day1tiff4yht8" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Open 10.png" id="21_kkoi7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88ubh"]
+size = Vector2(51, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u8hus"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rygv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s7sot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rpdfj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_umdoo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lnsrm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4jshn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6lx5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0lh0g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_6a5yy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_oi1n0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_sysaw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_jcswq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_twyft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_f2jwj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_lsyih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_n8dpc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_4bmg6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_l0m26")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_t4gel")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_kkoi7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_8ns5j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 5)
+shape = SubResource("RectangleShape2D_88ubh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_u8hus")
+frame_progress = 0.51727
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

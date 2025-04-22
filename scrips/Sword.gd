@@ -33,7 +33,7 @@ func throw_sword(t_direction: Vector2):
 func body_entered(body):
 	
 	if body.is_in_group("Enemies"):
-		body.take_damage(damage)
+		body.take_damage(damage,facing)
 		
 	if body.name == "player":
 		print("sword picked up")

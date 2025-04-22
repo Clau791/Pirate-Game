@@ -33,10 +33,11 @@ func delete_cloud(c):
 	
 
 func _ready() -> void:
+
 	$Cloud_Timer.start()
 	# generam 10 nori random in scena 
 	for i in range(9):
-		random = randi_range(-100, 300) # pozitia norilor generati la incarcarea scenei
+		random = randi_range(-100, 1500) # pozitia norilor generati la incarcarea scenei
 		generate_cloud(random)
 		
 		
