@@ -8,7 +8,6 @@
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ytvr"]
 texture = ExtResource("2_con2f")
 separation = Vector2i(1, 0)
-texture_region_size = Vector2i(16, 17)
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -174,6 +173,7 @@ texture_region_size = Vector2i(16, 17)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g3eks"]
 texture = ExtResource("3_mhnvy")
+use_texture_padding = false
 2:2/0 = 0
 3:2/0 = 0
 4:2/0 = 0
@@ -431,7 +431,9 @@ texture = ExtResource("3_mhnvy")
 27:8/0 = 0
 28:8/0 = 0
 29:8/0 = 0
+30:8/next_alternative_id = 2
 30:8/0 = 0
+31:8/next_alternative_id = 2
 31:8/0 = 0
 32:8/0 = 0
 33:8/0 = 0
@@ -461,7 +463,9 @@ texture = ExtResource("3_mhnvy")
 27:9/0 = 0
 28:9/0 = 0
 29:9/0 = 0
+30:9/next_alternative_id = 2
 30:9/0 = 0
+31:9/next_alternative_id = 2
 31:9/0 = 0
 32:9/0 = 0
 33:9/0 = 0
@@ -519,6 +523,7 @@ texture = ExtResource("3_mhnvy")
 25:11/0 = 0
 26:11/0 = 0
 27:11/0 = 0
+28:11/next_alternative_id = 2
 28:11/0 = 0
 29:11/0 = 0
 30:11/0 = 0
@@ -625,23 +630,31 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_yqeox")
 
-[node name="MainMenu" type="VBoxContainer" parent="."]
-z_index = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -33.0
-offset_top = -27.0
-offset_right = 32.0
-offset_bottom = 76.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 2
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Level Select" type="Button" parent="MainMenu"]
+[node name="Titlu" type="Label" parent="MainMenu"]
+layout_mode = 0
+offset_left = -27.0
+offset_top = -48.0
+offset_right = 35.0
+offset_bottom = -36.5417
+theme_override_colors/font_color = Color(1, 0.65098, 0.121569, 1)
+theme_override_fonts/font = ExtResource("2_mhnvy")
+theme_override_font_sizes/font_size = 10
+text = "Game Paused"
+
+[node name="Content" type="VBoxContainer" parent="MainMenu"]
+layout_mode = 2
+offset_left = -30.0
+offset_top = -20.0
+offset_right = 35.0
+offset_bottom = 72.0
+
+[node name="Level Select" type="Button" parent="MainMenu/Content"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_mhnvy")
 theme_override_font_sizes/font_size = 10
@@ -649,21 +662,21 @@ text = "Level Select"
 flat = true
 text_overrun_behavior = 1
 
-[node name="Setari" type="Button" parent="MainMenu"]
+[node name="Setari" type="Button" parent="MainMenu/Content"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_mhnvy")
 theme_override_font_sizes/font_size = 10
 text = "Setari"
 flat = true
 
-[node name="Help" type="Button" parent="MainMenu"]
+[node name="Help" type="Button" parent="MainMenu/Content"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_mhnvy")
 theme_override_font_sizes/font_size = 10
 text = "Help"
 flat = true
 
-[node name="Exit" type="Button" parent="MainMenu"]
+[node name="Exit" type="Button" parent="MainMenu/Content"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_mhnvy")
 theme_override_font_sizes/font_size = 10
@@ -672,67 +685,94 @@ flat = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="MainMenu"]
 z_index = -1
-position = Vector2(34, 50)
-tile_map_data = PackedByteArray("AAD9//z/AQASAAkAAAD+//z/AQATAAkAAAAAAPz/AQAUAAkAAAD///z/AQAUAAkAAAABAPz/AQAUAAkAAAACAPz/AQAVAAkAAAD9//3/AQAOAAIAAAD+//3/AQAPAAIAAAAAAP3/AQAPAAIAAAD///3/AQAPAAIAAAABAP3/AQAPAAIAAAACAP3/AQATAAIAAAD9//7/AQAOAAMAAAD+//7/AQAQAAQAAAD///7/AQAQAAQAAAAAAP7/AQAQAAQAAAABAP7/AQAQAAQAAAACAP7/AQATAAMAAAD9//v/AQASAAgAAAD+//v/AQATAAgAAAD///v/AQATAAgAAAAAAPv/AQATAAgAAAABAPv/AQATAAgAAAACAPv/AQAVAAgAAAD9////AQAOAAMAAAD9/wAAAQAOAAMAAAD9/wEAAQAOAAMAAAD+/wEAAQAPAAMAAAD//wEAAQAPAAMAAAAAAAEAAQAPAAMAAAACAAEAAQATAAMAAAABAAEAAQAPAAMAAAACAAAAAQATAAMAAAACAP//AQATAAMAAAAAAP//AQAQAAQAAAD+////AQAQAAQAAAD/////AQAQAAQAAAABAP//AQAQAAQAAAD+/wAAAQAQAAQAAAD//wAAAQAQAAQAAAAAAAAAAQAQAAQAAAABAAAAAQAQAAQAAAD9/wIAAQAOAAUAAAD+/wIAAQAQAAUAAAD//wIAAQAQAAUAAAAAAAIAAQAQAAUAAAACAAIAAQATAAUAAAABAAIAAQAQAAUAAAA=")
+position = Vector2(4, 23)
+tile_map_data = PackedByteArray("AAD9//z/AQASAAkAAAD+//z/AQATAAkAAAAAAPz/AQAUAAkAAAD///z/AQAUAAkAAAABAPz/AQAUAAkAAAACAPz/AQAVAAkAAAD9//v/AQASAAgAAAD+//v/AQATAAgAAAD///v/AQATAAgAAAAAAPv/AQATAAgAAAABAPv/AQATAAgAAAACAPv/AQAVAAgAAAD//wEAAQAPAAMAAAAAAAEAAQAPAAMAAAABAAEAAQAPAAMAAAD+/wAAAQAQAAQAAAD//wAAAQAQAAQAAAAAAAAAAQAQAAQAAAABAAAAAQAQAAQAAAD+//3/AQAPAAYAAAD+//7/AQAQAAQAAAD///7/AQAQAAQAAAAAAP7/AQAQAAQAAAABAP7/AQAQAAQAAAAAAP3/AQAPAAYAAAD///3/AQAPAAYAAAABAP3/AQAPAAYAAAD+/wEAAQAPAAMAAAACAAEAAQATAAMAAAACAAAAAQATAAMAAAD9/wAAAQAOAAMAAAD9/wEAAQAOAAMAAAACAP7/AQATAAMAAAACAP3/AQARAAYAAAD9//7/AQAOAAMAAAD9//3/AQAOAAYAAAACAAIAAQATAAUAAAABAAIAAQAQAAUAAAD//wIAAQAQAAUAAAAAAAIAAQAQAAUAAAD+/wIAAQAQAAUAAAD9/wIAAQAOAAUAAAACAP//AQATAAMAAAABAP//AQAQAAQAAAAAAP//AQAQAAQAAAD/////AQAQAAQAAAD+////AQARAAMAAAD9////AQAOAAMAAAA=")
 tile_set = SubResource("TileSet_v86rl")
 
-[node name="HelpMenu" type="VBoxContainer" parent="."]
+[node name="HelpMenu" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 162.0
+offset_top = -3.0
+offset_right = 202.0
+offset_bottom = 37.0
+
+[node name="Titlu" type="Label" parent="HelpMenu"]
+layout_mode = 0
+offset_left = -179.0
+offset_top = -55.0
+offset_right = -113.0
+offset_bottom = -32.0
+theme_override_colors/font_color = Color(1, 0.65098, 0.121569, 1)
+theme_override_fonts/font = ExtResource("2_mhnvy")
+theme_override_font_sizes/font_size = 10
+text = "Controls"
+
+[node name="Content" type="VBoxContainer" parent="HelpMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -203.0
-offset_top = -69.0
-offset_right = -112.0
-offset_bottom = 61.0
+offset_left = -223.0
+offset_top = -70.0
+offset_right = -132.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Controls" type="Label" parent="HelpMenu"]
+[node name="A" type="Label" parent="HelpMenu/Content"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 10
-text = "Controls"
-horizontal_alignment = 1
-
-[node name="A" type="Label" parent="HelpMenu"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 10
+theme_override_fonts/font = ExtResource("2_mhnvy")
+theme_override_font_sizes/font_size = 13
 text = "A - Go left"
 horizontal_alignment = 1
 
-[node name="D" type="Label" parent="HelpMenu"]
+[node name="D" type="Label" parent="HelpMenu/Content"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 10
+theme_override_fonts/font = ExtResource("2_mhnvy")
+theme_override_font_sizes/font_size = 13
 text = "D - Go right"
 horizontal_alignment = 1
 
-[node name="F" type="Label" parent="HelpMenu"]
+[node name="F" type="Label" parent="HelpMenu/Content"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 10
+theme_override_fonts/font = ExtResource("2_mhnvy")
+theme_override_font_sizes/font_size = 13
 text = "F -  attack"
 horizontal_alignment = 1
 
-[node name="E" type="Label" parent="HelpMenu"]
+[node name="E" type="Label" parent="HelpMenu/Content"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 10
+theme_override_fonts/font = ExtResource("2_mhnvy")
+theme_override_font_sizes/font_size = 13
 text = "E - throw"
 horizontal_alignment = 1
 
-[node name="Space" type="Label" parent="HelpMenu"]
+[node name="Space" type="Label" parent="HelpMenu/Content"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 10
+theme_override_fonts/font = ExtResource("2_mhnvy")
+theme_override_font_sizes/font_size = 13
 text = "Space - Jump"
 horizontal_alignment = 1
 
-[node name="Back" type="Button" parent="HelpMenu"]
+[node name="Back" type="Button" parent="HelpMenu/Content"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 10
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_mhnvy")
+theme_override_font_sizes/font_size = 13
 text = "Back"
+flat = true
 
-[connection signal="pressed" from="MainMenu/Help" to="." method="_on_help_button_pressed"]
-[connection signal="pressed" from="MainMenu/Exit" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="HelpMenu/Back" to="." method="_on_back_button_pressed"]
+[node name="TileMapLayer2" type="TileMapLayer" parent="HelpMenu"]
+z_index = -1
+position = Vector2(-158, 16)
+tile_map_data = PackedByteArray("AAD9//z/AQASAAkAAAD+//z/AQATAAkAAAAAAPz/AQAUAAkAAAD///z/AQAUAAkAAAABAPz/AQAUAAkAAAACAPz/AQAVAAkAAAD9//3/AQAOAAIAAAD+//3/AQAPAAIAAAAAAP3/AQAPAAIAAAD///3/AQAPAAIAAAABAP3/AQAPAAIAAAACAP3/AQATAAIAAAD9//7/AQAOAAMAAAD+//7/AQAQAAQAAAD///7/AQAQAAQAAAAAAP7/AQAQAAQAAAABAP7/AQAQAAQAAAACAP7/AQATAAMAAAD9//v/AQASAAgAAAD+//v/AQATAAgAAAD///v/AQATAAgAAAAAAPv/AQATAAgAAAABAPv/AQATAAgAAAACAPv/AQAVAAgAAAD9////AQAOAAMAAAD9/wAAAQAOAAMAAAD9/wEAAQAOAAMAAAD+/wEAAQAPAAMAAAD//wEAAQAPAAMAAAAAAAEAAQAPAAMAAAACAAEAAQATAAMAAAABAAEAAQAPAAMAAAACAAAAAQATAAMAAAACAP//AQATAAMAAAAAAP//AQAQAAQAAAD+////AQAQAAQAAAD/////AQAQAAQAAAABAP//AQAQAAQAAAD+/wAAAQAQAAQAAAD//wAAAQAQAAQAAAAAAAAAAQAQAAQAAAABAAAAAQAQAAQAAAD9/wIAAQAOAAQAAAD+/wIAAQAPAAQAAAD//wIAAQAPAAQAAAAAAAIAAQAPAAQAAAACAAIAAQATAAQAAAABAAIAAQAPAAQAAAD9/wMAAQAOAAQAAAACAAMAAQATAAQAAAD+/wMAAQAPAAQAAAD//wMAAQAPAAQAAAAAAAMAAQAPAAQAAAABAAMAAQAPAAQAAAD9/wQAAQAOAAUAAAD+/wQAAQAPAAUAAAD//wQAAQAPAAUAAAACAAQAAQATAAUAAAAAAAQAAQASAAUAAAABAAQAAQASAAUAAAA=")
+tile_set = SubResource("TileSet_v86rl")
+
+[connection signal="pressed" from="MainMenu/Content/Help" to="." method="_on_help_button_pressed"]
+[connection signal="pressed" from="MainMenu/Content/Exit" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="HelpMenu/Content/Back" to="." method="_on_back_button_pressed"]
