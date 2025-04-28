@@ -14,14 +14,11 @@ var facing;
 var side_embadded = false;
 var down_embadded = false;
 func _ready() -> void:
-	# Sabia începe dezactivată și "înghețată"
-	freeze = true
-	gravity_scale = 1
-	collision_shape_2d.disabled = true
-
+	pass
 	
 # Aplică impulsul la aruncare
 func throw_sword(t_direction: Vector2):
+	print(t_direction)
 	facing = t_direction[0];
 	direction = t_direction.normalized()
 	#rotation = direction.angle()  # Rotate sword to face direction
@@ -29,6 +26,7 @@ func throw_sword(t_direction: Vector2):
 	animation.play("throw")
 	collision_shape_2d.disabled = false
 	set_linear_velocity(direction * SPEED)
+	
 # Detectează dacă player-ul e lângă sabie
 func body_entered(body):
 	
@@ -36,7 +34,7 @@ func body_entered(body):
 		body.take_damage(damage,facing)
 		
 	if body.name == "player":
-		print("sword picked up")
+		#print("sword picked up")
 		canPickUp = true
 		
 	# pentru a intra in block , cream inca un hitbox pe alt layer si pentru cel actual
@@ -64,30 +62,32 @@ func _process(delta):
 	SPEED = SPEED * 0.96
 	
 	# se loveste de zid si ramane acolo
-	if(abs(SPEED) > 50 and SPEED != 0 and side_embadded):
-		print(SPEED)
-		set_global_rotation(0)
-		area.change_mask()
-		if facing == -1:
-			rotation = 3;# roteste 3 pi  
+	if(side_embadded and abs(SPEED) > 80 and SPEED != 0 ):
+		print("side_embadded", SPEED)
+
 		SPEED = 0
+		set_global_rotation(0)
+		area.change_mask() #schimbam sabia in sabie rupta
+		
+		if facing < 0:
+			rotation = 3;# roteste 3 pi  
 		no_gravity()
 		
 		animation.play("Embedded")
 		$Animation_Stop.start();
+		print(rotation)
+
 		#pozitie fixa infipt in perete fara gravitatie
 	
-	if(abs(SPEED) < 0.5 and SPEED != 0 and down_embadded): # speed diferit de 0 pentru a nu se face bucla
-		set_global_rotation(0)
-		area.change_mask()
-		rotation = 2 # se infige in pamant
+	if(down_embadded and abs(SPEED) < 0.5 and SPEED != 0): # speed diferit de 0 pentru a nu se face bucla
+		
 		SPEED = 0 ;
+		rotation = 2 # se infige in pamant
+		print(rotation)
 		animation.play("Embedded")
 		$Animation_Stop.start();
-		
-		#no_gravity()
-		#test
-		
+		area.change_mask()
+		print("down_embadded")
 		
 
 	# determinat pozitia actuala, unde priveste player ul cand a aruncat !!! determina cum se 

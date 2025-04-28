@@ -74,17 +74,26 @@ func _physics_process(delta: float) -> void:
 		
 		velocity += get_gravity() * delta
 		if(velocity[1] > 0 ): # doar la cadere
-			sprite.play("fall")
+			if has_sword:
+				sprite.play("fall")
+			else:
+				sprite.play("fall_ns")
 
 	#else:
 		#animation_flag = false
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() :
-		sprite.play("jump")
-		animation_flag = true
-		#y = global_position.y
-		velocity.y = JUMP_VELOCITY
+		if has_sword:
+			sprite.play("jump")
+			animation_flag = true
+			#y = global_position.y
+			velocity.y = JUMP_VELOCITY
+		else:
+			sprite.play("jump_ns")
+			animation_flag = true
+			#y = global_position.y
+			velocity.y = JUMP_VELOCITY
 		
 		
 	# Cățărare pe scară
