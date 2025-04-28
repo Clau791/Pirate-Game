@@ -1,4 +1,9 @@
-#t
+#
+#cd onedrive\documente\pirate-game
+#git add .
+#git commit -m "New Animation"
+#git push -u origin main
+
 # contrls 
 #-> movement : arrows
 #-> attack 1,2,3 : F,G,H
