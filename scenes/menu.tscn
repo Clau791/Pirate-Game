@@ -1,5 +1,66 @@
-[gd_scene format=3 uid="uid://bci8gl5v8q4t"]
+[gd_scene load_steps=2 format=3 uid="uid://bci8gl5v8q4t"]
+
+[ext_resource type="Script" uid="uid://d2bfrgcx8vc7f" path="res://menu.gd" id="1_yqeox"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchor_left = -0.03
+anchor_top = -0.082
+anchor_right = 0.031
+anchor_bottom = 0.079
+offset_left = 34.56
+offset_top = 40.136
+offset_right = -35.712
+offset_bottom = -64.192
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_yqeox")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = -56.5
+offset_right = 48.5
+offset_bottom = 56.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.5
+offset_top = -50.0
+offset_right = 32.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Level Select" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Level Select"
+
+[node name="Setari" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Setari"
+
+[node name="Help" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Help"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Exit"
