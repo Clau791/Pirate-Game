@@ -123,4 +123,5 @@ theme_override_font_sizes/font_size = 10
 text = "Back"
 
 [connection signal="pressed" from="MainMenu/Help" to="." method="_on_help_button_pressed"]
+[connection signal="pressed" from="MainMenu/Exit" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="HelpMenu/Back" to="." method="_on_back_button_pressed"]

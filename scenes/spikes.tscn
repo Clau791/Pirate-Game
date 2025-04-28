@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://kusqniyl8vn7"]
 
-[ext_resource type="Script" uid="uid://dwc8amvs0j16t" path="res://spikes.gd" id="1_xbcdo"]
+[ext_resource type="Script" uid="uid://dwc8amvs0j16t" path="res://scrips/spikes.gd" id="1_xbcdo"]
 [ext_resource type="Texture2D" uid="uid://bofcovv50p0ur" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Spikes/Spikes.png" id="2_bflj7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kd5gq"]
