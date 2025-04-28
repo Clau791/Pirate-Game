@@ -23,9 +23,7 @@ func toggle_pause_menu():
 	if is_paused:
 		main_menu.show()
 		help_menu.hide()
-		color_rect.modulate.a = 0.5  # Fundal semi-transparent
-	else:
-		color_rect.modulate.a = 0.0  # Fundal complet transparent
+		
 
 func _on_help_button_pressed():
 	main_menu.hide()
