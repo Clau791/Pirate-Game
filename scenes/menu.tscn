@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bci8gl5v8q4t"]
 
-[ext_resource type="Script" uid="uid://d2bfrgcx8vc7f" path="res://menu.gd" id="1_yqeox"]
+[ext_resource type="Script" uid="uid://d2bfrgcx8vc7f" path="res://scrips/menu.gd" id="1_yqeox"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
