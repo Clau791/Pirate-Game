@@ -631,6 +631,7 @@ size_flags_vertical = 4
 script = ExtResource("1_yqeox")
 
 [node name="MainMenu" type="Control" parent="."]
+visible = false
 layout_mode = 2
 anchors_preset = 0
 offset_right = 40.0
@@ -656,21 +657,27 @@ offset_bottom = 72.0
 
 [node name="Level Select" type="Button" parent="MainMenu/Content"]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_mhnvy")
 theme_override_font_sizes/font_size = 10
 text = "Level Select"
 flat = true
 text_overrun_behavior = 1
 
-[node name="Setari" type="Button" parent="MainMenu/Content"]
+[node name="Settings" type="Button" parent="MainMenu/Content"]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_mhnvy")
 theme_override_font_sizes/font_size = 10
-text = "Setari"
+text = "Settings"
 flat = true
 
 [node name="Help" type="Button" parent="MainMenu/Content"]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_mhnvy")
 theme_override_font_sizes/font_size = 10
 text = "Help"
@@ -678,6 +685,8 @@ flat = true
 
 [node name="Exit" type="Button" parent="MainMenu/Content"]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_mhnvy")
 theme_override_font_sizes/font_size = 10
 text = "Exit"
@@ -741,14 +750,14 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_mhnvy")
 theme_override_font_sizes/font_size = 13
-text = "F -  attack"
+text = "F -  Attack"
 horizontal_alignment = 1
 
 [node name="E" type="Label" parent="HelpMenu/Content"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_mhnvy")
 theme_override_font_sizes/font_size = 13
-text = "E - throw"
+text = "E - Throw"
 horizontal_alignment = 1
 
 [node name="Space" type="Label" parent="HelpMenu/Content"]
@@ -762,6 +771,7 @@ horizontal_alignment = 1
 [node name="Back" type="Button" parent="HelpMenu/Content"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_mhnvy")
 theme_override_font_sizes/font_size = 13
 text = "Back"
@@ -773,6 +783,65 @@ position = Vector2(-158, 16)
 tile_map_data = PackedByteArray("AAD9//z/AQASAAkAAAD+//z/AQATAAkAAAAAAPz/AQAUAAkAAAD///z/AQAUAAkAAAABAPz/AQAUAAkAAAACAPz/AQAVAAkAAAD9//3/AQAOAAIAAAD+//3/AQAPAAIAAAAAAP3/AQAPAAIAAAD///3/AQAPAAIAAAABAP3/AQAPAAIAAAACAP3/AQATAAIAAAD9//7/AQAOAAMAAAD+//7/AQAQAAQAAAD///7/AQAQAAQAAAAAAP7/AQAQAAQAAAABAP7/AQAQAAQAAAACAP7/AQATAAMAAAD9//v/AQASAAgAAAD+//v/AQATAAgAAAD///v/AQATAAgAAAAAAPv/AQATAAgAAAABAPv/AQATAAgAAAACAPv/AQAVAAgAAAD9////AQAOAAMAAAD9/wAAAQAOAAMAAAD9/wEAAQAOAAMAAAD+/wEAAQAPAAMAAAD//wEAAQAPAAMAAAAAAAEAAQAPAAMAAAACAAEAAQATAAMAAAABAAEAAQAPAAMAAAACAAAAAQATAAMAAAACAP//AQATAAMAAAAAAP//AQAQAAQAAAD+////AQAQAAQAAAD/////AQAQAAQAAAABAP//AQAQAAQAAAD+/wAAAQAQAAQAAAD//wAAAQAQAAQAAAAAAAAAAQAQAAQAAAABAAAAAQAQAAQAAAD9/wIAAQAOAAQAAAD+/wIAAQAPAAQAAAD//wIAAQAPAAQAAAAAAAIAAQAPAAQAAAACAAIAAQATAAQAAAABAAIAAQAPAAQAAAD9/wMAAQAOAAQAAAACAAMAAQATAAQAAAD+/wMAAQAPAAQAAAD//wMAAQAPAAQAAAAAAAMAAQAPAAQAAAABAAMAAQAPAAQAAAD9/wQAAQAOAAUAAAD+/wQAAQAPAAUAAAD//wQAAQAPAAUAAAACAAQAAQATAAUAAAAAAAQAAQASAAUAAAABAAQAAQASAAUAAAA=")
 tile_set = SubResource("TileSet_v86rl")
 
+[node name="SettingsMenu" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="SettingsMenu"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -49.0
+offset_right = 43.0
+offset_bottom = -26.0
+theme_override_colors/font_color = Color(1, 0.65098, 0.121569, 1)
+theme_override_fonts/font = ExtResource("2_mhnvy")
+theme_override_font_sizes/font_size = 10
+text = "Settings"
+
+[node name="Sound" type="Label" parent="SettingsMenu"]
+layout_mode = 0
+offset_left = -11.0
+offset_top = -19.0
+offset_right = 35.0
+offset_bottom = 20.3333
+theme_override_fonts/font = ExtResource("2_mhnvy")
+theme_override_font_sizes/font_size = 10
+text = "Sound
+"
+
+[node name="Back" type="Button" parent="SettingsMenu"]
+layout_mode = 2
+offset_left = -18.0
+offset_top = 48.0
+offset_right = 26.0
+offset_bottom = 75.0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_mhnvy")
+theme_override_font_sizes/font_size = 10
+text = "Back"
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMenu"]
+layout_mode = 0
+offset_left = -22.0
+offset_top = -8.0
+offset_right = 32.0
+offset_bottom = 8.0
+
+[node name="HSlider" type="HSlider" parent="SettingsMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="SettingsMenu"]
+z_index = -1
+position = Vector2(4, 23)
+tile_map_data = PackedByteArray("AAD9//z/AQASAAkAAAD+//z/AQATAAkAAAAAAPz/AQAUAAkAAAD///z/AQAUAAkAAAABAPz/AQAUAAkAAAACAPz/AQAVAAkAAAD9//v/AQASAAgAAAD+//v/AQATAAgAAAD///v/AQATAAgAAAAAAPv/AQATAAgAAAABAPv/AQATAAgAAAACAPv/AQAVAAgAAAD//wEAAQAPAAMAAAAAAAEAAQAPAAMAAAABAAEAAQAPAAMAAAD+/wAAAQAQAAQAAAD//wAAAQAQAAQAAAAAAAAAAQAQAAQAAAABAAAAAQAQAAQAAAD+//3/AQAPAAYAAAD+//7/AQAQAAQAAAD///7/AQAQAAQAAAAAAP7/AQAQAAQAAAABAP7/AQAQAAQAAAAAAP3/AQAPAAYAAAD///3/AQAPAAYAAAABAP3/AQAPAAYAAAD+/wEAAQAPAAMAAAACAAEAAQATAAMAAAACAAAAAQATAAMAAAD9/wAAAQAOAAMAAAD9/wEAAQAOAAMAAAACAP7/AQATAAMAAAACAP3/AQARAAYAAAD9//7/AQAOAAMAAAD9//3/AQAOAAYAAAACAAIAAQATAAUAAAABAAIAAQAQAAUAAAD//wIAAQAQAAUAAAAAAAIAAQAQAAUAAAD+/wIAAQAQAAUAAAD9/wIAAQAOAAUAAAACAP//AQATAAMAAAABAP//AQAQAAQAAAAAAP//AQAQAAQAAAD/////AQAQAAQAAAD+////AQARAAMAAAD9////AQAOAAMAAAA=")
+tile_set = SubResource("TileSet_v86rl")
+
+[connection signal="pressed" from="MainMenu/Content/Settings" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MainMenu/Content/Help" to="." method="_on_help_button_pressed"]
 [connection signal="pressed" from="MainMenu/Content/Exit" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="HelpMenu/Content/Back" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="SettingsMenu/Back" to="." method="_on_back_button_pressed"]

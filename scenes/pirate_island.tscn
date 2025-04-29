@@ -1319,6 +1319,6 @@ collision_mask = 4
 
 [connection signal="timeout" from="Cloud_Timer" to="." method="Cloud_Timer"]
 [connection signal="area_entered" from="Stair" to="player" method="_on_ladder_body_entered"]
-[connection signal="body_entered" from="Stair" to="player" method="_on_ladder_body_entered"]
 [connection signal="body_entered" from="Stair" to="player" method="_on_stair_body_entered"]
+[connection signal="body_entered" from="Stair" to="player" method="_on_ladder_body_entered"]
 [connection signal="body_exited" from="Stair" to="player" method="_on_ladder_body_exited"]

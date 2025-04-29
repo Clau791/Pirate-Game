@@ -2,14 +2,15 @@ extends Control
 
 var is_paused := false
 
-@onready var main_menu = $MainMenu   # VBoxContainer cu butoane principale
-@onready var help_menu = $HelpMenu    # VBoxContainer cu informații despre controale
-@onready var color_rect = $ColorRect  # Fundalul semi-transparent (opțional)
+@onready var main_menu = $MainMenu  
+@onready var help_menu = $HelpMenu   
+@onready var settings_menu = $SettingsMenu
 
 func _ready():
-	hide()  # Ascundem tot meniul la început
-	help_menu.hide()  # Ascundem HelpMenu la început
-	set_process_mode(Node.PROCESS_MODE_ALWAYS)  # Meniul procesează mereu
+	hide()  
+	help_menu.hide()
+	settings_menu.hide()
+	set_process_mode(Node.PROCESS_MODE_ALWAYS)  
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
@@ -22,17 +23,24 @@ func toggle_pause_menu():
 
 	if is_paused:
 		main_menu.show()
+		settings_menu.hide()
 		help_menu.hide()
 		
 
 func _on_help_button_pressed():
 	main_menu.hide()
+	settings_menu.hide()
 	help_menu.show()
 
-# Când apeși pe butonul "Înapoi" din HelpMenu
 func _on_back_button_pressed():
 	help_menu.hide()
+	settings_menu.hide()
 	main_menu.show()
+
+func _on_settings_button_pressed():
+	settings_menu.show()
+	help_menu.hide()
+	main_menu.hide()
 
 func _on_exit_button_pressed() -> void:
 	get_tree().quit() 
