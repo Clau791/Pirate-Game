@@ -1224,17 +1224,10 @@ zoom = Vector2(3, 3)
 
 [node name="Menu" parent="player" instance=ExtResource("27_k0siu")]
 z_index = 10
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -3.0
+offset_top = -27.0
+offset_right = -3.0
+offset_bottom = -27.0
 
 [node name="BackGround" type="TileMapLayer" parent="."]
 z_index = -10
