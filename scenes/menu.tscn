@@ -840,8 +840,80 @@ position = Vector2(4, 23)
 tile_map_data = PackedByteArray("AAD9//z/AQASAAkAAAD+//z/AQATAAkAAAAAAPz/AQAUAAkAAAD///z/AQAUAAkAAAABAPz/AQAUAAkAAAACAPz/AQAVAAkAAAD9//v/AQASAAgAAAD+//v/AQATAAgAAAD///v/AQATAAgAAAAAAPv/AQATAAgAAAABAPv/AQATAAgAAAACAPv/AQAVAAgAAAD//wEAAQAPAAMAAAAAAAEAAQAPAAMAAAABAAEAAQAPAAMAAAD+/wAAAQAQAAQAAAD//wAAAQAQAAQAAAAAAAAAAQAQAAQAAAABAAAAAQAQAAQAAAD+//3/AQAPAAYAAAD+//7/AQAQAAQAAAD///7/AQAQAAQAAAAAAP7/AQAQAAQAAAABAP7/AQAQAAQAAAAAAP3/AQAPAAYAAAD///3/AQAPAAYAAAABAP3/AQAPAAYAAAD+/wEAAQAPAAMAAAACAAEAAQATAAMAAAACAAAAAQATAAMAAAD9/wAAAQAOAAMAAAD9/wEAAQAOAAMAAAACAP7/AQATAAMAAAACAP3/AQARAAYAAAD9//7/AQAOAAMAAAD9//3/AQAOAAYAAAACAAIAAQATAAUAAAABAAIAAQAQAAUAAAD//wIAAQAQAAUAAAAAAAIAAQAQAAUAAAD+/wIAAQAQAAUAAAD9/wIAAQAOAAUAAAACAP//AQATAAMAAAABAP//AQAQAAQAAAAAAP//AQAQAAQAAAD/////AQAQAAQAAAD+////AQARAAMAAAD9////AQAOAAMAAAA=")
 tile_set = SubResource("TileSet_v86rl")
 
+[node name="LevelMenu" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="LevelMenu"]
+layout_mode = 0
+offset_left = -25.0
+offset_top = -48.0
+offset_right = 34.0
+offset_bottom = -25.0
+theme_override_colors/font_color = Color(1, 0.65098, 0.121569, 1)
+theme_override_fonts/font = ExtResource("2_mhnvy")
+theme_override_font_sizes/font_size = 10
+text = "Level Select"
+
+[node name="Content" type="HBoxContainer" parent="LevelMenu"]
+layout_mode = 0
+offset_left = -61.0
+offset_top = -24.0
+offset_right = 69.0
+offset_bottom = 6.0
+alignment = 1
+
+[node name="Button" type="Button" parent="LevelMenu/Content"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_mhnvy")
+theme_override_font_sizes/font_size = 10
+text = "1"
+flat = true
+
+[node name="Button2" type="Button" parent="LevelMenu/Content"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_mhnvy")
+theme_override_font_sizes/font_size = 10
+text = "2"
+flat = true
+
+[node name="Button3" type="Button" parent="LevelMenu/Content"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_mhnvy")
+theme_override_font_sizes/font_size = 10
+text = "3"
+flat = true
+
+[node name="Back" type="Button" parent="LevelMenu"]
+layout_mode = 0
+offset_left = -12.0
+offset_top = 5.0
+offset_right = 19.0
+offset_bottom = 25.0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_mhnvy")
+theme_override_font_sizes/font_size = 10
+text = "Back"
+flat = true
+
+[node name="TileMapLayer3" type="TileMapLayer" parent="LevelMenu"]
+z_index = -1
+position = Vector2(4, 23)
+tile_map_data = PackedByteArray("AAD9//z/AQASAAkAAAD+//z/AQATAAkAAAAAAPz/AQAUAAkAAAD///z/AQAUAAkAAAABAPz/AQAUAAkAAAACAPz/AQAVAAkAAAD9//v/AQASAAgAAAD+//v/AQATAAgAAAD///v/AQATAAgAAAAAAPv/AQATAAgAAAABAPv/AQATAAgAAAACAPv/AQAVAAgAAAD+//3/AQAPAAYAAAD+//7/AQAPAAQAAAD///7/AQAPAAQAAAAAAP7/AQAPAAQAAAABAP7/AQAPAAQAAAAAAP3/AQAPAAYAAAD///3/AQAPAAYAAAABAP3/AQAPAAYAAAACAP7/AQATAAQAAAACAP3/AQARAAYAAAD9//3/AQAOAAYAAAD9//7/AQAOAAQAAAD9////AQAOAAUAAAACAP//AQATAAUAAAD+////AQARAAUAAAD/////AQARAAUAAAAAAP//AQARAAUAAAABAP//AQARAAUAAAA=")
+tile_set = SubResource("TileSet_v86rl")
+
+[connection signal="pressed" from="MainMenu/Content/Level Select" to="." method="_on_level_button_pressed"]
 [connection signal="pressed" from="MainMenu/Content/Settings" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MainMenu/Content/Help" to="." method="_on_help_button_pressed"]
 [connection signal="pressed" from="MainMenu/Content/Exit" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="HelpMenu/Content/Back" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="SettingsMenu/Back" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="LevelMenu/Back" to="." method="_on_back_button_pressed"]
