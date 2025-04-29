@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://efkfn5psw062"]
 
-[ext_resource type="Script" uid="uid://b85fivjwkfwe0" path="res://area_2d.gd" id="1_wble0"]
+[ext_resource type="Script" uid="uid://b85fivjwkfwe0" path="res://scrips/Consumable_area.gd" id="1_wble0"]
 [ext_resource type="Texture2D" uid="uid://c2rg8owiwf2hr" path="res://sprites/Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Blue Potion/01.png" id="2_tko07"]
 [ext_resource type="Texture2D" uid="uid://0ckwa7b0ol57" path="res://sprites/Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Blue Potion/02.png" id="3_sopr5"]
 [ext_resource type="Texture2D" uid="uid://cwhh6squg6j8n" path="res://sprites/Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Blue Potion/03.png" id="4_y14f7"]
