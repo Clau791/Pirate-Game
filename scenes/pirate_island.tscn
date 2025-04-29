@@ -1,7 +1,7 @@
-[gd_scene load_steps=45 format=4 uid="uid://b4omaepqlemwc"]
+[gd_scene load_steps=46 format=4 uid="uid://b4omaepqlemwc"]
 
 [ext_resource type="Texture2D" uid="uid://biwipjgwidjah" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png" id="1_1c1lq"]
-[ext_resource type="Script" uid="uid://1ruhuouvreup" path="res://scenes/pirate_island.gd" id="1_7ocw6"]
+[ext_resource type="Script" uid="uid://1ruhuouvreup" path="res://scrips/pirate_island.gd" id="1_7ocw6"]
 [ext_resource type="PackedScene" uid="uid://bw12ss2iy2k5a" path="res://scenes/player.tscn" id="1_gkam7"]
 [ext_resource type="PackedScene" uid="uid://bfttwx7d1o55q" path="res://scenes/palm_tree.tscn" id="1_n2x3i"]
 [ext_resource type="PackedScene" uid="uid://1pbsc0n22mos" path="res://scenes/Enemy.tscn" id="1_wqmf1"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://dtvftvxutbgkd" path="res://scenes/Chest.tscn" id="23_2k3tv"]
 [ext_resource type="PackedScene" uid="uid://dwdogdedcqe0a" path="res://scenes/kill_zone.tscn" id="25_3ulcs"]
 [ext_resource type="PackedScene" uid="uid://kusqniyl8vn7" path="res://scenes/spikes.tscn" id="26_3ulcs"]
+[ext_resource type="PackedScene" uid="uid://bci8gl5v8q4t" path="res://scenes/menu.tscn" id="27_k0siu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pxoet"]
 texture = ExtResource("1_1c1lq")
@@ -1221,6 +1222,20 @@ collision_mask = 19
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(3, 3)
 
+[node name="Menu" parent="player" instance=ExtResource("27_k0siu")]
+z_index = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="BackGround" type="TileMapLayer" parent="."]
 z_index = -10
 z_as_relative = false
@@ -1304,6 +1319,6 @@ collision_mask = 4
 
 [connection signal="timeout" from="Cloud_Timer" to="." method="Cloud_Timer"]
 [connection signal="area_entered" from="Stair" to="player" method="_on_ladder_body_entered"]
-[connection signal="body_entered" from="Stair" to="player" method="_on_ladder_body_entered"]
 [connection signal="body_entered" from="Stair" to="player" method="_on_stair_body_entered"]
+[connection signal="body_entered" from="Stair" to="player" method="_on_ladder_body_entered"]
 [connection signal="body_exited" from="Stair" to="player" method="_on_ladder_body_exited"]

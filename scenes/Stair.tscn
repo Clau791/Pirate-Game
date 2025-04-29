@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=4 uid="uid://lpntlt1tjvbt"]
 
 [ext_resource type="Texture2D" uid="uid://m5ubngi3yy7w" path="res://sprites/pixil-frame-0.png" id="1_d3uie"]
-[ext_resource type="Script" uid="uid://cje0mgf445db7" path="res://tile_map_layer.gd" id="2_euydc"]
+[ext_resource type="Script" uid="uid://cje0mgf445db7" path="res://scrips/tile_map_layer.gd" id="2_euydc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7s7os"]
 size = Vector2(5, 187)
