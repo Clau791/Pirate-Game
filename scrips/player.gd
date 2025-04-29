@@ -1,7 +1,7 @@
 #
 #cd onedrive\documente\pirate-game
 #git add .
-#git commit -m "New Animation"
+#git commit -m "Bug fixing"
 #git push -u origin main
 
 # contrls 
@@ -33,6 +33,9 @@ var animation_flag = false # flag pentru a nu se intrerupe animatiile
 var has_sword = true
 var can_pickup_sword = false
 
+var blue_potions = 0
+var red_potions = 0
+var score = 0
 # functii pentru health/ take damage
 func _ready():
 	$HealthBar.value = health
@@ -263,3 +266,14 @@ func _on_ground_detect_body_entered(body: Node2D) -> void:
 func _on_ground_detect_body_exited(body: Node2D) -> void:
 	print("Jumped")
 	exited = true
+
+func pick_up_potion(type):
+	if type == "Blue Potion":
+		blue_potions += 1
+	
+	if type == "Red Potion":
+		red_potions += 1
+	
+func tresure_pick_up(type):
+	if type == "Red Diamond":
+		score += 1000

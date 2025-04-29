@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://bv6k7qjc8a235"]
+
+[ext_resource type="Script" uid="uid://b85fivjwkfwe0" path="res://area_2d.gd" id="1_2xh84"]
+[ext_resource type="Texture2D" uid="uid://c6kq31kkbp0jn" path="res://sprites/Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Red Diamond/01.png" id="2_tml0q"]
+[ext_resource type="Texture2D" uid="uid://dj0iuq0mls07u" path="res://sprites/Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Red Diamond/02.png" id="3_28mpf"]
+[ext_resource type="Texture2D" uid="uid://dkarjb6ha2703" path="res://sprites/Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Red Diamond/03.png" id="4_lkio2"]
+[ext_resource type="Texture2D" uid="uid://bgve5ujbthn8y" path="res://sprites/Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Red Diamond/04.png" id="5_2xh84"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67sar"]
+size = Vector2(15, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1gy8s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tml0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_28mpf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lkio2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2xh84")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Blue_Potion" type="Area2D"]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("1_2xh84")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_67sar")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1gy8s")
+autoplay = "default"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
