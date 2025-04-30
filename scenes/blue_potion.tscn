@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=3 uid="uid://efkfn5psw062"]
+
+[ext_resource type="Script" uid="uid://b85fivjwkfwe0" path="res://scrips/Consumable_area.gd" id="1_wble0"]
+[ext_resource type="Texture2D" uid="uid://c2rg8owiwf2hr" path="res://sprites/Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Blue Potion/01.png" id="2_tko07"]
+[ext_resource type="Texture2D" uid="uid://0ckwa7b0ol57" path="res://sprites/Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Blue Potion/02.png" id="3_sopr5"]
+[ext_resource type="Texture2D" uid="uid://cwhh6squg6j8n" path="res://sprites/Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Blue Potion/03.png" id="4_y14f7"]
+[ext_resource type="Texture2D" uid="uid://c41klqy3db04s" path="res://sprites/Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Blue Potion/04.png" id="5_7hdhr"]
+[ext_resource type="Texture2D" uid="uid://dbigqm66f81er" path="res://sprites/Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Blue Potion/05.png" id="6_4mrno"]
+[ext_resource type="Texture2D" uid="uid://yfsnn3b5svxa" path="res://sprites/Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Blue Potion/06.png" id="7_jos58"]
+[ext_resource type="Texture2D" uid="uid://cm85sjbgr5nq0" path="res://sprites/Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Blue Potion/07.png" id="8_4u0a0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67sar"]
+size = Vector2(10, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1gy8s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tko07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sopr5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_y14f7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7hdhr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4mrno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jos58")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4u0a0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Blue_Potion" type="Area2D"]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("1_wble0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_67sar")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1gy8s")
+autoplay = "default"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
