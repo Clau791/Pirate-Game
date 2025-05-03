@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://1pbsc0n22mos"]
 
-[ext_resource type="Script" uid="uid://bc57thurrsj8r" path="res://scrips/Enemy.gd" id="1_s7bn3"]
+[ext_resource type="Script" uid="uid://bc57thurrsj8r" path="res://scripts/Enemy.gd" id="1_s7bn3"]
 [ext_resource type="Texture2D" uid="uid://c3gfo7rof6u0p" path="res://sprites/Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 01.png" id="2_82o86"]
 [ext_resource type="Texture2D" uid="uid://cxo78s8rncdrk" path="res://sprites/Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 02.png" id="3_1gqeq"]
 [ext_resource type="Texture2D" uid="uid://ctt16hwy5aumn" path="res://sprites/Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 03.png" id="4_isvm2"]
