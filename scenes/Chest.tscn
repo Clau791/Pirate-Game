@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://dtvftvxutbgkd"]
 
-[ext_resource type="Script" uid="uid://dy8dli2p6g8fx" path="res://scripts/area_2d.gd" id="1_8ns5j"]
+[ext_resource type="Script" uid="uid://d1o8pswfxn0rr" path="res://scrips/area_2d.gd" id="1_8ns5j"]
 [ext_resource type="Texture2D" uid="uid://dkiccg5neqxgb" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Close 01.png" id="2_rygv1"]
 [ext_resource type="Texture2D" uid="uid://dcjhygmn61l65" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Close 02.png" id="3_s7sot"]
 [ext_resource type="Texture2D" uid="uid://bmevl7mkoj6ba" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Close 03.png" id="4_rpdfj"]

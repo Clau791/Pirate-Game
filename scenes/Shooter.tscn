@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://dxryg32vvse8g"]
 
-[ext_resource type="Script" uid="uid://bc57thurrsj8r" path="res://scripts/Enemy.gd" id="1_ev0u1"]
+[ext_resource type="Script" uid="uid://bc57thurrsj8r" path="res://scrips/Enemy.gd" id="1_ev0u1"]
 [ext_resource type="Texture2D" uid="uid://d0duc6lgik838" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Head 1/Destroyed/3.png" id="2_g2jru"]
 [ext_resource type="Texture2D" uid="uid://41nxq850n7wf" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Head 1/Attack 1/1.png" id="3_37rry"]
 [ext_resource type="Texture2D" uid="uid://m5vgequehqqh" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Head 1/Attack 1/2.png" id="4_ilq4o"]
