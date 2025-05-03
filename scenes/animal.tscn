@@ -1,6 +1,6 @@
 [gd_scene load_steps=37 format=3 uid="uid://cwxr2neilapkb"]
 
-[ext_resource type="Script" uid="uid://dkkabar708g1r" path="res://animal.gd" id="1_8dtbx"]
+[ext_resource type="Script" uid="uid://dkkabar708g1r" path="res://scripts/animal.gd" id="1_8dtbx"]
 [ext_resource type="Texture2D" uid="uid://bb2n0nsvquv85" path="res://sprites/Red Panda Sprite Sheet.png" id="2_236rq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3v7ex"]
@@ -244,25 +244,24 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d57ma"]
-size = Vector2(20, 12)
+size = Vector2(20, 4)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nhc2b"]
 radius = 14.0
 
 [node name="Animal" type="CharacterBody2D"]
-collision_layer = 3
-collision_mask = 3
+z_index = -1
+collision_layer = 8
 script = ExtResource("1_8dtbx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_l8a8u")
-animation = &"jump"
-frame = 3
-frame_progress = 0.29098
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -6)
+position = Vector2(-1, -2)
 shape = SubResource("RectangleShape2D_d57ma")
 
 [node name="ProximityArea" type="Area2D" parent="."]
@@ -272,3 +271,11 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProximityArea"]
 position = Vector2(-1, -5)
 shape = SubResource("CircleShape2D_nhc2b")
+
+[node name="FloorCheckerRight" type="RayCast2D" parent="."]
+position = Vector2(0, 1)
+target_position = Vector2(19, 0)
+
+[node name="FloorCheckerLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 1)
+target_position = Vector2(-19, 0)

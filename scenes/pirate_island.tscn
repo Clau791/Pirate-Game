@@ -1,7 +1,7 @@
 [gd_scene load_steps=53 format=4 uid="uid://b4omaepqlemwc"]
 
 [ext_resource type="Texture2D" uid="uid://biwipjgwidjah" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png" id="1_1c1lq"]
-[ext_resource type="Script" uid="uid://1ruhuouvreup" path="res://scrips/pirate_island.gd" id="1_7ocw6"]
+[ext_resource type="Script" uid="uid://1ruhuouvreup" path="res://scripts/pirate_island.gd" id="1_7ocw6"]
 [ext_resource type="PackedScene" uid="uid://bw12ss2iy2k5a" path="res://scenes/player.tscn" id="1_gkam7"]
 [ext_resource type="PackedScene" uid="uid://bfttwx7d1o55q" path="res://scenes/palm_tree.tscn" id="1_n2x3i"]
 [ext_resource type="PackedScene" uid="uid://1pbsc0n22mos" path="res://scenes/Enemy.tscn" id="1_wqmf1"]
@@ -1207,6 +1207,7 @@ texture = ExtResource("20_52fw6")
 
 [sub_resource type="TileSet" id="TileSet_hi1ci"]
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 15
 physics_layer_1/collision_layer = 0
 physics_layer_1/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_rbkpy")
@@ -1340,10 +1341,10 @@ wait_time = 10.0
 autostart = true
 
 [node name="Animal" parent="." instance=ExtResource("34_j4rt8")]
-position = Vector2(262, 32)
+position = Vector2(261, 32)
 
 [node name="Animal2" parent="." instance=ExtResource("34_j4rt8")]
-position = Vector2(1483, -64)
+position = Vector2(710, 32)
 
 [connection signal="area_entered" from="Objects/Stair" to="player" method="_on_ladder_body_entered"]
 [connection signal="body_entered" from="Objects/Stair" to="player" method="_on_ladder_body_entered"]
