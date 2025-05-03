@@ -1548,21 +1548,21 @@ size_flags_vertical = 4
 script = ExtResource("1_yqeox")
 
 [node name="MainMenu" type="Control" parent="."]
-layout_mode = 2
+layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Titlu" type="Label" parent="MainMenu"]
 layout_mode = 0
-offset_left = -27.0
+offset_left = -22.0
 offset_top = -48.0
-offset_right = 35.0
+offset_right = 40.0
 offset_bottom = -36.5417
 theme_override_colors/font_color = Color(1, 0.65098, 0.121569, 1)
 theme_override_fonts/font = ExtResource("2_mhnvy")
 theme_override_font_sizes/font_size = 10
-text = "Game Paused"
+text = "Main Menu"
 
 [node name="Level Select" type="Button" parent="MainMenu"]
 layout_mode = 2
@@ -1631,6 +1631,7 @@ tile_set = SubResource("TileSet_v86rl")
 
 [node name="HelpMenu" type="Control" parent="."]
 visible = false
+layout_mode = 3
 anchors_preset = 0
 offset_left = 162.0
 offset_top = -3.0
@@ -1726,6 +1727,7 @@ tile_set = SubResource("TileSet_v86rl")
 
 [node name="SettingsMenu" type="Control" parent="."]
 visible = false
+layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -1786,6 +1788,7 @@ tile_set = SubResource("TileSet_v86rl")
 
 [node name="LevelMenu" type="Control" parent="."]
 visible = false
+layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

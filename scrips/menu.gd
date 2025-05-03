@@ -4,8 +4,8 @@ extends Control
 
 var is_paused := false
 
-@onready var main_menu = $MainMenu  
-@onready var help_menu = $HelpMenu   
+@onready var main_menu = $MainMenu
+@onready var help_menu = $HelpMenu
 @onready var settings_menu = $SettingsMenu
 @onready var level_menu = $LevelMenu
 
