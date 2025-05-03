@@ -36,6 +36,9 @@ var can_pickup_sword = false
 var blue_potions = 0
 var red_potions = 0
 var score = 0
+
+var tamed_animal: CharacterBody2D = null
+
 # functii pentru health/ take damage
 func _ready():
 	$HealthBar.value = health

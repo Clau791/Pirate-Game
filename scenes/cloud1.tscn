@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8gf0ulj67480"]
 
-[ext_resource type="Script" uid="uid://cf7f2phll6vnx" path="res://scrips/cloud1.gd" id="1_l2voo"]
+[ext_resource type="Script" uid="uid://cf7f2phll6vnx" path="res://scripts/cloud1.gd" id="1_l2voo"]
 [ext_resource type="Texture2D" uid="uid://5e4aqpcl4sl1" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 2.png" id="2_v37e3"]
-[ext_resource type="Script" uid="uid://dnliwt5lxlobh" path="res://scrips/cloud_1.gd" id="3_347lt"]
+[ext_resource type="Script" uid="uid://dnliwt5lxlobh" path="res://scripts/cloud_1.gd" id="3_347lt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ihijd"]
 animations = [{

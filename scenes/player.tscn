@@ -1,6 +1,6 @@
 [gd_scene load_steps=67 format=3 uid="uid://bw12ss2iy2k5a"]
 
-[ext_resource type="Script" uid="uid://bbqf8b1b7cuw7" path="res://scrips/player.gd" id="1_6qdiq"]
+[ext_resource type="Script" uid="uid://bbqf8b1b7cuw7" path="res://scripts/player.gd" id="1_6qdiq"]
 [ext_resource type="Texture2D" uid="uid://bgc28jbve86le" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/15-Attack 1/Attack 1 01.png" id="2_60mlk"]
 [ext_resource type="Texture2D" uid="uid://c5pyp6i5owqw8" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/18-Air Attack 1/Air Attack 1 01.png" id="2_bj30b"]
 [ext_resource type="Texture2D" uid="uid://cfkt7ihsnlrs3" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 01.png" id="2_smehm"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bh3ecbm2dbet" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/18-Air Attack 1/Air Attack 1 02.png" id="3_jc3p3"]
 [ext_resource type="Texture2D" uid="uid://cfyv7eevdmx0b" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 02.png" id="3_ur7pv"]
 [ext_resource type="Texture2D" uid="uid://bbkdgrhssj3qx" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/15-Attack 1/Attack 1 03.png" id="4_a38lo"]
-[ext_resource type="Script" uid="uid://bugqbebgxshr6" path="res://scrips/cooldown.gd" id="4_dqkch"]
+[ext_resource type="Script" uid="uid://bugqbebgxshr6" path="res://scripts/cooldown.gd" id="4_dqkch"]
 [ext_resource type="Texture2D" uid="uid://g2myniahbjsr" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/18-Air Attack 1/Air Attack 1 03.png" id="4_hax0n"]
 [ext_resource type="Texture2D" uid="uid://ctqguif84xhiu" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 03.png" id="4_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://bi21tchqrplso" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/14-Hit Sword/Hit Sword 01.png" id="5_4ni07"]
@@ -59,7 +59,7 @@
 [ext_resource type="Texture2D" uid="uid://b5a5nwxn3ltp3" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 05.png" id="44_apa73"]
 [ext_resource type="Texture2D" uid="uid://cu0ate7gkt8cd" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 06.png" id="45_74r1k"]
 [ext_resource type="Texture2D" uid="uid://dwqhy6u7j7t3o" path="res://sprites/Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Medium Bars/1.png" id="47_2gdjj"]
-[ext_resource type="Script" uid="uid://bhoi7gqo7ibf5" path="res://scrips/Health_bar.gd" id="49_lxlsd"]
+[ext_resource type="Script" uid="uid://bhoi7gqo7ibf5" path="res://scripts/Health_bar.gd" id="49_lxlsd"]
 [ext_resource type="Texture2D" uid="uid://bdiv2gfqqw4tn" path="res://sprites/Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Colors/4.png" id="50_2gdjj"]
 [ext_resource type="Texture2D" uid="uid://5jwxq5np2mh1" path="res://sprites/Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Medium Bars/5.png" id="50_ha2mi"]
 [ext_resource type="Texture2D" uid="uid://ceajbkaeem2hi" path="res://sprites/Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Medium Bars/4.png" id="51_apa73"]
@@ -333,11 +333,12 @@ size = Vector2(17, 9)
 
 [node name="player" type="CharacterBody2D"]
 position = Vector2(-1, -1)
+collision_layer = 2
 script = ExtResource("1_6qdiq")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2hs0m")
-animation = &"fall_ns"
+animation = &"fall"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
