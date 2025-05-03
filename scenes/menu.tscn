@@ -1548,6 +1548,7 @@ size_flags_vertical = 4
 script = ExtResource("1_yqeox")
 
 [node name="MainMenu" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -1630,7 +1631,6 @@ tile_map_data = PackedByteArray("AAD9//z/AQASAAkAAAD+//z/AQATAAkAAAAAAPz/AQAUAAk
 tile_set = SubResource("TileSet_v86rl")
 
 [node name="HelpMenu" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 162.0
@@ -1681,8 +1681,8 @@ horizontal_alignment = 1
 [node name="F" type="Label" parent="HelpMenu/Content"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_mhnvy")
-theme_override_font_sizes/font_size = 10
-text = "F -  Attack"
+theme_override_font_sizes/font_size = 7
+text = "F/G/H -  Attack variations"
 horizontal_alignment = 1
 
 [node name="E" type="Label" parent="HelpMenu/Content"]

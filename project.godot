@@ -40,7 +40,7 @@ interaction={
 ]
 }
 inte={
-"deadzone": 0.2,
+"deadzone": 0.21,
 "events": []
 }
 throw_sword={
