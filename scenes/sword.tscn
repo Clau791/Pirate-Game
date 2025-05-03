@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cddrjtltj855a" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/23-Sword Embedded/Sword Embedded 01.png" id="2_xccsb"]
 [ext_resource type="Texture2D" uid="uid://drpgf4yfo6v85" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/22-Sword Spinning/Sword Spinning 02.png" id="3_cp3m4"]
 [ext_resource type="Texture2D" uid="uid://dtentgk8xnh1d" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/23-Sword Embedded/Sword Embedded 02.png" id="3_p4x8v"]
-[ext_resource type="Script" uid="uid://d1o8pswfxn0rr" path="res://scrips/area_2d.gd" id="3_sjcpw"]
+[ext_resource type="Script" uid="uid://dy8dli2p6g8fx" path="res://scrips/area_2d.gd" id="3_sjcpw"]
 [ext_resource type="Texture2D" uid="uid://d2qma260d314y" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/23-Sword Embedded/Sword Embedded 03.png" id="4_3oqan"]
 [ext_resource type="Texture2D" uid="uid://ca5hdmot62nlo" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/22-Sword Spinning/Sword Spinning 03.png" id="4_ml5hy"]
 [ext_resource type="Texture2D" uid="uid://nahpdsr50t4q" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/23-Sword Embedded/Sword Embedded 04.png" id="5_sjcpw"]
