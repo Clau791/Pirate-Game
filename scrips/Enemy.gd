@@ -60,9 +60,12 @@ func _process(delta):
 	# de adaugat incetinire
 	if knockback:
 		if i < knockback_points.size():
-			
-			global_position = global_position + knockback_points[i] 
-		
+			if direction == 1:
+				global_position = global_position + knockback_points[i] 
+			else:
+				global_position.x = global_position.x + knockback_points[i].x * (-1) 
+				global_position.y = global_position.y + knockback_points[i].y  
+
 			i += 1
 		else:
 			knockback = false
@@ -77,6 +80,7 @@ func take_damage(amount, facing):
 	print(facing)
 	health -= amount
 	$EnemyHealthBar.value = health
+	direction = facing
 	if facing == 1:
 		$Animatii.play("attacked")
 		knockback = true
@@ -86,6 +90,7 @@ func take_damage(amount, facing):
 		knockback = true
 		await get_tree().create_timer(0.5).timeout
 		$Animatii.flip_h = false
+		
 	if health <= 0:
 		if facing == 1:
 			$Animatii.play("death")
@@ -99,6 +104,7 @@ func take_damage(amount, facing):
 		die()
 	await get_tree().create_timer(0.08).timeout # asteptam sa isi faca animati
 	knockback = false
+	
 func die():
 	print("Inamicul a murit!")
 	queue_free()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deovagy0sfkem"
-path="res://.godot/imported/Sword Embedded 02.png-2d358c2bd69cf75fbdd347acda425adf.ctex"
+uid="uid://c2412hrkgsl87"
+path="res://.godot/imported/Sword Embedded_up 02.png-70417ffa32324dbb485428d7e6a1c165.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/23-Sword Embedded/Sword Embedded 02.png"
-dest_files=["res://.godot/imported/Sword Embedded 02.png-2d358c2bd69cf75fbdd347acda425adf.ctex"]
+source_file="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/24-Sword-Up-Embadded/Sword Embedded_up 02.png"
+dest_files=["res://.godot/imported/Sword Embedded_up 02.png-70417ffa32324dbb485428d7e6a1c165.ctex"]
 
 [params]
 

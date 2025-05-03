@@ -258,13 +258,12 @@ func _on_ground_detect_body_entered(body: Node2D) -> void:
 	# player doar cand se stie ca a iesit din zona(adica ground) poate sa se activeze
 	# pentru a nu se tine non stop animation-flag pornit 
 	if exited:
-		print("Touched ground")
 		animation_flag = false # poate rula idle
 		exited = false
 
 
 func _on_ground_detect_body_exited(body: Node2D) -> void:
-	print("Jumped")
+
 	exited = true
 
 func pick_up_potion(type):
