@@ -32,10 +32,12 @@ var can_attack = true
 var animation_flag = false # flag pentru a nu se intrerupe animatiile
 var has_sword = true
 var can_pickup_sword = false
+var tamed_animal: CharacterBody2D = null
 
 var blue_potions = 0
 var red_potions = 0
 var score = 0
+
 # functii pentru health/ take damage
 func _ready():
 	$HealthBar.value = health
