@@ -1,16 +1,20 @@
-[gd_scene load_steps=18 format=3 uid="uid://6enoj0jns83w"]
+[gd_scene load_steps=24 format=3 uid="uid://6enoj0jns83w"]
 
 [ext_resource type="Script" uid="uid://dkn2wqjxg7p3c" path="res://scrips/Sword.gd" id="1_1yp6w"]
 [ext_resource type="Script" uid="uid://dvdjfekbl7o0m" path="res://scrips/embedded_area.gd" id="2_3oqan"]
 [ext_resource type="Texture2D" uid="uid://qcf38c7xi1x7" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/22-Sword Spinning/Sword Spinning 01.png" id="2_fnw8x"]
-[ext_resource type="Texture2D" uid="uid://cddrjtltj855a" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/23-Sword Embedded/Sword Embedded 01.png" id="2_xccsb"]
 [ext_resource type="Texture2D" uid="uid://drpgf4yfo6v85" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/22-Sword Spinning/Sword Spinning 02.png" id="3_cp3m4"]
-[ext_resource type="Texture2D" uid="uid://dtentgk8xnh1d" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/23-Sword Embedded/Sword Embedded 02.png" id="3_p4x8v"]
-[ext_resource type="Script" uid="uid://d1o8pswfxn0rr" path="res://scrips/area_2d.gd" id="3_sjcpw"]
-[ext_resource type="Texture2D" uid="uid://d2qma260d314y" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/23-Sword Embedded/Sword Embedded 03.png" id="4_3oqan"]
+[ext_resource type="Script" uid="uid://dy8dli2p6g8fx" path="res://scrips/area_2d.gd" id="3_sjcpw"]
 [ext_resource type="Texture2D" uid="uid://ca5hdmot62nlo" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/22-Sword Spinning/Sword Spinning 03.png" id="4_ml5hy"]
-[ext_resource type="Texture2D" uid="uid://nahpdsr50t4q" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/23-Sword Embedded/Sword Embedded 04.png" id="5_sjcpw"]
 [ext_resource type="Texture2D" uid="uid://bd57edqqg7smh" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/22-Sword Spinning/Sword Spinning 04.png" id="5_xccsb"]
+[ext_resource type="Texture2D" uid="uid://c1u2dsqkvluvx" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/23-Sword Embedded/Sword Embedded 03.png" id="6_ogkfw"]
+[ext_resource type="Texture2D" uid="uid://c4l0by6hg5m5k" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/23-Sword Embedded/Sword Embedded 04.png" id="7_ejoqe"]
+[ext_resource type="Texture2D" uid="uid://bxkpy3dqqwtur" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/23-Sword Embedded/Sword Embedded 01.png" id="8_ogkfw"]
+[ext_resource type="Texture2D" uid="uid://deovagy0sfkem" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/23-Sword Embedded/Sword Embedded 02.png" id="9_ejoqe"]
+[ext_resource type="Texture2D" uid="uid://dtt6tyyso410a" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/24-Sword-Up-Embadded/Sword Embedded_up 01.png" id="9_ogkfw"]
+[ext_resource type="Texture2D" uid="uid://c2412hrkgsl87" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/24-Sword-Up-Embadded/Sword Embedded_up 02.png" id="10_ejoqe"]
+[ext_resource type="Texture2D" uid="uid://b4l7sdeybac05" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/24-Sword-Up-Embadded/Sword Embedded_up 03.png" id="11_jvvga"]
+[ext_resource type="Texture2D" uid="uid://di3ebpdc4fhsa" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/24-Sword-Up-Embadded/Sword Embedded_up 04.png" id="11_ogkfw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xccsb"]
 size = Vector2(9, 7)
@@ -19,31 +23,43 @@ size = Vector2(9, 7)
 size = Vector2(21, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12tba"]
-size = Vector2(9, 7)
+size = Vector2(7, 7)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u2t1x"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_xccsb")
+"texture": ExtResource("8_ogkfw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_p4x8v")
+"texture": ExtResource("9_ejoqe")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_3oqan")
+"texture": ExtResource("6_ogkfw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_sjcpw")
+"texture": ExtResource("7_ejoqe")
 }],
 "loop": true,
 "name": &"Embedded",
 "speed": 10.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_ogkfw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ejoqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_jvvga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ogkfw")
+}],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"UP-EMBADDED",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -63,11 +79,17 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3oqan"]
-size = Vector2(24, 6)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_3oqan"]
+points = PackedVector2Array(0, -2, 1, -5, -1, -5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjcpw"]
-size = Vector2(10, 20)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_sjcpw"]
+points = PackedVector2Array(0, 1, -1, 4, 1, 4)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_mma44"]
+points = PackedVector2Array(0, 0, 3, 0.5, 3, -0.5)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_mqgyi"]
+points = PackedVector2Array(-1, 0, -4, -0.5, -4, 0.5)
 
 [node name="Sword" type="RigidBody2D"]
 z_index = -1
@@ -87,6 +109,7 @@ position = Vector2(-1.5, 0.5)
 shape = SubResource("RectangleShape2D_xccsb")
 
 [node name="Throwing_area" type="Area2D" parent="."]
+visible = false
 collision_layer = 8
 collision_mask = 7
 script = ExtResource("3_sjcpw")
@@ -95,33 +118,44 @@ script = ExtResource("3_sjcpw")
 shape = SubResource("RectangleShape2D_k4l2t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0.5)
+position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_12tba")
 debug_color = Color(0, 0.633775, 0.436644, 0.42)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(1, -2)
 sprite_frames = SubResource("SpriteFrames_u2t1x")
 animation = &"Embedded"
 autoplay = "throw"
 
-[node name="SIDE_EMBEDDEN" type="Area2D" parent="."]
+[node name="UP_EMBADDE" type="Area2D" parent="."]
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SIDE_EMBEDDEN"]
-shape = SubResource("RectangleShape2D_3oqan")
+[node name="UP_EMBADDE" type="CollisionShape2D" parent="UP_EMBADDE"]
+position = Vector2(0, -2)
+shape = SubResource("ConvexPolygonShape2D_3oqan")
 debug_color = Color(0.665855, 0.340281, 0.954679, 0.42)
-
-[node name="Animation_Stop" type="Timer" parent="."]
-wait_time = 0.663
-one_shot = true
 
 [node name="DOWN_EMBDDEN" type="Area2D" parent="."]
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DOWN_EMBDDEN"]
-shape = SubResource("RectangleShape2D_sjcpw")
+[node name="DOWN_SHAPE" type="CollisionShape2D" parent="DOWN_EMBDDEN"]
+shape = SubResource("ConvexPolygonShape2D_sjcpw")
 debug_color = Color(0.617677, 0.526908, 0.27405, 0.42)
+
+[node name="RIGHT_EMBADDED" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="RIGHT_SHAPE" type="CollisionShape2D" parent="RIGHT_EMBADDED"]
+position = Vector2(4, 0)
+shape = SubResource("ConvexPolygonShape2D_mma44")
+
+[node name="LEFT_EMBADDE" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="LEFT_SHAPE" type="CollisionShape2D" parent="LEFT_EMBADDE"]
+shape = SubResource("ConvexPolygonShape2D_mqgyi")
+debug_color = Color(0.301961, 0.152941, 0.384314, 0.419608)
 
 [connection signal="body_entered" from="." to="." method="body_entered"]
 [connection signal="body_exited" from="." to="." method="body_exited"]
@@ -133,8 +167,7 @@ debug_color = Color(0.617677, 0.526908, 0.27405, 0.42)
 [connection signal="area_shape_exited" from="Throwing_area" to="." method="body_exited"]
 [connection signal="body_entered" from="Throwing_area" to="." method="body_entered"]
 [connection signal="body_exited" from="Throwing_area" to="." method="body_exited"]
-[connection signal="body_entered" from="SIDE_EMBEDDEN" to="." method="_on_side_embedden_body_entered"]
-[connection signal="body_entered" from="SIDE_EMBEDDEN" to="." method="_on_testing_body_entered"]
-[connection signal="timeout" from="Animation_Stop" to="." method="stop_animation"]
+[connection signal="body_entered" from="UP_EMBADDE" to="." method="_on_up_embadde_body_entered"]
 [connection signal="body_entered" from="DOWN_EMBDDEN" to="." method="_on_down_embdden_body_entered"]
-[connection signal="body_exited" from="DOWN_EMBDDEN" to="." method="_on_down_embdden_body_exited"]
+[connection signal="body_entered" from="RIGHT_EMBADDED" to="." method="_on_right_embadded_body_entered"]
+[connection signal="body_entered" from="LEFT_EMBADDE" to="." method="_on_left_embadde_body_entered"]
