@@ -1,4 +1,4 @@
-# Layer 4, Mask 1
+# Layer 6, Mask 1
 extends CharacterBody2D
 
 @export var move_speed: float = 40.0
@@ -18,7 +18,6 @@ var direction := 1
 var random_move_timer := 0.0
 
 func _ready() -> void:
-	$AnimatedSprite2D.play("sleep")
 	randomize()
 	$ProximityArea.body_entered.connect(_on_proximity_area_body_entered)
 	$ProximityArea.body_exited.connect(_on_proximity_area_body_exited)

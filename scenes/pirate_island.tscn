@@ -9,15 +9,15 @@
 [ext_resource type="Texture2D" uid="uid://deas6tenrv4e7" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 02.png" id="3_n2x3i"]
 [ext_resource type="Texture2D" uid="uid://2y2dwbexy4m6" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 01.png" id="4_wqmf1"]
 [ext_resource type="Texture2D" uid="uid://deg5h2mqt7y1t" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Additional Sky.png" id="5_4jlxj"]
-[ext_resource type="Script" uid="uid://c6wki1yuupvhu" path="res://scenes/blue_potion.gd" id="6_o2x85"]
+[ext_resource type="Script" uid="uid://c6wki1yuupvhu" path="res://scrips/blue_potion.gd" id="6_o2x85"]
 [ext_resource type="Texture2D" uid="uid://bm6f0vb4x00ms" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Additional Water.png" id="6_v8ygd"]
 [ext_resource type="Texture2D" uid="uid://b8xesay0ab0c0" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="7_fhowo"]
 [ext_resource type="PackedScene" uid="uid://crj65w7xn5m8q" path="res://scenes/red_potion.tscn" id="7_rbkpy"]
 [ext_resource type="Texture2D" uid="uid://dxp4ppiobcob0" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Big Clouds.png" id="8_7ocw6"]
 [ext_resource type="Texture2D" uid="uid://bh15one2ab7h" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="9_do4xf"]
-[ext_resource type="Script" uid="uid://df03wg8t54yu" path="res://scenes/red_potion.gd" id="9_j4rt8"]
+[ext_resource type="Script" uid="uid://df03wg8t54yu" path="res://scrips/red_potion.gd" id="9_j4rt8"]
 [ext_resource type="PackedScene" uid="uid://s56x5giylodc" path="res://scenes/small_water_reflection.tscn" id="10_fdj58"]
-[ext_resource type="Script" uid="uid://cu62penihm32y" path="res://scenes/red_diamond.gd" id="12_5rm6h"]
+[ext_resource type="Script" uid="uid://cu62penihm32y" path="res://scrips/red_diamond.gd" id="12_5rm6h"]
 [ext_resource type="Texture2D" uid="uid://drnavofdqqliu" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Bottom/1.png" id="13_fdj58"]
 [ext_resource type="Texture2D" uid="uid://wnlrvipmssif" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/1.png" id="14_pxoet"]
 [ext_resource type="Texture2D" uid="uid://b36mg5mogf21" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/2.png" id="15_valp3"]
@@ -1206,8 +1206,7 @@ texture = ExtResource("20_52fw6")
 
 [sub_resource type="TileSet" id="TileSet_hi1ci"]
 physics_layer_0/collision_layer = 1
-physics_layer_1/collision_layer = 0
-physics_layer_1/collision_mask = 0
+physics_layer_1/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_rbkpy")
 sources/1 = SubResource("TileSetAtlasSource_hi1ci")
 sources/3 = SubResource("TileSetAtlasSource_vmuop")
@@ -1293,7 +1292,6 @@ position = Vector2(69, 16)
 [node name="player" parent="." groups=["player"] instance=ExtResource("1_gkam7")]
 z_index = -1
 position = Vector2(11, 12)
-collision_layer = 4
 collision_mask = 19
 
 [node name="Camera2D" type="Camera2D" parent="player"]
