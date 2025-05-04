@@ -59,8 +59,9 @@ func _process(delta):
 			
 	# de adaugat incetinire
 	if knockback:
+		print(direction)
 		if i < knockback_points.size():
-			if direction == 1:
+			if direction > 0 :
 				global_position = global_position + knockback_points[i] 
 			else:
 				global_position.x = global_position.x + knockback_points[i].x * (-1) 

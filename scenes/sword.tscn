@@ -154,6 +154,7 @@ shape = SubResource("ConvexPolygonShape2D_mma44")
 collision_layer = 0
 
 [node name="LEFT_SHAPE" type="CollisionShape2D" parent="LEFT_EMBADDE"]
+position = Vector2(-3, 0)
 shape = SubResource("ConvexPolygonShape2D_mqgyi")
 debug_color = Color(0.301961, 0.152941, 0.384314, 0.419608)
 

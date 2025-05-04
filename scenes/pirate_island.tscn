@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://b4omaepqlemwc"]
+[gd_scene load_steps=53 format=4 uid="uid://b4omaepqlemwc"]
 
 [ext_resource type="Texture2D" uid="uid://biwipjgwidjah" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png" id="1_1c1lq"]
 [ext_resource type="Script" uid="uid://1ruhuouvreup" path="res://scrips/pirate_island.gd" id="1_7ocw6"]
@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://bci8gl5v8q4t" path="res://scenes/menu.tscn" id="27_k0siu"]
 [ext_resource type="PackedScene" uid="uid://efkfn5psw062" path="res://scenes/blue_potion.tscn" id="28_rbxpp"]
 [ext_resource type="PackedScene" uid="uid://bv6k7qjc8a235" path="res://scenes/Red_Diamond.tscn" id="30_hi1ci"]
+[ext_resource type="PackedScene" uid="uid://dgh4m815p41ft" path="res://scenes/ferret.tscn" id="34_j4rt8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pxoet"]
 texture = ExtResource("1_1c1lq")
@@ -1298,6 +1299,7 @@ collision_mask = 19
 zoom = Vector2(3, 3)
 
 [node name="Menu" parent="player" instance=ExtResource("27_k0siu")]
+visible = false
 z_index = 10
 offset_left = -3.0
 offset_top = -27.0
@@ -1335,8 +1337,11 @@ scale = Vector2(2, 1)
 wait_time = 10.0
 autostart = true
 
+[node name="ferret" parent="." instance=ExtResource("34_j4rt8")]
+position = Vector2(254, 21)
+
 [connection signal="area_entered" from="Objects/Stair" to="player" method="_on_ladder_body_entered"]
-[connection signal="body_entered" from="Objects/Stair" to="player" method="_on_ladder_body_entered"]
 [connection signal="body_entered" from="Objects/Stair" to="player" method="_on_stair_body_entered"]
+[connection signal="body_entered" from="Objects/Stair" to="player" method="_on_ladder_body_entered"]
 [connection signal="body_exited" from="Objects/Stair" to="player" method="_on_ladder_body_exited"]
 [connection signal="timeout" from="Cloud_Timer" to="." method="Cloud_Timer"]
