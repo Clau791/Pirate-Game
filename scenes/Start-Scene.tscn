@@ -921,13 +921,14 @@ size_flags_vertical = 4
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-4, 19)
+zoom = Vector2(1.7, 1.7)
 
 [node name="Menu" parent="Camera2D" instance=ExtResource("1_un80t")]
 offset_left = -2.0
 offset_top = -30.0
 offset_right = -2.0
 offset_bottom = -30.0
-scale = Vector2(1.6, 1.6)
+scale = Vector2(1.3, 1.3)
 is_main_menu = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
