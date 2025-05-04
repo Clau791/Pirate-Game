@@ -17,7 +17,9 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/mode=1
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
 
 [global_group]
 
@@ -38,7 +40,7 @@ interaction={
 ]
 }
 inte={
-"deadzone": 0.2,
+"deadzone": 0.21,
 "events": []
 }
 throw_sword={
