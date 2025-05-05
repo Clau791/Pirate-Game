@@ -35,7 +35,6 @@ var damage = 10
 @onready var timer = $DamageTimer
 
 var player_in_range = null # playerul este în range
-
 var damage_interval = 0.1  # Intervalul de timp între aplicarea daunelor (în secunde)
 var last_damage_time = 0.0  # Momentul în care s-a aplicat ultima dată daune
 
@@ -59,8 +58,9 @@ func _process(delta):
 			
 	# de adaugat incetinire
 	if knockback:
+
 		if i < knockback_points.size():
-			if direction == 1:
+			if direction > 0 :
 				global_position = global_position + knockback_points[i] 
 			else:
 				global_position.x = global_position.x + knockback_points[i].x * (-1) 
