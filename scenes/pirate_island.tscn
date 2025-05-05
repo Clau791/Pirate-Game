@@ -1297,7 +1297,7 @@ collision_layer = 4
 collision_mask = 19
 
 [node name="Camera2D" type="Camera2D" parent="player"]
-zoom = Vector2(3, 3)
+zoom = Vector2(3.5, 3.5)
 
 [node name="Menu" parent="player" instance=ExtResource("27_k0siu")]
 z_index = 10
