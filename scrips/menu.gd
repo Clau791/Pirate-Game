@@ -65,8 +65,8 @@ func _on_exit_button_pressed():
 	get_tree().quit()
 	
 func _on_first_button_pressed():
-	get_tree().paused = false
 	if get_tree().current_scene.name != "PirateIsland":
+		get_tree().paused = false
 		get_tree().change_scene_to_file("res://scenes/pirate_island.tscn")
 		
 func _on_second_button_pressed():

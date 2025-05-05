@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://b4omaepqlemwc"]
+[gd_scene load_steps=54 format=4 uid="uid://b4omaepqlemwc"]
 
 [ext_resource type="Texture2D" uid="uid://biwipjgwidjah" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png" id="1_1c1lq"]
 [ext_resource type="Script" uid="uid://1ruhuouvreup" path="res://scrips/pirate_island.gd" id="1_7ocw6"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://drnavofdqqliu" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Bottom/1.png" id="13_fdj58"]
 [ext_resource type="Texture2D" uid="uid://wnlrvipmssif" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/1.png" id="14_pxoet"]
 [ext_resource type="Texture2D" uid="uid://b36mg5mogf21" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/2.png" id="15_valp3"]
+[ext_resource type="PackedScene" uid="uid://0mhlccwo0kwu" path="res://scenes/inventory.tscn" id="16_5rm6h"]
 [ext_resource type="Texture2D" uid="uid://bex5x6jnke7q4" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/3.png" id="16_52fw6"]
 [ext_resource type="Texture2D" uid="uid://dfo6atxvfiel2" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/4.png" id="17_2k3tv"]
 [ext_resource type="Texture2D" uid="uid://babsgyoqem12s" path="res://sprites/world_tileset.png" id="19_valp3"]
@@ -1239,7 +1240,7 @@ position = Vector2(69, 16)
 
 [node name="player" parent="." groups=["player"] instance=ExtResource("1_gkam7")]
 z_index = -1
-position = Vector2(11, 12)
+position = Vector2(1735, -93)
 collision_mask = 19
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -1252,6 +1253,8 @@ offset_left = -3.0
 offset_top = -27.0
 offset_right = -3.0
 offset_bottom = -27.0
+
+[node name="Inventory" parent="player" instance=ExtResource("16_5rm6h")]
 
 [node name="BackGround" type="TileMapLayer" parent="."]
 z_index = -101
@@ -1288,7 +1291,7 @@ autostart = true
 position = Vector2(254, 21)
 
 [connection signal="area_entered" from="Objects/Stair" to="player" method="_on_ladder_body_entered"]
-[connection signal="body_entered" from="Objects/Stair" to="player" method="_on_stair_body_entered"]
 [connection signal="body_entered" from="Objects/Stair" to="player" method="_on_ladder_body_entered"]
+[connection signal="body_entered" from="Objects/Stair" to="player" method="_on_stair_body_entered"]
 [connection signal="body_exited" from="Objects/Stair" to="player" method="_on_ladder_body_exited"]
 [connection signal="timeout" from="Cloud_Timer" to="." method="Cloud_Timer"]
