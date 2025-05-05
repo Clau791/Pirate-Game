@@ -1,10 +1,10 @@
-extends CanvasLayer  # sau Control
+extends Control  
 
 var is_visible := false
 
 func _ready():
 	hide()
-	set_process_unhandled_input(true)
+	process_mode = Node.PROCESS_MODE_ALWAYS  
 
 func _unhandled_input(event):
 	if event.is_action_pressed("toggle_inventory"):
