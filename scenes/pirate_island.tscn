@@ -1246,18 +1246,19 @@ collision_mask = 19
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(3.5, 3.5)
 
-[node name="Menu" parent="player" instance=ExtResource("27_k0siu")]
+[node name="Menu" parent="player/Camera2D" instance=ExtResource("27_k0siu")]
+visible = false
 z_index = 10
-offset_left = -3.0
-offset_top = -27.0
-offset_right = -3.0
-offset_bottom = -27.0
+offset_top = -33.0
+offset_bottom = -33.0
 
 [node name="Inventory" parent="player" instance=ExtResource("16_5rm6h")]
-offset_left = -952.0
-offset_top = -529.0
-offset_right = -952.0
-offset_bottom = -529.0
+offset_left = -63.0
+offset_top = -47.0
+offset_right = -63.0
+offset_bottom = -47.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="BackGround" type="TileMapLayer" parent="."]
 z_index = -101
@@ -1294,7 +1295,7 @@ autostart = true
 position = Vector2(254, 21)
 
 [connection signal="area_entered" from="Objects/Stair" to="player" method="_on_ladder_body_entered"]
-[connection signal="body_entered" from="Objects/Stair" to="player" method="_on_ladder_body_entered"]
 [connection signal="body_entered" from="Objects/Stair" to="player" method="_on_stair_body_entered"]
+[connection signal="body_entered" from="Objects/Stair" to="player" method="_on_ladder_body_entered"]
 [connection signal="body_exited" from="Objects/Stair" to="player" method="_on_ladder_body_exited"]
 [connection signal="timeout" from="Cloud_Timer" to="." method="Cloud_Timer"]
