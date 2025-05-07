@@ -1,7 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://6enoj0jns83w"]
+[gd_scene load_steps=23 format=3 uid="uid://6enoj0jns83w"]
 
 [ext_resource type="Script" uid="uid://dkn2wqjxg7p3c" path="res://scrips/Sword.gd" id="1_1yp6w"]
-[ext_resource type="Script" uid="uid://dvdjfekbl7o0m" path="res://scrips/embedded_area.gd" id="2_3oqan"]
 [ext_resource type="Texture2D" uid="uid://qcf38c7xi1x7" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/22-Sword Spinning/Sword Spinning 01.png" id="2_fnw8x"]
 [ext_resource type="Texture2D" uid="uid://drpgf4yfo6v85" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/22-Sword Spinning/Sword Spinning 02.png" id="3_cp3m4"]
 [ext_resource type="Script" uid="uid://dgbv1p007dctf" path="res://scrips/throwing_area.gd" id="3_ogkfw"]
@@ -102,7 +101,6 @@ script = ExtResource("1_1yp6w")
 position = Vector2(1, 0)
 collision_layer = 8
 collision_mask = 7
-script = ExtResource("2_3oqan")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Embedded_Area"]
 position = Vector2(-1.5, 0.5)
