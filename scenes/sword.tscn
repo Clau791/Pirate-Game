@@ -130,7 +130,7 @@ autoplay = "throw"
 collision_layer = 0
 
 [node name="UP_EMBADDE" type="CollisionShape2D" parent="UP_EMBADDE"]
-position = Vector2(0, -2)
+position = Vector2(0, -1)
 shape = SubResource("ConvexPolygonShape2D_3oqan")
 debug_color = Color(0.665855, 0.340281, 0.954679, 0.42)
 
@@ -142,6 +142,7 @@ shape = SubResource("ConvexPolygonShape2D_sjcpw")
 debug_color = Color(0.617677, 0.526908, 0.27405, 0.42)
 
 [node name="RIGHT_EMBADDED" type="Area2D" parent="."]
+position = Vector2(-2, 0)
 collision_layer = 0
 
 [node name="RIGHT_SHAPE" type="CollisionShape2D" parent="RIGHT_EMBADDED"]
@@ -149,6 +150,7 @@ position = Vector2(4, 0)
 shape = SubResource("ConvexPolygonShape2D_mma44")
 
 [node name="LEFT_EMBADDE" type="Area2D" parent="."]
+position = Vector2(2, 0)
 collision_layer = 0
 
 [node name="LEFT_SHAPE" type="CollisionShape2D" parent="LEFT_EMBADDE"]

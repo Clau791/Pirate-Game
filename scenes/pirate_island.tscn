@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://drnavofdqqliu" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Bottom/1.png" id="13_fdj58"]
 [ext_resource type="Texture2D" uid="uid://wnlrvipmssif" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/1.png" id="14_pxoet"]
 [ext_resource type="Texture2D" uid="uid://b36mg5mogf21" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/2.png" id="15_valp3"]
-[ext_resource type="PackedScene" uid="uid://0mhlccwo0kwu" path="res://scenes/inventory.tscn" id="16_5rm6h"]
+[ext_resource type="PackedScene" path="res://scenes/inventory.tscn" id="16_5rm6h"]
 [ext_resource type="Texture2D" uid="uid://bex5x6jnke7q4" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/3.png" id="16_52fw6"]
 [ext_resource type="Texture2D" uid="uid://dfo6atxvfiel2" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/4.png" id="17_2k3tv"]
 [ext_resource type="Texture2D" uid="uid://babsgyoqem12s" path="res://sprites/world_tileset.png" id="19_valp3"]
@@ -1240,7 +1240,7 @@ position = Vector2(69, 16)
 
 [node name="player" parent="." groups=["player"] instance=ExtResource("1_gkam7")]
 z_index = -1
-position = Vector2(1735, -93)
+position = Vector2(2, 17)
 collision_mask = 19
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -1253,6 +1253,7 @@ offset_top = -33.0
 offset_bottom = -33.0
 
 [node name="Inventory" parent="player" instance=ExtResource("16_5rm6h")]
+visible = false
 offset_left = -63.0
 offset_top = -47.0
 offset_right = -63.0
