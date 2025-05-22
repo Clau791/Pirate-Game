@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://dwi4revevwupw"]
+
+[ext_resource type="Script" uid="uid://blflyhcs7rwvb" path="res://inventory/inventory_item.gd" id="1_084le"]
+[ext_resource type="Texture2D" uid="uid://cwhh6squg6j8n" path="res://sprites/Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Blue Potion/03.png" id="2_18wui"]
+
+[resource]
+script = ExtResource("1_084le")
+name = "blue_potion"
+texture = ExtResource("2_18wui")
+metadata/_custom_type_script = "uid://blflyhcs7rwvb"

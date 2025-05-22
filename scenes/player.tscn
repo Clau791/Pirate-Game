@@ -1,9 +1,11 @@
-[gd_scene load_steps=67 format=3 uid="uid://bw12ss2iy2k5a"]
+[gd_scene load_steps=79 format=3 uid="uid://bw12ss2iy2k5a"]
 
 [ext_resource type="Script" uid="uid://bbqf8b1b7cuw7" path="res://scrips/player.gd" id="1_6qdiq"]
 [ext_resource type="Texture2D" uid="uid://bgc28jbve86le" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/15-Attack 1/Attack 1 01.png" id="2_60mlk"]
 [ext_resource type="Texture2D" uid="uid://c5pyp6i5owqw8" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/18-Air Attack 1/Air Attack 1 01.png" id="2_bj30b"]
 [ext_resource type="Texture2D" uid="uid://cfkt7ihsnlrs3" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 01.png" id="2_smehm"]
+[ext_resource type="Script" uid="uid://bxg7bylmvcvy3" path="res://inventory/inventory.gd" id="2_tk41t"]
+[ext_resource type="Script" uid="uid://5dmvw81lci4r" path="res://inv_slot.gd" id="3_fuw3a"]
 [ext_resource type="Texture2D" uid="uid://l78it43do20a" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/15-Attack 1/Attack 1 02.png" id="3_i4ail"]
 [ext_resource type="Texture2D" uid="uid://bh3ecbm2dbet" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/18-Air Attack 1/Air Attack 1 02.png" id="3_jc3p3"]
 [ext_resource type="Texture2D" uid="uid://cfyv7eevdmx0b" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 02.png" id="3_ur7pv"]
@@ -63,6 +65,56 @@
 [ext_resource type="Texture2D" uid="uid://bdiv2gfqqw4tn" path="res://sprites/Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Colors/4.png" id="50_2gdjj"]
 [ext_resource type="Texture2D" uid="uid://5jwxq5np2mh1" path="res://sprites/Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Medium Bars/5.png" id="50_ha2mi"]
 [ext_resource type="Texture2D" uid="uid://ceajbkaeem2hi" path="res://sprites/Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Medium Bars/4.png" id="51_apa73"]
+
+[sub_resource type="Resource" id="Resource_8txt3"]
+script = ExtResource("3_fuw3a")
+amount = 0
+metadata/_custom_type_script = "uid://5dmvw81lci4r"
+
+[sub_resource type="Resource" id="Resource_2w11d"]
+script = ExtResource("3_fuw3a")
+amount = 0
+metadata/_custom_type_script = "uid://5dmvw81lci4r"
+
+[sub_resource type="Resource" id="Resource_770dr"]
+script = ExtResource("3_fuw3a")
+amount = 0
+metadata/_custom_type_script = "uid://5dmvw81lci4r"
+
+[sub_resource type="Resource" id="Resource_8f1cb"]
+script = ExtResource("3_fuw3a")
+amount = 0
+metadata/_custom_type_script = "uid://5dmvw81lci4r"
+
+[sub_resource type="Resource" id="Resource_vdulj"]
+script = ExtResource("3_fuw3a")
+amount = 0
+metadata/_custom_type_script = "uid://5dmvw81lci4r"
+
+[sub_resource type="Resource" id="Resource_vau08"]
+script = ExtResource("3_fuw3a")
+amount = 0
+metadata/_custom_type_script = "uid://5dmvw81lci4r"
+
+[sub_resource type="Resource" id="Resource_qsb7e"]
+script = ExtResource("3_fuw3a")
+amount = 0
+metadata/_custom_type_script = "uid://5dmvw81lci4r"
+
+[sub_resource type="Resource" id="Resource_qjsmb"]
+script = ExtResource("3_fuw3a")
+amount = 0
+metadata/_custom_type_script = "uid://5dmvw81lci4r"
+
+[sub_resource type="Resource" id="Resource_mwp2n"]
+script = ExtResource("3_fuw3a")
+amount = 0
+metadata/_custom_type_script = "uid://5dmvw81lci4r"
+
+[sub_resource type="Resource" id="Resource_0yhus"]
+script = ExtResource("2_tk41t")
+slots = Array[ExtResource("3_fuw3a")]([SubResource("Resource_8txt3"), SubResource("Resource_2w11d"), SubResource("Resource_770dr"), SubResource("Resource_8f1cb"), SubResource("Resource_vdulj"), SubResource("Resource_vau08"), SubResource("Resource_qsb7e"), SubResource("Resource_qjsmb"), SubResource("Resource_mwp2n")])
+metadata/_custom_type_script = "uid://bxg7bylmvcvy3"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2hs0m"]
 animations = [{
@@ -331,10 +383,11 @@ size = Vector2(17, 19)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42b1b"]
 size = Vector2(17, 9)
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(-1, -1)
 collision_layer = 4
 script = ExtResource("1_6qdiq")
+inv = SubResource("Resource_0yhus")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2hs0m")

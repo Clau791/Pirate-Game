@@ -21,6 +21,8 @@ const CLIMB_SPEED = 150
 @onready var sprite = $sprite
 @onready var attacking = $Attack_Animation
 @export var sword_scene = preload("res://scenes/sword.tscn")  # Scena sabiei fizice
+@export var inv: Inv
+
 
 var on_ladder = false
 
@@ -271,10 +273,15 @@ func _on_ground_detect_body_exited(body: Node2D) -> void:
 func pick_up_potion(type):
 	if type == "Blue Potion":
 		blue_potions += 1
-	
 	if type == "Red Potion":
 		red_potions += 1
+		print("You picked up red potion!")
 	
 func tresure_pick_up(type):
 	if type == "Red Diamond":
 		score += 1000
+
+func collect(item: InvItem):
+	print("Collecting item:", item.name)
+	inv.insert(item)
+	
