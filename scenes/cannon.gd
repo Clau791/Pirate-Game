@@ -4,39 +4,39 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 
 var target;
-var i = -1;
 var direction;
 
 var knockback = false	
 var health = 100
-var damage = 10
-@onready var player = $"../player"
-@onready var timer = $DamageTimer
-@export var shooter_projectile = preload("res://scenes/shooter_projectile.tscn")  # Scena sabiei fizice
+var damage = 40
 
+@export var shooter_projectile = preload("res://scenes/cannon_ball.tscn")  # Scena sabiei fizice
 
-var player_in_range = null # playerul este în range
 var can_shoot = true # Intervalul de timp între aplicarea daunelor (în secunde)
-var last_damage_time = 0.0  # Momentul în care s-a aplicat ultima dată daune
 
 func _ready() -> void:
 	$EnemyHealthBar.value = health
 	
 
 func _process(delta):
-	if can_shoot and $player_Detector.is_colliding() :
-		$Animatii.play("Attack")
 
+		
+	if can_shoot and $player_Detector.is_colliding() :
+		$Animatii.play("attack")
+		
+		
+		$shot_effect.visible = true
+		$shot_effect.play("default")
+		
 		var s = shooter_projectile.instantiate()
-		s.global_position = global_position + Vector2(-4, 8)
-		s.shoot($Animatii.flip_h)
+		s.global_position = global_position
+		s.shoot(false)
 		get_parent().add_child(s)
 		can_shoot = false
 		
-		
 
 	if not $Animatii.is_playing() and health:
-		$Animatii.play("default")
+		$Animatii.play("idle")
 		
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -77,7 +77,9 @@ func die():
 	print("Inamicul a murit!")
 	queue_free()
 
+func _on_shot_effect_animation_finished() -> void:
+	$shot_effect.visible = false 
 
-# Damage în buclă cât timp jucătorul e în zonă
-func _on_damage_timer_timeout():
+
+func _on_timer_timeout() -> void:
 	can_shoot = true

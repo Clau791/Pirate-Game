@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=4 uid="uid://b4omaepqlemwc"]
+[gd_scene load_steps=96 format=4 uid="uid://b4omaepqlemwc"]
 
 [ext_resource type="Texture2D" uid="uid://biwipjgwidjah" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png" id="1_1c1lq"]
 [ext_resource type="Script" uid="uid://1ruhuouvreup" path="res://scrips/pirate_island.gd" id="1_7ocw6"]
@@ -68,6 +68,7 @@
 [ext_resource type="Texture2D" uid="uid://cefaorqujb03b" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 03.png" id="66_6gdir"]
 [ext_resource type="Texture2D" uid="uid://detucscyrq61n" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 04.png" id="67_cn6l2"]
 [ext_resource type="PackedScene" uid="uid://dxryg32vvse8g" path="res://scenes/Shooter.tscn" id="68_cn6l2"]
+[ext_resource type="PackedScene" uid="uid://c43gk3ij1ffa7" path="res://scenes/cannon.tscn" id="69_i2ck2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pxoet"]
 texture = ExtResource("1_1c1lq")
@@ -1470,6 +1471,9 @@ item = ExtResource("12_kiwid")
 position = Vector2(117, 18)
 item = ExtResource("12_kiwid")
 
+[node name="cannon" parent="." instance=ExtResource("69_i2ck2")]
+position = Vector2(352, 20)
+
 [node name="Enemy" parent="." groups=["Enemies"] instance=ExtResource("1_wqmf1")]
 position = Vector2(69, 16)
 
@@ -1478,7 +1482,7 @@ position = Vector2(4333, -17)
 
 [node name="player" parent="." instance=ExtResource("1_gkam7")]
 z_index = -1
-position = Vector2(4024, -11)
+position = Vector2(307, -9)
 collision_mask = 23
 inv = ExtResource("14_j4rt8")
 

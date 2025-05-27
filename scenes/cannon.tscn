@@ -1,0 +1,185 @@
+[gd_scene load_steps=28 format=3 uid="uid://c43gk3ij1ffa7"]
+
+[ext_resource type="Texture2D" uid="uid://bwdv8ttlnj6f" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire Effect/1.png" id="1_gkr3g"]
+[ext_resource type="Script" uid="uid://dyttg2ovmjrh" path="res://scenes/cannon.gd" id="1_yaj4g"]
+[ext_resource type="Texture2D" uid="uid://ctyugj6raaiqv" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire Effect/2.png" id="2_yaj4g"]
+[ext_resource type="Texture2D" uid="uid://bt44ih4tcf478" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire Effect/3.png" id="3_edsmq"]
+[ext_resource type="Texture2D" uid="uid://b7c20jvyfciym" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire Effect/4.png" id="4_v8lec"]
+[ext_resource type="Texture2D" uid="uid://dlobboxgx3ccm" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire Effect/5.png" id="5_tsoy7"]
+[ext_resource type="Texture2D" uid="uid://clgs6eqanmf42" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire Effect/6.png" id="6_og6wj"]
+[ext_resource type="Texture2D" uid="uid://b7s1alkm34dxy" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire/1.png" id="7_3r3pa"]
+[ext_resource type="Texture2D" uid="uid://ckc3wq348d6yk" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire/2.png" id="8_0gjh1"]
+[ext_resource type="Texture2D" uid="uid://c6okugacgsige" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire/3.png" id="9_ruwaq"]
+[ext_resource type="Texture2D" uid="uid://tqdk332yh4dt" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire/4.png" id="10_0ceo5"]
+[ext_resource type="Texture2D" uid="uid://bmjy7y4iqbx3" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire/5.png" id="11_4y2rs"]
+[ext_resource type="Texture2D" uid="uid://dloyjdd71mx2b" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire/6.png" id="12_xyo5e"]
+[ext_resource type="Texture2D" uid="uid://bnjyuyl51c6so" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Hit/1.png" id="13_ioe3i"]
+[ext_resource type="Texture2D" uid="uid://bnyi716bky214" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Hit/2.png" id="14_td0p0"]
+[ext_resource type="Texture2D" uid="uid://bufe2bdchqe48" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Hit/3.png" id="15_rx57p"]
+[ext_resource type="Texture2D" uid="uid://ct17r6ky73l5l" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Hit/4.png" id="16_ppg8m"]
+[ext_resource type="Texture2D" uid="uid://dqyodem188uar" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Idle/1.png" id="17_1ykot"]
+[ext_resource type="Texture2D" uid="uid://djsrhwc084nmm" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Destroyed/1.png" id="18_bycye"]
+[ext_resource type="Texture2D" uid="uid://s1vtnbspbpai" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Destroyed/2.png" id="19_gh71k"]
+[ext_resource type="Texture2D" uid="uid://dy71klcxh4qjh" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Destroyed/3.png" id="20_q8lg8"]
+[ext_resource type="Texture2D" uid="uid://ym4gs0g1wmhq" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Destroyed/4.png" id="21_72yqh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yaj4g"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_edsmq"]
+bg_color = Color(0.68925, 0.0311793, 0.146689, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jey1k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gkr3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_yaj4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_edsmq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_v8lec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tsoy7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_og6wj")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tfci0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_3r3pa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0gjh1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ruwaq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0ceo5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4y2rs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4y2rs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xyo5e")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_ioe3i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_td0p0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_rx57p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ppg8m")
+}],
+"loop": false,
+"name": &"attacked",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_bycye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_gh71k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_q8lg8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_72yqh")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_1ykot")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l53u0"]
+size = Vector2(28, 20)
+
+[node name="cannon" type="CharacterBody2D" groups=["Enemies"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_yaj4g")
+
+[node name="EnemyHealthBar" type="ProgressBar" parent="."]
+offset_left = -13.0
+offset_top = -18.0
+offset_right = 15.0
+offset_bottom = -14.0
+scale = Vector2(1, 0.5)
+theme_override_colors/font_color = Color(0.698008, 0.22747, 0.555997, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_yaj4g")
+theme_override_styles/fill = SubResource("StyleBoxFlat_edsmq")
+rounded = true
+show_percentage = false
+
+[node name="player_Detector" type="RayCast2D" parent="."]
+scale = Vector2(2, 3)
+target_position = Vector2(-198, 0)
+collision_mask = 4
+
+[node name="shot_effect" type="AnimatedSprite2D" parent="."]
+position = Vector2(-19, 0)
+sprite_frames = SubResource("SpriteFrames_jey1k")
+frame = 5
+frame_progress = 1.0
+flip_h = true
+
+[node name="Animatii" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tfci0")
+animation = &"attack"
+autoplay = "idle"
+frame = 6
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_l53u0")
+
+[node name="Timer" type="Timer" parent="." groups=["Enemies"]]
+wait_time = 3.0
+autostart = true
+ignore_time_scale = true
+
+[connection signal="animation_finished" from="shot_effect" to="." method="_on_shot_effect_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

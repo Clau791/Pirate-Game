@@ -1,6 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://dxryg32vvse8g"]
+[gd_scene load_steps=23 format=3 uid="uid://dxryg32vvse8g"]
 
-[ext_resource type="Script" path="res://scenes/shooter.gd" id="1_g2jru"]
+[ext_resource type="Script" uid="uid://bfki008wvgooj" path="res://scenes/shooter.gd" id="1_g2jru"]
 [ext_resource type="Texture2D" uid="uid://d0duc6lgik838" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Head 1/Destroyed/3.png" id="2_g2jru"]
 [ext_resource type="Texture2D" uid="uid://41nxq850n7wf" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Head 1/Attack 1/1.png" id="3_37rry"]
 [ext_resource type="Texture2D" uid="uid://m5vgequehqqh" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Head 1/Attack 1/2.png" id="4_ilq4o"]
@@ -95,7 +95,17 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="Theme" id="Theme_55jtl"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5154"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wwfyp"]
+bg_color = Color(0.68925, 0.0311793, 0.146689, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
 
 [node name="Shooter" type="CharacterBody2D" groups=["Enemies"]]
 z_index = -11
@@ -116,23 +126,27 @@ sprite_frames = SubResource("SpriteFrames_52xpa")
 animation = &"Attack"
 autoplay = "default"
 
-[node name="EnemyHealthBar" type="ProgressBar" parent="."]
-visible = false
-modulate = Color(0.0901961, 0.188235, 1, 1)
-offset_left = -2.0
-offset_top = -44.0
-offset_right = 2.0
-offset_bottom = -17.0
-theme = SubResource("Theme_55jtl")
-show_percentage = false
-
 [node name="DamageTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+autostart = true
 
 [node name="player_Detector" type="RayCast2D" parent="."]
 target_position = Vector2(-256, 0)
 collision_mask = 4
+
+[node name="EnemyHealthBar" type="ProgressBar" parent="."]
+offset_left = -17.0
+offset_top = -19.0
+offset_right = 11.0
+offset_bottom = -15.0
+scale = Vector2(1, 0.5)
+theme_override_colors/font_color = Color(0.698008, 0.22747, 0.555997, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_q5154")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wwfyp")
+rounded = true
+show_percentage = false
 
 [connection signal="ready" from="DamageTimer" to="." method="_ready"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
