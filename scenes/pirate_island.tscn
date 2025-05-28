@@ -1828,15 +1828,15 @@ scale = Vector2(1.2, 1.2)
 collision_mask = 15
 
 [connection signal="area_entered" from="Objects/Stair" to="player" method="_on_ladder_body_entered"]
-[connection signal="body_entered" from="Objects/Stair" to="player" method="_on_ladder_body_entered"]
 [connection signal="body_entered" from="Objects/Stair" to="player" method="_on_stair_body_entered"]
+[connection signal="body_entered" from="Objects/Stair" to="player" method="_on_ladder_body_entered"]
 [connection signal="body_exited" from="Objects/Stair" to="player" method="_on_ladder_body_exited"]
 [connection signal="timeout" from="Cloud_Timer" to="." method="Cloud_Timer"]
 [connection signal="area_entered" from="Decorations/Ladder1/Stair" to="player" method="_on_ladder_body_entered"]
-[connection signal="body_entered" from="Decorations/Ladder1/Stair" to="player" method="_on_ladder_body_entered"]
 [connection signal="body_entered" from="Decorations/Ladder1/Stair" to="player" method="_on_stair_body_entered"]
+[connection signal="body_entered" from="Decorations/Ladder1/Stair" to="player" method="_on_ladder_body_entered"]
 [connection signal="body_exited" from="Decorations/Ladder1/Stair" to="player" method="_on_ladder_body_exited"]
 [connection signal="area_entered" from="Decorations/Ladder2/Stair" to="player" method="_on_ladder_body_entered"]
-[connection signal="body_entered" from="Decorations/Ladder2/Stair" to="player" method="_on_ladder_body_entered"]
 [connection signal="body_entered" from="Decorations/Ladder2/Stair" to="player" method="_on_stair_body_entered"]
+[connection signal="body_entered" from="Decorations/Ladder2/Stair" to="player" method="_on_ladder_body_entered"]
 [connection signal="body_exited" from="Decorations/Ladder2/Stair" to="player" method="_on_ladder_body_exited"]
