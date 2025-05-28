@@ -1480,10 +1480,9 @@ position = Vector2(69, 16)
 [node name="Shooter" parent="." instance=ExtResource("68_cn6l2")]
 position = Vector2(4333, -17)
 
-[node name="player" parent="." instance=ExtResource("1_gkam7")]
+[node name="player" parent="." groups=["player"] instance=ExtResource("1_gkam7")]
 z_index = -1
 position = Vector2(307, -9)
-collision_mask = 23
 inv = ExtResource("14_j4rt8")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -1532,7 +1531,6 @@ autostart = true
 position = Vector2(254, 21)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Inv_UI" parent="CanvasLayer" instance=ExtResource("34_5rm6h")]
 offset_left = -960.0
