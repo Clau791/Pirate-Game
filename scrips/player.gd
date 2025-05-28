@@ -30,6 +30,7 @@ const CLIMB_SPEED = 150
 #@export var prtcls = preload("res://scenes/particles.tscn")
 #var particles = prtcls.instantiate()
 
+var has_key = false
 
 var on_ladder = false
 
@@ -46,6 +47,10 @@ var tamed_animal: CharacterBody2D = null
 var blue_potions = 0
 var red_potions = 0
 var score = 0
+
+func collect_key():
+	has_key = true
+	print(has_key)
 
 # functii pentru health/ take damage
 func _ready():

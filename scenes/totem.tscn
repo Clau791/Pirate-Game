@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://djgyydg4h57ab"]
+
+[ext_resource type="Texture2D" uid="uid://8qyybxeheyej" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Head 2/Idle 2/1.png" id="1_aj86u"]
+[ext_resource type="Script" uid="uid://bw6wo3to00eit" path="res://scrips/totem.gd" id="1_uoape"]
+[ext_resource type="Texture2D" uid="uid://diaofvkco6ohl" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Head 3/Idle 2/1.png" id="2_uoape"]
+[ext_resource type="Texture2D" uid="uid://bebveiudednhm" path="res://sprites/Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Head 1/Idle 1/1.png" id="3_qfxbw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aj86u"]
+size = Vector2(21.25, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uoape"]
+size = Vector2(48, 72)
+
+[node name="Totem" type="StaticBody2D"]
+collision_mask = 15
+
+[node name="Head1" type="Sprite2D" parent="."]
+position = Vector2(-22, 9)
+texture = ExtResource("1_aj86u")
+
+[node name="Head2" type="Sprite2D" parent="."]
+position = Vector2(-19, -13)
+texture = ExtResource("2_uoape")
+flip_h = true
+
+[node name="Head3" type="Sprite2D" parent="."]
+position = Vector2(-18, -34)
+texture = ExtResource("3_qfxbw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-22, -12)
+shape = SubResource("RectangleShape2D_aj86u")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 15
+script = ExtResource("1_uoape")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-21, -12)
+shape = SubResource("RectangleShape2D_uoape")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

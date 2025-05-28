@@ -227,6 +227,7 @@ texture = ExtResource("45_vwnf8")
 expand_mode = 2
 
 [node name="Dialog" type="RichTextLabel" parent="Chenar"]
+layout_mode = 0
 offset_left = 13.0
 offset_top = 7.0
 offset_right = 139.0
