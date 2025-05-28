@@ -69,9 +69,9 @@
 [ext_resource type="Texture2D" uid="uid://cefaorqujb03b" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 03.png" id="66_6gdir"]
 [ext_resource type="Texture2D" uid="uid://detucscyrq61n" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 04.png" id="67_cn6l2"]
 [ext_resource type="PackedScene" uid="uid://dxryg32vvse8g" path="res://scenes/Shooter.tscn" id="68_cn6l2"]
-[ext_resource type="PackedScene" path="res://scenes/cannon.tscn" id="69_i2ck2"]
-[ext_resource type="PackedScene" uid="uid://djgyydg4h57ab" path="res://scenes/totem.tscn" id="71_0yhw8"]
-[ext_resource type="PackedScene" uid="uid://b5gvnn1owcb67" path="res://scenes/key.tscn" id="72_v0o6c"]
+[ext_resource type="PackedScene" uid="uid://c43gk3ij1ffa7" path="res://scenes/cannon.tscn" id="69_i2ck2"]
+[ext_resource type="PackedScene" path="res://scenes/totem.tscn" id="71_0yhw8"]
+[ext_resource type="PackedScene" path="res://scenes/key.tscn" id="72_v0o6c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pxoet"]
 texture = ExtResource("1_1c1lq")
@@ -1828,15 +1828,15 @@ scale = Vector2(1.2, 1.2)
 collision_mask = 15
 
 [connection signal="area_entered" from="Objects/Stair" to="player" method="_on_ladder_body_entered"]
-[connection signal="body_entered" from="Objects/Stair" to="player" method="_on_stair_body_entered"]
 [connection signal="body_entered" from="Objects/Stair" to="player" method="_on_ladder_body_entered"]
+[connection signal="body_entered" from="Objects/Stair" to="player" method="_on_stair_body_entered"]
 [connection signal="body_exited" from="Objects/Stair" to="player" method="_on_ladder_body_exited"]
 [connection signal="timeout" from="Cloud_Timer" to="." method="Cloud_Timer"]
 [connection signal="area_entered" from="Decorations/Ladder1/Stair" to="player" method="_on_ladder_body_entered"]
-[connection signal="body_entered" from="Decorations/Ladder1/Stair" to="player" method="_on_stair_body_entered"]
 [connection signal="body_entered" from="Decorations/Ladder1/Stair" to="player" method="_on_ladder_body_entered"]
+[connection signal="body_entered" from="Decorations/Ladder1/Stair" to="player" method="_on_stair_body_entered"]
 [connection signal="body_exited" from="Decorations/Ladder1/Stair" to="player" method="_on_ladder_body_exited"]
 [connection signal="area_entered" from="Decorations/Ladder2/Stair" to="player" method="_on_ladder_body_entered"]
-[connection signal="body_entered" from="Decorations/Ladder2/Stair" to="player" method="_on_stair_body_entered"]
 [connection signal="body_entered" from="Decorations/Ladder2/Stair" to="player" method="_on_ladder_body_entered"]
+[connection signal="body_entered" from="Decorations/Ladder2/Stair" to="player" method="_on_stair_body_entered"]
 [connection signal="body_exited" from="Decorations/Ladder2/Stair" to="player" method="_on_ladder_body_exited"]
