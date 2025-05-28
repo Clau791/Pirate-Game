@@ -44,6 +44,9 @@ var score = 0
 func _ready():
 	$HealthBar.value = health
 
+func is_dead():
+	return health <= 0
+	
 func take_damage(amount):
 	health -= amount
 	$HealthBar.value = health
@@ -231,7 +234,7 @@ func attack(attack_animation):
 			print(enemy.name)
 
 			#for i in Attack_Hitbox.get_collider(): # pentru un attack de tip multiple
-			if enemy and ( enemy.name == "Enemy"):
+			if enemy and ( enemy.is_in_group("Enemies")):
 				print("Atac")
 				if has_sword:
 					enemy.take_damage(damage, facing)
@@ -245,7 +248,7 @@ func attack(attack_animation):
 			print(enemy.name)
 
 			#for i in Attack_Hitbox.get_collider(): # pentru un attack de tip multiple
-			if enemy and ( enemy.name == "Enemy"):
+			if enemy and  ( enemy.is_in_group("Enemies")):
 				print("Atac")
 				if has_sword:
 					enemy.take_damage(damage, facing)

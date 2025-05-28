@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://1pbsc0n22mos"]
+[gd_scene load_steps=28 format=3 uid="uid://1pbsc0n22mos"]
 
 [ext_resource type="Script" uid="uid://bc57thurrsj8r" path="res://scrips/Enemy.gd" id="1_s7bn3"]
 [ext_resource type="Texture2D" uid="uid://c3gfo7rof6u0p" path="res://sprites/Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 01.png" id="2_82o86"]
@@ -112,10 +112,20 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="Theme" id="Theme_55jtl"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_55jtl"]
 size = Vector2(34, 22)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g512e"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pl6g4"]
+bg_color = Color(0.68925, 0.0311793, 0.146689, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
@@ -131,16 +141,6 @@ sprite_frames = SubResource("SpriteFrames_52xpa")
 animation = &"Attack"
 autoplay = "default"
 
-[node name="EnemyHealthBar" type="ProgressBar" parent="."]
-visible = false
-modulate = Color(0.0901961, 0.188235, 1, 1)
-offset_left = -2.0
-offset_top = -44.0
-offset_right = 2.0
-offset_bottom = -17.0
-theme = SubResource("Theme_55jtl")
-show_percentage = false
-
 [node name="Hitbox_pentru_attack" type="Area2D" parent="."]
 collision_mask = 5
 
@@ -151,6 +151,19 @@ shape = SubResource("RectangleShape2D_55jtl")
 [node name="DamageTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="EnemyHealthBar" type="ProgressBar" parent="."]
+offset_left = -13.0
+offset_top = -18.0
+offset_right = 15.0
+offset_bottom = -14.0
+scale = Vector2(1, 0.5)
+theme_override_colors/font_color = Color(0.698008, 0.22747, 0.555997, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_g512e")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pl6g4")
+rounded = true
+show_percentage = false
 
 [connection signal="area_entered" from="Hitbox_pentru_attack" to="." method="_on_Area2D_body_entered"]
 [connection signal="area_exited" from="Hitbox_pentru_attack" to="." method="_on_Area2D_body_exited"]
