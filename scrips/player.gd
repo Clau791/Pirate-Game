@@ -19,9 +19,16 @@ const CLIMB_SPEED = 150
 @onready var Attack_Hitbox = $Attack_Hitbox
 @onready var Attack_Cooldown = $Attack_Cooldown
 @onready var sprite = $sprite
+@onready var dust_particles = $DustParticles
+@onready var dust_particles_flipped = $DustParticles_flipped
+@onready var jump_particles = $JumpParticles
+@export var inv: Inv
+
+
 @onready var attacking = $Attack_Animation
 @export var sword_scene = preload("res://scenes/sword.tscn")  # Scena sabiei fizice
-@export var inv: Inv
+#@export var prtcls = preload("res://scenes/particles.tscn")
+#var particles = prtcls.instantiate()
 
 var has_key = false
 
@@ -48,10 +55,10 @@ func collect_key():
 # functii pentru health/ take damage
 func _ready():
 	$HealthBar.value = health
+	#get_parent().add_child(particles)
 
 func is_dead():
 	return health <= 0
-	
 func take_damage(amount):
 	health -= amount
 	$HealthBar.value = health
@@ -105,11 +112,23 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() :
 		if has_sword:
+			dust_particles_flipped.visible = false
+			dust_particles.visible = false
 			sprite.play("jump")
 			animation_flag = true
 			#y = global_position.y
 			velocity.y = JUMP_VELOCITY
+			
+			#particles.global_position = Vector2(600, -1500)
+			#particles.jump(Vector2(600, -1500))
+			#jump_particles.global_position = global_position
+			#await get_tree().create_timer(0.5).timeout
+			#jump_particles.visible = false
+
 		else:
+			dust_particles.visible = false
+			dust_particles_flipped.visible = false
+			
 			sprite.play("jump_ns")
 			animation_flag = true
 			#y = global_position.y
@@ -138,14 +157,28 @@ func _physics_process(delta: float) -> void:
 				if has_sword :
 					sprite.flip_h = false; # flip imagine horizontal
 					sprite.play("walk")
+					
+					dust_particles.visible = true
+					dust_particles.play("walk")
+
 				else: 
 					sprite.flip_h = false; # flip imagine horizontal
 					sprite.play("walk_ns")	
+					
+					dust_particles.visible = true
+					dust_particles.play("walk")
 			else:
+				dust_particles.visible = false
 				if has_sword :
 					sprite.flip_h = true;
 					sprite.play("walk")
+					
+					dust_particles_flipped.visible = true
+					dust_particles_flipped.play("walk")
 				else: 
+					dust_particles_flipped.visible = true
+					dust_particles_flipped.play("walk")
+					
 					sprite.flip_h = true; # flip imagine horizontal
 					sprite.play("walk_ns")
 	else:
@@ -153,10 +186,14 @@ func _physics_process(delta: float) -> void:
 		if not animation_flag:
 			if has_sword:
 				sprite.play("idle")
-					
+				dust_particles.visible = false
+				dust_particles_flipped.visible = false
 			else: 
 				sprite.play("idle_hs")	
-				#print("idle_hs")
+				dust_particles.visible = false
+				dust_particles_flipped.visible = false
+
+
 	
 	if Input.is_action_just_pressed("ui_attack1") and can_attack and has_sword:
 		attack("attack_1")
@@ -253,7 +290,7 @@ func attack(attack_animation):
 			print(enemy.name)
 
 			#for i in Attack_Hitbox.get_collider(): # pentru un attack de tip multiple
-			if enemy and  ( enemy.is_in_group("Enemies")):
+			if enemy and ( enemy.is_in_group("Enemies")):
 				print("Atac")
 				if has_sword:
 					enemy.take_damage(damage, facing)
@@ -281,15 +318,26 @@ func _on_ground_detect_body_exited(body: Node2D) -> void:
 func pick_up_potion(type):
 	if type == "Blue Potion":
 		blue_potions += 1
+	
 	if type == "Red Potion":
 		red_potions += 1
-		print("You picked up red potion!")
 	
 func tresure_pick_up(type):
 	if type == "Red Diamond":
 		score += 1000
 
+
+func red_potion():
+	red_potions -= 1
+	health += 20 
+func blue_potion():
+	blue_potions -= 1
+	# buff
+
 func collect(item: InvItem):
 	print("Collecting item:", item.name)
 	inv.insert(item)
-	
+
+func on_dust_particles_finished():
+	print("stopped")
+	dust_particles.visible = false

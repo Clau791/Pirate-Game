@@ -1,11 +1,9 @@
-[gd_scene load_steps=79 format=3 uid="uid://bw12ss2iy2k5a"]
+[gd_scene load_steps=85 format=3 uid="uid://bw12ss2iy2k5a"]
 
 [ext_resource type="Script" uid="uid://bbqf8b1b7cuw7" path="res://scrips/player.gd" id="1_6qdiq"]
 [ext_resource type="Texture2D" uid="uid://bgc28jbve86le" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/15-Attack 1/Attack 1 01.png" id="2_60mlk"]
 [ext_resource type="Texture2D" uid="uid://c5pyp6i5owqw8" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/18-Air Attack 1/Air Attack 1 01.png" id="2_bj30b"]
 [ext_resource type="Texture2D" uid="uid://cfkt7ihsnlrs3" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 01.png" id="2_smehm"]
-[ext_resource type="Script" uid="uid://bxg7bylmvcvy3" path="res://inventory/inventory.gd" id="2_tk41t"]
-[ext_resource type="Script" uid="uid://5dmvw81lci4r" path="res://inv_slot.gd" id="3_fuw3a"]
 [ext_resource type="Texture2D" uid="uid://l78it43do20a" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/15-Attack 1/Attack 1 02.png" id="3_i4ail"]
 [ext_resource type="Texture2D" uid="uid://bh3ecbm2dbet" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/18-Air Attack 1/Air Attack 1 02.png" id="3_jc3p3"]
 [ext_resource type="Texture2D" uid="uid://cfyv7eevdmx0b" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 02.png" id="3_ur7pv"]
@@ -65,56 +63,22 @@
 [ext_resource type="Texture2D" uid="uid://bdiv2gfqqw4tn" path="res://sprites/Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Colors/4.png" id="50_2gdjj"]
 [ext_resource type="Texture2D" uid="uid://5jwxq5np2mh1" path="res://sprites/Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Medium Bars/5.png" id="50_ha2mi"]
 [ext_resource type="Texture2D" uid="uid://ceajbkaeem2hi" path="res://sprites/Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Medium Bars/4.png" id="51_apa73"]
-
-[sub_resource type="Resource" id="Resource_8txt3"]
-script = ExtResource("3_fuw3a")
-amount = 0
-metadata/_custom_type_script = "uid://5dmvw81lci4r"
-
-[sub_resource type="Resource" id="Resource_2w11d"]
-script = ExtResource("3_fuw3a")
-amount = 0
-metadata/_custom_type_script = "uid://5dmvw81lci4r"
-
-[sub_resource type="Resource" id="Resource_770dr"]
-script = ExtResource("3_fuw3a")
-amount = 0
-metadata/_custom_type_script = "uid://5dmvw81lci4r"
-
-[sub_resource type="Resource" id="Resource_8f1cb"]
-script = ExtResource("3_fuw3a")
-amount = 0
-metadata/_custom_type_script = "uid://5dmvw81lci4r"
-
-[sub_resource type="Resource" id="Resource_vdulj"]
-script = ExtResource("3_fuw3a")
-amount = 0
-metadata/_custom_type_script = "uid://5dmvw81lci4r"
-
-[sub_resource type="Resource" id="Resource_vau08"]
-script = ExtResource("3_fuw3a")
-amount = 0
-metadata/_custom_type_script = "uid://5dmvw81lci4r"
-
-[sub_resource type="Resource" id="Resource_qsb7e"]
-script = ExtResource("3_fuw3a")
-amount = 0
-metadata/_custom_type_script = "uid://5dmvw81lci4r"
-
-[sub_resource type="Resource" id="Resource_qjsmb"]
-script = ExtResource("3_fuw3a")
-amount = 0
-metadata/_custom_type_script = "uid://5dmvw81lci4r"
-
-[sub_resource type="Resource" id="Resource_mwp2n"]
-script = ExtResource("3_fuw3a")
-amount = 0
-metadata/_custom_type_script = "uid://5dmvw81lci4r"
-
-[sub_resource type="Resource" id="Resource_0yhus"]
-script = ExtResource("2_tk41t")
-slots = Array[ExtResource("3_fuw3a")]([SubResource("Resource_8txt3"), SubResource("Resource_2w11d"), SubResource("Resource_770dr"), SubResource("Resource_8f1cb"), SubResource("Resource_vdulj"), SubResource("Resource_vau08"), SubResource("Resource_qsb7e"), SubResource("Resource_qjsmb"), SubResource("Resource_mwp2n")])
-metadata/_custom_type_script = "uid://bxg7bylmvcvy3"
+[ext_resource type="Texture2D" uid="uid://x1x8l4mob2j1" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Run 01.png" id="64_2w11d"]
+[ext_resource type="Texture2D" uid="uid://55c3lhwjcqov" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Fall 01.png" id="64_6c3st"]
+[ext_resource type="Texture2D" uid="uid://idb1jxpkmoc3" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Fall 02.png" id="65_1da1t"]
+[ext_resource type="Texture2D" uid="uid://b8b2d1di4h1yc" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Run 02.png" id="65_770dr"]
+[ext_resource type="Texture2D" uid="uid://hfm1ytam8lyf" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Run 03.png" id="66_8f1cb"]
+[ext_resource type="Texture2D" uid="uid://bdpb17cag8leb" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Fall 03.png" id="66_p21yu"]
+[ext_resource type="Texture2D" uid="uid://djecortslbbiu" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Fall 04.png" id="67_irpag"]
+[ext_resource type="Texture2D" uid="uid://df15xogoqva3y" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Run 04.png" id="67_vdulj"]
+[ext_resource type="Texture2D" uid="uid://cx8sfl8u2h5om" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Fall 05.png" id="68_bpsgo"]
+[ext_resource type="Texture2D" uid="uid://dv8bobcuhiew1" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Run 05.png" id="68_vau08"]
+[ext_resource type="Texture2D" uid="uid://byo0ff8s3gewt" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Jump 01.png" id="69_jx8is"]
+[ext_resource type="Texture2D" uid="uid://mlrj1roynalv" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Jump 02.png" id="70_vx63k"]
+[ext_resource type="Texture2D" uid="uid://bn2oucts7b1dq" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Jump 03.png" id="71_lw0jh"]
+[ext_resource type="Texture2D" uid="uid://owi4j8rko53o" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Jump 04.png" id="72_ry8ed"]
+[ext_resource type="Texture2D" uid="uid://b0fmpirei38a8" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Jump 05.png" id="73_au8ao"]
+[ext_resource type="Texture2D" uid="uid://dulk4p3fq4601" path="res://sprites/Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Jump 06.png" id="74_w5j5w"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2hs0m"]
 animations = [{
@@ -383,11 +347,100 @@ size = Vector2(17, 19)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42b1b"]
 size = Vector2(17, 9)
 
-[node name="player" type="CharacterBody2D" groups=["player"]]
+[sub_resource type="SpriteFrames" id="SpriteFrames_qsb7e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("64_6c3st")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_1da1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_p21yu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_irpag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_bpsgo")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("69_jx8is")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_vx63k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_lw0jh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_ry8ed")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_au8ao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_w5j5w")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("64_2w11d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_770dr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_8f1cb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_vdulj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_vau08")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2w11d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("64_2w11d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_770dr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_8f1cb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_vdulj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_vau08")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="player" type="CharacterBody2D"]
 position = Vector2(-1, -1)
 collision_layer = 4
+collision_mask = 23
 script = ExtResource("1_6qdiq")
-inv = SubResource("Resource_0yhus")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2hs0m")
@@ -464,6 +517,19 @@ collision_layer = 0
 position = Vector2(-0.5, 9.5)
 shape = SubResource("RectangleShape2D_42b1b")
 debug_color = Color(0.643157, 0.379537, 0.912668, 0.42)
+
+[node name="DustParticles" type="AnimatedSprite2D" parent="."]
+position = Vector2(-5, 0)
+sprite_frames = SubResource("SpriteFrames_qsb7e")
+animation = &"jump"
+frame_progress = 0.12022
+
+[node name="DustParticles_flipped" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(9, 0)
+sprite_frames = SubResource("SpriteFrames_2w11d")
+animation = &"walk"
+flip_h = true
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="Attack_Cooldown" to="." method="_on_cooldown_timeout"]
