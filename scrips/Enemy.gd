@@ -74,8 +74,6 @@ func go_right(s):
 		
 
 func _process(delta):
-	
-	#print(check_cliff_edge())
 	#not_on_ground = l_gdetector.is_colliding() or r_gdetector.is_colliding()
 	#if(not r_gdetector.is_colliding()):
 		#go_left(10)
@@ -96,20 +94,36 @@ func _process(delta):
 	if sees_player:
 		# Mergem spre player
 		var direction_to_player = sign(player.global_position.x - global_position.x)
-		if direction_to_player == -1 :
-			go_left(10)
+		var move_dir = direction_to_player
+		if check_cliff_edge():
+			velocity.x = 0
+			$Animatii.play("default")
 		else:
-			go_right(10)
+			if move_dir == -1 and l_gdetector.is_colliding():  
+				go_left(10)
+			elif move_dir == 1 and r_gdetector.is_colliding():
+				go_right(10)
+			else:
+				velocity.x = 0
+				$Animatii.play("default")
 	else:
 		if wait_time:
 			random_direction = [-1, 0, 1][randi() % 3] # aleator stânga, dreapta sau stă
-			if random_direction == -1:
-				go_left(randi_range(10, 40))
-			if random_direction == 0:
-				$Animatii.play("default")
+			# Verificăm marginea si cand merge aleator
+			if (random_direction == -1 and not l_gdetector.is_colliding()) or \
+		   	(random_direction == 1 and not r_gdetector.is_colliding()):
 				velocity.x = 0
-			if random_direction == 1:
-				go_right(randi_range(10, 40))
+				$Animatii.play("default")
+			else:
+				if random_direction == -1:
+					direction = -1
+					go_left(randi_range(10, 40))
+				elif random_direction == 1:
+					direction = 1
+					go_right(randi_range(10, 40))
+				else:
+					$Animatii.play("default")
+					velocity.x = 0
 			wait_time = false
 			$change_timer.start()
 			
@@ -214,15 +228,15 @@ func _on_damage_timer_timeout():
 	if player_in_range:
 		player_in_range.take_damage(damage)
 		
-func check_cliff_edge() -> int:
+func check_cliff_edge() -> bool:
 	var left_ground = $left_ground_detector.is_colliding()
 	var right_ground = $right_ground_detector.is_colliding()
-	if not right_ground and left_ground:
-		return 1  # marginea din dreapta
-	elif not left_ground and right_ground:
-		return -1  # marginea din stânga
+	if direction == -1 and not left_ground:
+		return true  # marginea din dreapta
+	elif direction == 1 and not right_ground:
+		return true  # marginea din stânga
 	else:
-		return 0  # e pe mijloc sau în aer complet
+		return false  # e pe mijloc sau în aer complet
 
 
 func _on_change_timer_timeout() -> void:
