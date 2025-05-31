@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://crj65w7xn5m8q" path="res://scenes/red_potion.tscn" id="7_rbkpy"]
 [ext_resource type="Texture2D" uid="uid://dxp4ppiobcob0" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Big Clouds.png" id="8_7ocw6"]
 [ext_resource type="PackedScene" uid="uid://s56x5giylodc" path="res://scenes/small_water_reflection.tscn" id="10_fdj58"]
-[ext_resource type="Script" uid="uid://cu62penihm32y" path="res://scrips/red_diamond.gd" id="12_5rm6h"]
+[ext_resource type="Script" path="res://scrips/red_diamond.gd" id="12_5rm6h"]
 [ext_resource type="Resource" uid="uid://ceoiagvvahk1k" path="res://inventory/items/red_potion.tres" id="12_kiwid"]
 [ext_resource type="Texture2D" uid="uid://drnavofdqqliu" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Bottom/1.png" id="13_fdj58"]
 [ext_resource type="Resource" uid="uid://dby05ir6tg666" path="res://inventory/playerinv.tres" id="14_j4rt8"]
@@ -1745,19 +1745,19 @@ position = Vector2(352, 20)
 position = Vector2(4779, -13)
 
 [node name="Enemy" parent="." groups=["Enemies"] instance=ExtResource("1_wqmf1")]
-position = Vector2(69, 16)
+position = Vector2(4326, -13)
 
 [node name="Shooter" parent="." instance=ExtResource("68_cn6l2")]
 position = Vector2(5345, -15)
 
 [node name="player" parent="." groups=["player"] instance=ExtResource("1_gkam7")]
 z_index = -1
-position = Vector2(4032, -12)
+position = Vector2(4039, -30)
 inv = ExtResource("14_j4rt8")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 scale = Vector2(0.7, 0.7)
-zoom = Vector2(4.3, 4.3)
+zoom = Vector2(2, 2)
 
 [node name="Menu" parent="player/Camera2D" instance=ExtResource("27_k0siu")]
 visible = false
@@ -1790,6 +1790,7 @@ tile_map_data = PackedByteArray("AAD7/wIAAAAAAAAAAAD7/wMAAAAAAAEAAAD7/wQAAAAAAAI
 tile_set = SubResource("TileSet_hi1ci")
 
 [node name="Small_water_Reflection" parent="." instance=ExtResource("10_fdj58")]
+z_index = -1000
 position = Vector2(-113, 9)
 scale = Vector2(2, 1)
 
@@ -1801,6 +1802,7 @@ autostart = true
 position = Vector2(254, 21)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Inv_UI" parent="CanvasLayer" instance=ExtResource("34_5rm6h")]
 offset_left = -960.0
@@ -1917,6 +1919,7 @@ position = Vector2(3978, -48)
 texture = ExtResource("60_bsvid")
 
 [node name="Trees" type="TileMapLayer" parent="Decorations"]
+z_index = -10
 tile_map_data = PackedByteArray("AAD/AP7/AAAAAAAAAAD/AAAAAAAAAAIAAAD/AAEAAAAAAAMAAAAAAf7/AAABAAAAAAAAAQAAAAABAAIAAAAAAQEAAAABAAMAAAAVAfT/AAACAAAAAAAWAfT/AAADAAAAAAAWAfX/AAADAAEAAAAXAfT/AAAEAAAAAAAXAfX/AAAEAAEAAAAYAfT/AAAFAAAAAAAYAfX/AAAFAAEAAAD/AP//AAAAAAEAAAAAAf//AAABAAEAAAA6AQIAAAACAAIAAAA6AQMAAAACAAMAAAA7AQIAAAADAAIAAAA7AQMAAAADAAMAAAA8AQIAAAAEAAIAAAA8AQMAAAAEAAMAAAA9AQIAAAAFAAIAAAAnAQUAAAACAAAAAAAoAQUAAAADAAAAAAAoAQYAAAADAAEAAAApAQUAAAAEAAAAAAApAQYAAAAEAAEAAAAqAQUAAAAFAAAAAAAqAQYAAAAFAAEAAAAjAfD/AAACAAAAAAAkAfD/AAADAAAAAAAlAfD/AAAEAAAAAAAmAfD/AAAFAAAAAABDAfL/AAACAAIAAABDAfP/AAACAAMAAABEAfL/AAADAAIAAABEAfP/AAADAAMAAABFAfL/AAAEAAIAAABFAfP/AAAEAAMAAABGAfL/AAAFAAIAAABHAfP/AAACAAAAAABIAfP/AAADAAAAAABIAfT/AAADAAEAAABJAfP/AAAEAAAAAABJAfT/AAAEAAEAAABKAfP/AAAFAAAAAABKAfT/AAAFAAEAAAAkAfH/AAADAAEAAAAlAfH/AAAEAAEAAAAmAfH/AAAFAAEAAAAPAQQAAAACAAIAAAAPAQUAAAACAAMAAAAQAQQAAAADAAIAAAAQAQUAAAADAAMAAAARAQQAAAAEAAIAAAARAQUAAAAEAAMAAAASAQQAAAAFAAIAAABYAQMAAAACAAAAAABZAQMAAAADAAAAAABZAQQAAAADAAEAAABaAQMAAAAEAAAAAABaAQQAAAAEAAEAAABbAQMAAAAFAAAAAABbAQQAAAAFAAEAAAAWAf3/AAAAAAEAAAAWAf7/AAAAAAEAAAAWAf//AAAAAAIAAAAWAQAAAAAAAAMAAAAXAf3/AAABAAEAAAAXAf7/AAABAAEAAAAXAf//AAABAAIAAAAXAQAAAAABAAMAAAAWAfz/AAAAAAAAAAAXAfz/AAABAAAAAAAhAf3/AAAAAAAAAAAhAf7/AAAAAAEAAAAhAf//AAAAAAIAAAAhAQAAAAAAAAMAAAAiAf3/AAABAAAAAAAiAf7/AAABAAEAAAAiAf//AAABAAIAAAAiAQAAAAABAAMAAAAoAfX/AAAAAAAAAAAoAfb/AAAAAAEAAAAoAff/AAAAAAIAAAAoAfj/AAAAAAMAAAApAfX/AAABAAAAAAApAfb/AAABAAEAAAApAff/AAABAAIAAAApAfj/AAABAAMAAAAbAer/AAAAAAEAAAAbAev/AAAAAAIAAAAbAez/AAAAAAMAAAAcAer/AAABAAEAAAAcAev/AAABAAIAAAAcAez/AAABAAMAAABCAf3/AAAAAAAAAABCAf7/AAAAAAEAAABCAf//AAAAAAIAAABCAQAAAAAAAAMAAABDAf3/AAABAAAAAABDAf7/AAABAAEAAABDAf//AAABAAIAAABDAQAAAAABAAMAAAA5Aez/AAAAAAAAAAA5Ae3/AAAAAAEAAAA5Ae7/AAAAAAIAAAA5Ae//AAAAAAMAAAA6Aez/AAABAAAAAAA6Ae3/AAABAAEAAAA6Ae7/AAABAAIAAAA6Ae//AAABAAMAAAA7Ae3/AAAAAAAAAAA7Ae7/AAAAAAEAAAA7Ae//AAAAAAIAAAA7AfD/AAAAAAMAAAA8Ae3/AAABAAAAAAA8Ae7/AAABAAEAAAA8Ae//AAABAAIAAAA8AfD/AAABAAMAAAA7Aev/AAAAAAAAAAA7Aez/AAAAAAEAAAA8Aev/AAABAAAAAAA8Aez/AAABAAEAAABLAe3/AAAAAAAAAABLAe7/AAAAAAEAAABLAe//AAAAAAIAAABLAfD/AAAAAAMAAABMAe3/AAABAAAAAABMAe7/AAABAAEAAABMAe//AAABAAIAAABMAfD/AAABAAMAAABVAfb/AAAAAAAAAABVAff/AAAAAAEAAABVAfj/AAAAAAIAAABVAfn/AAAAAAMAAABWAfb/AAABAAAAAABWAff/AAABAAEAAABWAfj/AAABAAIAAABWAfn/AAABAAMAAAA=")
 tile_set = SubResource("TileSet_hxk44")
 
@@ -2040,7 +2043,7 @@ tile_map_data = PackedByteArray("AAD+AP//AAACAAUAAAD/AP//AAADAAUAAAAAAf//AAAEAAU
 tile_set = SubResource("TileSet_aj0f0")
 
 [node name="WaterReflection" type="AnimatedSprite2D" parent="Decorations"]
-z_index = -4
+z_index = -11
 position = Vector2(4145, -35)
 scale = Vector2(1.81924, 1.84583)
 sprite_frames = SubResource("SpriteFrames_hs8gl")
@@ -2048,7 +2051,7 @@ autoplay = "default"
 frame_progress = 0.991083
 
 [node name="WaterReflection2" type="AnimatedSprite2D" parent="Decorations"]
-z_index = -4
+z_index = -11
 position = Vector2(4587.18, -40.6146)
 scale = Vector2(2.65668, 1.12292)
 sprite_frames = SubResource("SpriteFrames_hs8gl")
