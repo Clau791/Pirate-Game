@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 150.0
+var SPEED = 20
 const JUMP_VELOCITY = -400.0
 const CLIMB_SPEED = 150
 const knockback_points = [
@@ -31,18 +31,118 @@ var direction;
 var knockback = false	
 var health = 100
 var damage = 10
+
 @onready var player = $"../player"
 @onready var timer = $DamageTimer
+
+@onready var r_detector = $Right_Player_Detector
+@onready var l_detector = $Left_Player_Detector
+@onready var r_gdetector = $right_ground_detector
+@onready var l_gdetector = $left_ground_detector
 
 var player_in_range = null # playerul este în range
 var damage_interval = 0.1  # Intervalul de timp între aplicarea daunelor (în secunde)
 var last_damage_time = 0.0  # Momentul în care s-a aplicat ultima dată daune
 
+var moving_distance;
+var moving_speed;
+
+var random_direction = 0
+var random_move_timer = 0.0
+var random_move_interval = 2.0
+var sees_player;
+var not_on_ground;
+var anim_flag;
+
+var wait_time = true;
 func _ready() -> void:
 	$EnemyHealthBar.value = health
 	
+func go_left(s):
+	SPEED = s
+	velocity.x = - SPEED
+	if not anim_flag:
+		$Animatii.flip_h = false
+		$Animatii.play("run")
+		
+func go_right(s):
+	SPEED = s
+	velocity.x = SPEED
+	if not anim_flag:
+		$Animatii.flip_h = true
+		$Animatii.play("run")
+		
 
 func _process(delta):
+	#not_on_ground = l_gdetector.is_colliding() or r_gdetector.is_colliding()
+	#if(not r_gdetector.is_colliding()):
+		#go_left(10)
+#
+	#
+	#if(not_on_ground):
+		#l_gdetector.get_collider()
+		#r_gdetector.get_collider()
+		#velocity.x = 0
+		#if $Animatii.animation == "run":
+			#$Animatii.stop()
+			#print("stopped")
+		#
+	# daca nu detecteaza nimic atunci se misca random
+	# Detectăm dacă vedem playerul
+	sees_player = r_detector.is_colliding() or l_detector.is_colliding()
+
+	if sees_player:
+		# Mergem spre player
+		var direction_to_player = sign(player.global_position.x - global_position.x)
+		var move_dir = direction_to_player
+		if check_cliff_edge():
+			velocity.x = 0
+			$Animatii.play("default")
+		else:
+			if move_dir == -1 and l_gdetector.is_colliding():  
+				go_left(10)
+			elif move_dir == 1 and r_gdetector.is_colliding():
+				go_right(10)
+			else:
+				velocity.x = 0
+				$Animatii.play("default")
+	else:
+		if wait_time:
+			random_direction = [-1, 0, 1][randi() % 3] # aleator stânga, dreapta sau stă
+			# Verificăm marginea si cand merge aleator
+			if (random_direction == -1 and not l_gdetector.is_colliding()) or \
+		   	(random_direction == 1 and not r_gdetector.is_colliding()):
+				velocity.x = 0
+				$Animatii.play("default")
+			else:
+				if random_direction == -1:
+					direction = -1
+					go_left(randi_range(10, 40))
+				elif random_direction == 1:
+					direction = 1
+					go_right(randi_range(10, 40))
+				else:
+					$Animatii.play("default")
+					velocity.x = 0
+			wait_time = false
+			$change_timer.start()
+			
+		
+			 
+	#else:
+		## Mișcare aleatorie
+		#random_move_timer += delta
+		#if random_move_timer >= random_move_interval:
+			#random_direction = [-1, 0, 1][randi() % 3] # aleator stânga, dreapta sau stă
+			#random_move_timer = 0.0
+		#
+		#velocity.x = random_direction * SPEED
+		#if random_direction != 0:
+			#$Animatii.flip_h = random_direction < 0
+		#if not anim_flag:
+			#$Animatii.play("run")
+
+		
 	if not $Animatii.is_playing() and health:
 		$Animatii.play("default")
 		
@@ -75,6 +175,7 @@ func _process(delta):
 
 
 func take_damage(amount, facing):	
+	anim_flag = true;
 	# luam partea din care ataca jucatorul
 	# facing = 1 ->  
 	print(facing)
@@ -82,6 +183,7 @@ func take_damage(amount, facing):
 	$EnemyHealthBar.value = health
 	direction = facing
 	if facing == 1:
+		$Animatii.flip_h = false
 		$Animatii.play("attacked")
 		knockback = true
 	else:
@@ -93,6 +195,7 @@ func take_damage(amount, facing):
 		
 	if health <= 0:
 		if facing == 1:
+			$Animatii.flip_h = false
 			$Animatii.play("death")
 			await get_tree().create_timer(0.8).timeout
 		else:
@@ -103,6 +206,7 @@ func take_damage(amount, facing):
 		
 		die()
 	await get_tree().create_timer(0.08).timeout # asteptam sa isi faca animati
+	anim_flag = false
 	knockback = false
 	
 func die():
@@ -123,3 +227,17 @@ func _on_body_exited(body):
 func _on_damage_timer_timeout():
 	if player_in_range:
 		player_in_range.take_damage(damage)
+		
+func check_cliff_edge() -> bool:
+	var left_ground = $left_ground_detector.is_colliding()
+	var right_ground = $right_ground_detector.is_colliding()
+	if direction == -1 and not left_ground:
+		return true  # marginea din dreapta
+	elif direction == 1 and not right_ground:
+		return true  # marginea din stânga
+	else:
+		return false  # e pe mijloc sau în aer complet
+
+
+func _on_change_timer_timeout() -> void:
+	wait_time = true;

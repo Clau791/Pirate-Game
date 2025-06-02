@@ -1,7 +1,7 @@
 [gd_scene load_steps=32 format=3 uid="uid://dgh4m815p41ft"]
 
 [ext_resource type="Texture2D" uid="uid://b4rvjse23rolb" path="res://sprites/Ferret Sprite Sheet.png" id="1_fbal0"]
-[ext_resource type="Script" uid="uid://w3f6w1rnmrl5" path="res://scrips/ferret.gd" id="1_m7rfv"]
+[ext_resource type="Script" path="res://scrips/ferret.gd" id="1_m7rfv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m7rfv"]
 atlas = ExtResource("1_fbal0")
