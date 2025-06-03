@@ -75,6 +75,7 @@ func take_damage(amount, facing):
 	
 func die():
 	print("Inamicul a murit!")
+	player.increase_score(300)
 	queue_free()
 
 

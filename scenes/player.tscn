@@ -537,6 +537,9 @@ one_shot = true
 [node name="DamageTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="Sword_repawn" type="Timer" parent="."]
+wait_time = 15.0
+
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="Attack_Cooldown" to="." method="_on_cooldown_timeout"]
 [connection signal="timeout" from="Attack_Cooldown" to="Attack_Cooldown" method="_cooldown_set_attack"]
@@ -545,3 +548,4 @@ one_shot = true
 [connection signal="body_exited" from="Ground_detect" to="." method="_on_ground_detect_body_exited"]
 [connection signal="timeout" from="SpeedTimer" to="." method="_on_speed_timer_timeout"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
+[connection signal="timeout" from="Sword_repawn" to="." method="respawn_sword"]

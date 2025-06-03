@@ -94,6 +94,7 @@ animations = [{
 }]
 
 [node name="Area2D" type="Area2D"]
+z_index = -12
 script = ExtResource("1_8ns5j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

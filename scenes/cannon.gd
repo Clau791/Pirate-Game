@@ -9,7 +9,7 @@ var direction;
 var knockback = false	
 var health = 100
 var damage = 40
-
+@onready var player = $"../player"
 @export var shooter_projectile = preload("res://scenes/cannon_ball.tscn")  # Scena sabiei fizice
 
 var can_shoot = true # Intervalul de timp între aplicarea daunelor (în secunde)
@@ -30,7 +30,14 @@ func _process(delta):
 		
 		var s = shooter_projectile.instantiate()
 		s.global_position = global_position
-		s.shoot(false)
+		
+		var direction_x = player.global_position.x - $player_Detector.global_position.x
+		if direction_x < 0:
+			s.shoot(false)
+			print("false")
+		elif direction_x > 0:
+			s.shoot(true)
+			print("true")
 		get_parent().add_child(s)
 		can_shoot = false
 		
@@ -75,6 +82,7 @@ func take_damage(amount, facing):
 	
 func die():
 	print("Inamicul a murit!")
+	player.increase_score(300)
 	queue_free()
 
 func _on_shot_effect_animation_finished() -> void:

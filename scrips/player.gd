@@ -266,6 +266,7 @@ func throw_sword():
 	var throw_direction = Vector2( 1 if not sprite.flip_h else -1 ,  0)
 	# maybe better ??
 	sword.throw_sword((throw_direction) + velocity * 0.5)
+	$Sword_repawn.start()
 	#print(throw_direction)  
 	#sword.throw_sword(throw_direction * 200)
 	#sword.throw_sword(throw_direction.normalized() * 600)  # Adjust 600 to desired speed
@@ -342,7 +343,8 @@ func pick_up_potion(type):
 	
 func tresure_pick_up(type):
 	if type == "Red Diamond":
-		score += 1000
+		score += 200
+		print(score)
 
 func use_item(item_name: String):
 	if inv.has_item(item_name):
@@ -398,3 +400,14 @@ func collect(item: InvItem):
 func on_dust_particles_finished():
 	print("stopped")
 	dust_particles.visible = false
+
+func increase_score(value):
+	score += value
+	print(score)
+	
+func respawn_sword():
+	if not has_sword:
+			var sword = sword_scene.instantiate()
+			sword.global_position = global_position + Vector2(0,-5)
+			get_parent().add_child(sword)
+			

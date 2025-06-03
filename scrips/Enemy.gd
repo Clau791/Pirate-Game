@@ -100,9 +100,9 @@ func _process(delta):
 			$Animatii.play("default")
 		else:
 			if move_dir == -1 and l_gdetector.is_colliding():  
-				go_left(10)
+				go_left(40)
 			elif move_dir == 1 and r_gdetector.is_colliding():
-				go_right(10)
+				go_right(40)
 			else:
 				velocity.x = 0
 				$Animatii.play("default")
@@ -117,10 +117,10 @@ func _process(delta):
 			else:
 				if random_direction == -1:
 					direction = -1
-					go_left(randi_range(10, 40))
+					go_left(randi_range(10, 30))
 				elif random_direction == 1:
 					direction = 1
-					go_right(randi_range(10, 40))
+					go_right(randi_range(10, 30))
 				else:
 					$Animatii.play("default")
 					velocity.x = 0
@@ -211,6 +211,7 @@ func take_damage(amount, facing):
 	
 func die():
 	print("Inamicul a murit!")
+	player.increase_score(500)
 	queue_free()
 
 func _on_body_entered(body):

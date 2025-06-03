@@ -6,6 +6,7 @@ var player = null
 func _on_body_entered(body: Node2D):
 	print("Body entered:", body.name)  # Check if the body is entered
 	if body.is_in_group("player"):
+		body.tresure_pick_up("Red Diamond")
 		player = body
 		if item:
 			print("Collecting item:", item.name)  # Verify that item is correctly assigned

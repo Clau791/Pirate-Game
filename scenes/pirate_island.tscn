@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://1ruhuouvreup" path="res://scrips/pirate_island.gd" id="1_7ocw6"]
 [ext_resource type="PackedScene" uid="uid://bw12ss2iy2k5a" path="res://scenes/player.tscn" id="1_gkam7"]
 [ext_resource type="PackedScene" uid="uid://bfttwx7d1o55q" path="res://scenes/palm_tree.tscn" id="1_n2x3i"]
-[ext_resource type="PackedScene" uid="uid://1pbsc0n22mos" path="res://scenes/Enemy.tscn" id="1_wqmf1"]
 [ext_resource type="Texture2D" uid="uid://cvimjwlokfcxe" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 01.png" id="2_gkam7"]
 [ext_resource type="Texture2D" uid="uid://deas6tenrv4e7" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 02.png" id="3_n2x3i"]
 [ext_resource type="Texture2D" uid="uid://2y2dwbexy4m6" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 01.png" id="4_wqmf1"]
@@ -88,6 +87,7 @@
 [ext_resource type="Texture2D" uid="uid://8puqobko11ue" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Reflexes 2/4.png" id="87_n6jr4"]
 [ext_resource type="Texture2D" uid="uid://bwnhk1m21cg67" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Reflexes 2/5.png" id="88_oc63c"]
 [ext_resource type="Texture2D" uid="uid://c17tru05k1dkt" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Reflexes 2/6.png" id="89_e3h3d"]
+[ext_resource type="AudioStream" uid="uid://dbj6vutdjndjc" path="res://assets/Strobotone - Medieval Theme 01.mp3" id="89_lfygk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pxoet"]
 texture = ExtResource("1_1c1lq")
@@ -1735,14 +1735,15 @@ position = Vector2(-58, 19)
 [node name="Red_Potion" parent="Objects" instance=ExtResource("7_rbkpy")]
 position = Vector2(117, 18)
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Objects"]
+stream = ExtResource("89_lfygk")
+autoplay = true
+
 [node name="cannon" parent="." instance=ExtResource("69_i2ck2")]
 position = Vector2(352, 20)
 
 [node name="cannon2" parent="." instance=ExtResource("69_i2ck2")]
 position = Vector2(4779, -13)
-
-[node name="Enemy" parent="." groups=["Enemies"] instance=ExtResource("1_wqmf1")]
-position = Vector2(4326, -13)
 
 [node name="Shooter" parent="." instance=ExtResource("68_cn6l2")]
 position = Vector2(5345, -15)
