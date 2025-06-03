@@ -477,33 +477,32 @@ collide_with_areas = true
 [node name="HealthBar" type="ProgressBar" parent="."]
 self_modulate = Color(0.219608, 0.027451, 1, 1)
 z_index = 10
-offset_left = -170.0
-offset_top = -98.0
-offset_right = -166.0
-offset_bottom = -71.0
+offset_left = -952.0
+offset_top = -665.0
+offset_right = -948.0
+offset_bottom = -638.0
 theme_override_colors/font_color = Color(0.678431, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.690196, 0, 0, 1)
 value = 100.0
 show_percentage = false
 
 [node name="5" type="Sprite2D" parent="HealthBar"]
-position = Vector2(51, 37)
+position = Vector2(804, 579)
 texture = ExtResource("50_ha2mi")
 
 [node name="1" type="Sprite2D" parent="HealthBar"]
-position = Vector2(-11, 37)
+position = Vector2(741, 579)
 texture = ExtResource("47_2gdjj")
 
 [node name="4" type="Sprite2D" parent="HealthBar"]
-position = Vector2(21, 37)
+position = Vector2(772, 579)
 texture = ExtResource("51_apa73")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="HealthBar"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 36.0
-offset_right = 51.0
-offset_bottom = 76.0
+offset_left = 754.0
+offset_top = 578.0
+offset_right = 804.0
+offset_bottom = 618.0
 scale = Vector2(1.53846, 0.869836)
 value = 100.0
 texture_progress = ExtResource("50_2gdjj")

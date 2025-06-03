@@ -117,10 +117,10 @@ func _process(delta):
 			else:
 				if random_direction == -1:
 					direction = -1
-					go_left(randi_range(10, 30))
+					go_left(randi_range(10, 20))
 				elif random_direction == 1:
 					direction = 1
-					go_right(randi_range(10, 30))
+					go_right(randi_range(10, 20))
 				else:
 					$Animatii.play("default")
 					velocity.x = 0
