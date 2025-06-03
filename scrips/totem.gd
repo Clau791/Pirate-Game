@@ -9,6 +9,7 @@ func _on_body_entered(body):
 
 		if body.has_key:
 			print("Destroying totem!")
+			body.inv.remove_item("key", 1)
 			get_parent().queue_free()
 		else:
 			print("Player needs a key!")
