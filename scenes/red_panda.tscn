@@ -1,7 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://2no2pn40auti"]
+[gd_scene load_steps=31 format=3 uid="uid://2no2pn40auti"]
 
 [ext_resource type="Script" uid="uid://d0b6ngv47wvka" path="res://scrips/red_panda.gd" id="1_41j2l"]
 [ext_resource type="Texture2D" uid="uid://bv6whriec200x" path="res://sprites/Red Panda Sprite Sheet.png" id="1_dyxa2"]
+[ext_resource type="AudioStream" uid="uid://cta4tana0ljj4" path="res://sounds/tame_sound.wav" id="3_yx1gr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_41j2l"]
 atlas = ExtResource("1_dyxa2")
@@ -225,3 +226,6 @@ target_position = Vector2(-16, 0)
 [node name="FloorCheckerRight" type="RayCast2D" parent="."]
 position = Vector2(0, 1)
 target_position = Vector2(16, 0)
+
+[node name="RedPandaSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_yx1gr")

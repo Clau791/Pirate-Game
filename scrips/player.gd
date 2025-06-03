@@ -12,7 +12,8 @@
 
 extends CharacterBody2D
 
-const SPEED = 150.0
+#const SPEED = 150.0
+var speed = 150.0
 const JUMP_VELOCITY = -400.0
 const CLIMB_SPEED = 150
 
@@ -23,6 +24,17 @@ const CLIMB_SPEED = 150
 @onready var dust_particles_flipped = $DustParticles_flipped
 @onready var jump_particles = $JumpParticles
 @export var inv: Inv
+
+@onready var speed_timer: Timer = $SpeedTimer
+@onready var damage_timer: Timer = $DamageTimer
+var bonus_speed := 100
+var bonus_dmg := 10
+
+const base_speed = 150.0
+const base_dmg = 20
+
+var speed_boost_active := false
+var damage_boost_active := false
 
 
 @onready var attacking = $Attack_Animation
@@ -150,7 +162,7 @@ func _physics_process(delta: float) -> void:
 	
 	# am pus 2 if-uri pentru a nu bloca miscarea jucatorului in timpul atacului, doar animatia
 	if abs(direction) > 0 :
-		velocity.x = direction * SPEED 
+		velocity.x = direction * speed#SPEED 
 		if not animation_flag :
 			# animatii
 			if direction > 0 :  # >0 adica se misca pozitiv pe x, animatie normala de walk
@@ -182,7 +194,7 @@ func _physics_process(delta: float) -> void:
 					sprite.flip_h = true; # flip imagine horizontal
 					sprite.play("walk_ns")
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED) # oprim caracterul
+		velocity.x = move_toward(velocity.x, 0, speed)#SPEED) # oprim caracterul
 		if not animation_flag:
 			if has_sword:
 				sprite.play("idle")
@@ -218,6 +230,12 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("Restart"):
 		get_tree().reload_current_scene();
+	
+	# daca are potiuni in inventar poate apasa Z, respectiv X pentru a folosi potiunile Blue/Red
+	if Input.is_action_just_pressed("use_red_pot"):
+		use_item("red_potion")
+	if Input.is_action_just_pressed("use_blue_pot"):
+		use_item("blue_potion")
 
 
 	move_and_slide()
@@ -248,6 +266,7 @@ func throw_sword():
 	var throw_direction = Vector2( 1 if not sprite.flip_h else -1 ,  0)
 	# maybe better ??
 	sword.throw_sword((throw_direction) + velocity * 0.5)
+	$Sword_repawn.start()
 	#print(throw_direction)  
 	#sword.throw_sword(throw_direction * 200)
 	#sword.throw_sword(throw_direction.normalized() * 600)  # Adjust 600 to desired speed
@@ -324,12 +343,52 @@ func pick_up_potion(type):
 	
 func tresure_pick_up(type):
 	if type == "Red Diamond":
-		score += 1000
+		score += 200
+		print(score)
 
+func use_item(item_name: String):
+	if inv.has_item(item_name):
+		match item_name:
+			"red_potion":
+				apply_damage_boost()
+			"blue_potion":
+				apply_speed_boost()
+		inv.remove_item(item_name, 1)
+	else:
+		print("No potions available", item_name)
+
+func apply_speed_boost():
+	if speed_boost_active:
+		return
+	speed = base_speed + bonus_speed
+	speed_timer.start(5)
+	speed_boost_active = true
+	#potion_sound.play()
+	print("Speed boost activ!")
+
+func apply_damage_boost():
+	if damage_boost_active:
+		return
+	damage = base_dmg + bonus_dmg
+	damage_timer.start(5)
+	damage_boost_active = true
+	#potion_sound.play()
+	print("Damage boost activ!")
+	
+func _on_speed_timer_timeout():
+	speed = base_speed
+	speed_boost_active = false
+	print("Speed boost terminat.")
+
+func _on_damage_timer_timeout() -> void:
+	damage = base_dmg
+	damage_boost_active = false
+	print("Damage boost terminat.")
 
 func red_potion():
 	red_potions -= 1
 	health += 20 
+	
 func blue_potion():
 	blue_potions -= 1
 	# buff
@@ -341,3 +400,14 @@ func collect(item: InvItem):
 func on_dust_particles_finished():
 	print("stopped")
 	dust_particles.visible = false
+
+func increase_score(value):
+	score += value
+	print(score)
+	
+func respawn_sword():
+	if not has_sword:
+			var sword = sword_scene.instantiate()
+			sword.global_position = global_position + Vector2(0,-5)
+			get_parent().add_child(sword)
+			

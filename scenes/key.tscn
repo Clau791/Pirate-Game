@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5gvnn1owcb67"]
+[gd_scene load_steps=13 format=3 uid="uid://b5gvnn1owcb67"]
 
 [ext_resource type="Texture2D" uid="uid://c8l4oq0v4w1y1" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/1.png" id="1_ljj5h"]
 [ext_resource type="Script" uid="uid://q1rp74e8vtxp" path="res://scrips/key.gd" id="1_upbuq"]
+[ext_resource type="Resource" uid="uid://frxrhx6o6oxt" path="res://inventory/items/key.tres" id="2_8cac7"]
 [ext_resource type="Texture2D" uid="uid://bth6md8wyplkw" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/2.png" id="2_upbuq"]
 [ext_resource type="Texture2D" uid="uid://crhbe0vx8yiux" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/3.png" id="3_8cac7"]
 [ext_resource type="Texture2D" uid="uid://sgpn1xe6yfso" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/4.png" id="4_gq3hl"]
@@ -47,6 +48,7 @@ size = Vector2(8, 17)
 
 [node name="Key" type="Area2D"]
 script = ExtResource("1_upbuq")
+item = ExtResource("2_8cac7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bu8ts")
