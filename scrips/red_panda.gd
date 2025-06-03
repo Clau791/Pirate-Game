@@ -106,6 +106,7 @@ func tame() -> void:
 	is_tamed = true
 	player.tamed_animal = self
 	$AnimatedSprite2D.play("idle")
+	$RedPandaSound.play()
 	print("The animal was tamed successfully")
 
 func _on_proximity_area_body_entered(body: Node) -> void:

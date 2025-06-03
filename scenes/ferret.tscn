@@ -1,7 +1,8 @@
-[gd_scene load_steps=32 format=3 uid="uid://dgh4m815p41ft"]
+[gd_scene load_steps=33 format=3 uid="uid://dgh4m815p41ft"]
 
 [ext_resource type="Texture2D" uid="uid://b4rvjse23rolb" path="res://sprites/Ferret Sprite Sheet.png" id="1_fbal0"]
-[ext_resource type="Script" path="res://scrips/ferret.gd" id="1_m7rfv"]
+[ext_resource type="Script" uid="uid://w3f6w1rnmrl5" path="res://scrips/ferret.gd" id="1_m7rfv"]
+[ext_resource type="AudioStream" uid="uid://cta4tana0ljj4" path="res://sounds/tame_sound.wav" id="3_54vf6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m7rfv"]
 atlas = ExtResource("1_fbal0")
@@ -239,3 +240,6 @@ target_position = Vector2(-18, 0)
 [node name="FloorCheckerRight" type="RayCast2D" parent="."]
 position = Vector2(0, 1)
 target_position = Vector2(18, 0)
+
+[node name="FerretSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_54vf6")

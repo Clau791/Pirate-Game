@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=4 uid="uid://b4omaepqlemwc"]
+[gd_scene load_steps=121 format=4 uid="uid://b4omaepqlemwc"]
 
 [ext_resource type="Texture2D" uid="uid://biwipjgwidjah" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png" id="1_1c1lq"]
 [ext_resource type="Script" uid="uid://1ruhuouvreup" path="res://scrips/pirate_island.gd" id="1_7ocw6"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://dxp4ppiobcob0" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Big Clouds.png" id="8_7ocw6"]
 [ext_resource type="PackedScene" uid="uid://s56x5giylodc" path="res://scenes/small_water_reflection.tscn" id="10_fdj58"]
 [ext_resource type="Script" uid="uid://cu62penihm32y" path="res://scrips/red_diamond.gd" id="12_5rm6h"]
-[ext_resource type="Resource" uid="uid://ceoiagvvahk1k" path="res://inventory/items/red_potion.tres" id="12_kiwid"]
 [ext_resource type="Texture2D" uid="uid://drnavofdqqliu" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Bottom/1.png" id="13_fdj58"]
 [ext_resource type="Resource" uid="uid://dby05ir6tg666" path="res://inventory/playerinv.tres" id="14_j4rt8"]
 [ext_resource type="Texture2D" uid="uid://wnlrvipmssif" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/1.png" id="14_pxoet"]
@@ -1732,11 +1731,9 @@ position = Vector2(568, 20)
 
 [node name="Red_Potion2" parent="Objects" instance=ExtResource("7_rbkpy")]
 position = Vector2(-58, 19)
-item = ExtResource("12_kiwid")
 
 [node name="Red_Potion" parent="Objects" instance=ExtResource("7_rbkpy")]
 position = Vector2(117, 18)
-item = ExtResource("12_kiwid")
 
 [node name="cannon" parent="." instance=ExtResource("69_i2ck2")]
 position = Vector2(352, 20)
@@ -1802,7 +1799,6 @@ autostart = true
 position = Vector2(254, 21)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Inv_UI" parent="CanvasLayer" instance=ExtResource("34_5rm6h")]
 offset_left = -960.0
