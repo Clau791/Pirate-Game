@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://frxrhx6o6oxt"]
+
+[ext_resource type="Script" uid="uid://blflyhcs7rwvb" path="res://inventory/inventory_item.gd" id="1_y2klj"]
+[ext_resource type="Texture2D" uid="uid://c8l4oq0v4w1y1" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/1.png" id="2_e2gfd"]
+
+[resource]
+script = ExtResource("1_y2klj")
+name = "key"
+texture = ExtResource("2_e2gfd")
+metadata/_custom_type_script = "uid://blflyhcs7rwvb"
