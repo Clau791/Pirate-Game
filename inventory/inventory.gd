@@ -24,3 +24,9 @@ func remove_item(item_name: String, amount: int = 1) -> void:
 				slots.erase(slot)
 			update.emit() 
 			return
+
+func has_item(item_name: String) -> bool:
+	for slot in slots:
+		if slot.item and slot.item.name == item_name and slot.amount > 0:
+			return true
+	return false
