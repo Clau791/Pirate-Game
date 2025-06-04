@@ -1767,7 +1767,7 @@ position = Vector2(5345, -15)
 
 [node name="player" parent="." groups=["player"] instance=ExtResource("1_gkam7")]
 z_index = -1
-position = Vector2(5583, -50)
+position = Vector2(5621, -26)
 inv = ExtResource("14_j4rt8")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -2151,16 +2151,16 @@ autoplay = "default"
 frame_progress = 0.478793
 
 [connection signal="area_entered" from="Objects/Stair" to="player" method="_on_ladder_body_entered"]
-[connection signal="body_entered" from="Objects/Stair" to="player" method="_on_stair_body_entered"]
 [connection signal="body_entered" from="Objects/Stair" to="player" method="_on_ladder_body_entered"]
+[connection signal="body_entered" from="Objects/Stair" to="player" method="_on_stair_body_entered"]
 [connection signal="body_exited" from="Objects/Stair" to="player" method="_on_ladder_body_exited"]
 [connection signal="timeout" from="Cloud_Timer" to="." method="Cloud_Timer"]
 [connection signal="area_entered" from="Decorations/Ladder1/Stair" to="player" method="_on_ladder_body_entered"]
-[connection signal="body_entered" from="Decorations/Ladder1/Stair" to="player" method="_on_stair_body_entered"]
 [connection signal="body_entered" from="Decorations/Ladder1/Stair" to="player" method="_on_ladder_body_entered"]
+[connection signal="body_entered" from="Decorations/Ladder1/Stair" to="player" method="_on_stair_body_entered"]
 [connection signal="body_exited" from="Decorations/Ladder1/Stair" to="player" method="_on_ladder_body_exited"]
 [connection signal="area_entered" from="Decorations/Ladder2/Stair" to="player" method="_on_ladder_body_entered"]
-[connection signal="body_entered" from="Decorations/Ladder2/Stair" to="player" method="_on_stair_body_entered"]
 [connection signal="body_entered" from="Decorations/Ladder2/Stair" to="player" method="_on_ladder_body_entered"]
+[connection signal="body_entered" from="Decorations/Ladder2/Stair" to="player" method="_on_stair_body_entered"]
 [connection signal="body_exited" from="Decorations/Ladder2/Stair" to="player" method="_on_ladder_body_exited"]
 [connection signal="body_entered" from="Decorations/Flag2/Area2D" to="." method="_on_EndZone_body_entered"]
