@@ -65,7 +65,9 @@ func _on_EndZone_body_entered(body):
 		final_menu.show()
 		final_label.text = "Score: " + str(int (player.score + health_bonus + time_bonus))
 
+
 func _on_flag_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		
 		final_menu.show()
 		final_label.text = "Score: " + str(player.score)
