@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=4 uid="uid://b4omaepqlemwc"]
+[gd_scene load_steps=125 format=4 uid="uid://b4omaepqlemwc"]
 
 [ext_resource type="Texture2D" uid="uid://biwipjgwidjah" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png" id="1_1c1lq"]
 [ext_resource type="Script" uid="uid://1ruhuouvreup" path="res://scrips/pirate_island.gd" id="1_7ocw6"]
@@ -20,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://b36mg5mogf21" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/2.png" id="15_valp3"]
 [ext_resource type="Texture2D" uid="uid://bex5x6jnke7q4" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/3.png" id="16_52fw6"]
 [ext_resource type="Texture2D" uid="uid://dfo6atxvfiel2" path="res://sprites/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/4.png" id="17_2k3tv"]
+[ext_resource type="PackedScene" uid="uid://cqguo2n8fdmtb" path="res://scenes/final_menu.tscn" id="17_lfygk"]
+[ext_resource type="FontFile" uid="uid://nut7abvtib5p" path="res://fonts/MedievalSharp-Regular.ttf" id="18_0hpvm"]
 [ext_resource type="Texture2D" uid="uid://bh15one2ab7h" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="19_valp3"]
 [ext_resource type="Texture2D" uid="uid://dleobxnnp2com" path="res://sprites/Medieval_props_free.png" id="20_52fw6"]
 [ext_resource type="Texture2D" uid="uid://bofcovv50p0ur" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Spikes/Spikes.png" id="20_nhus5"]
@@ -1263,11 +1265,11 @@ texture = ExtResource("34_hs8gl")
 7:1/0 = 0
 8:1/0 = 0
 9:1/0 = 0
-9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -5.93534, 8, 8, -8, 8)
+9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -5.93534, 8, 0.539577, -8, -1.07915)
 10:1/0 = 0
-10:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -5.57562, 8, -5.39576, 8, 8, -8, 8)
+10:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -6.1152, 8, -5.93534, 8, 0.539577, -8, 0.899294)
 11:1/0 = 0
-11:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -5.57562, 8, -8, 8, 8, -8, 8)
+11:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -6.1152, 7.01449, -8, 8, -1.79859, -8, 0.359718)
 0:2/0 = 0
 1:2/0 = 0
 2:2/0 = 0
@@ -1593,6 +1595,11 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="GDScript" id="GDScript_lfygk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfygk"]
+size = Vector2(23, 89)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_p8yaj"]
 animations = [{
 "frames": [{
@@ -1759,7 +1766,7 @@ position = Vector2(5345, -15)
 
 [node name="player" parent="." groups=["player"] instance=ExtResource("1_gkam7")]
 z_index = -1
-position = Vector2(4039, -30)
+position = Vector2(5583, -50)
 inv = ExtResource("14_j4rt8")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -1767,10 +1774,27 @@ scale = Vector2(0.7, 0.7)
 zoom = Vector2(4, 4)
 
 [node name="Menu" parent="player/Camera2D" instance=ExtResource("27_k0siu")]
-visible = false
 z_index = 10
 offset_top = -33.0
 offset_bottom = -33.0
+
+[node name="FinalMenu" parent="player/Camera2D" instance=ExtResource("17_lfygk")]
+z_index = 5
+offset_left = -80.0
+offset_top = -68.5714
+offset_right = -80.0
+offset_bottom = -68.5714
+scale = Vector2(1.3, 1.3)
+
+[node name="Label2" type="Label" parent="player/Camera2D/FinalMenu"]
+layout_mode = 0
+offset_left = 28.5715
+offset_top = 38.4615
+offset_right = 95.5715
+offset_bottom = 61.4615
+theme_override_fonts/font = ExtResource("18_0hpvm")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
 
 [node name="BackGround" type="TileMapLayer" parent="."]
 z_index = -101
@@ -2096,6 +2120,15 @@ sprite_frames = SubResource("SpriteFrames_hxk44")
 autoplay = "default"
 frame = 3
 frame_progress = 0.749451
+script = SubResource("GDScript_lfygk")
+
+[node name="Area2D" type="Area2D" parent="Decorations/Flag2"]
+collision_layer = 15
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decorations/Flag2/Area2D"]
+position = Vector2(-14.5, 0.5)
+shape = SubResource("RectangleShape2D_lfygk")
 
 [node name="Whelm" type="AnimatedSprite2D" parent="Decorations"]
 position = Vector2(5648, -16)
@@ -2129,3 +2162,4 @@ frame_progress = 0.478793
 [connection signal="body_entered" from="Decorations/Ladder2/Stair" to="player" method="_on_stair_body_entered"]
 [connection signal="body_entered" from="Decorations/Ladder2/Stair" to="player" method="_on_ladder_body_entered"]
 [connection signal="body_exited" from="Decorations/Ladder2/Stair" to="player" method="_on_ladder_body_exited"]
+[connection signal="body_entered" from="Decorations/Flag2/Area2D" to="." method="_on_EndZone_body_entered"]

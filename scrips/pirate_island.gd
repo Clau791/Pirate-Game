@@ -3,6 +3,9 @@ extends Node2D
 @export var cloud1 = preload("res://scenes/cloud1.tscn")
 @export var cloud2 = preload("res://scenes/cloud2.tscn")
 @export var cloud3 = preload("res://scenes/cloud3.tscn")
+@onready var final_menu = $player/Camera2D/FinalMenu
+@onready var final_label = $player/Camera2D/FinalMenu/Label2
+@onready var player = $player
 var clouds = [cloud1, cloud2, cloud3]
 var clouds_on_screen = []
 
@@ -33,7 +36,7 @@ func delete_cloud(c):
 	
 
 func _ready() -> void:
-
+	final_menu.hide()
 	$Cloud_Timer.start()
 	# generam 10 nori random in scena 
 	for i in range(9):
@@ -44,3 +47,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func _on_EndZone_body_entered(body):
+	if body.is_in_group("player"):
+		final_menu.show()
+		final_label.text = "Score: " + str(player.score)
+		

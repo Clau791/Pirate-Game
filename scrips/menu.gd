@@ -71,4 +71,4 @@ func _on_first_button_pressed():
 		
 func _on_second_button_pressed():
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/pirate_island.tscn")
+	get_tree().change_scene_to_file("res://scenes/Level_2.tscn")

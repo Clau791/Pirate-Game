@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=3 uid="uid://co7r86lexaaiy"]
+
+[ext_resource type="Texture2D" uid="uid://biwipjgwidjah" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png" id="2_ihijd"]
+[ext_resource type="Texture2D" uid="uid://5e4aqpcl4sl1" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 2.png" id="3_q442c"]
+[ext_resource type="Texture2D" uid="uid://dc202xreidcvg" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 3.png" id="4_0hd3x"]
+
+[sub_resource type="GDScript" id="GDScript_67ctl"]
+script/source = "extends Node2D
+
+@export var speed := 10  # viteza norilor
+@export var reset_x := 3000  # când norul iese din ecran
+@export var start_x := 4160  # poziția de reintrare
+
+func _process(delta):
+	for cloud in get_children():
+		cloud.position.x -= speed * delta
+
+		if cloud.position.x < reset_x:
+			cloud.position.x = start_x
+"
+
+[node name="Clouds" type="Node2D"]
+script = SubResource("GDScript_67ctl")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(27, -5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(-12, -6)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_ihijd")
+centered = false
+flip_h = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D"]
+position = Vector2(110, -2)
+texture = ExtResource("3_q442c")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D"]
+position = Vector2(-61, -4)
+texture = ExtResource("4_0hd3x")
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(325, -5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D2"]
+position = Vector2(-12, -6)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_ihijd")
+centered = false
+flip_h = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D2"]
+position = Vector2(110, -2)
+texture = ExtResource("3_q442c")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D2"]
+position = Vector2(-61, -4)
+texture = ExtResource("4_0hd3x")
+
+[node name="Node2D3" type="Node2D" parent="."]
+position = Vector2(623, -5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D3"]
+position = Vector2(-12, -6)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_ihijd")
+centered = false
+flip_h = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D3"]
+position = Vector2(110, -2)
+texture = ExtResource("3_q442c")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D3"]
+position = Vector2(-61, -4)
+texture = ExtResource("4_0hd3x")
+
+[node name="Node2D4" type="Node2D" parent="."]
+position = Vector2(921, -5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D4"]
+position = Vector2(-12, -6)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_ihijd")
+centered = false
+flip_h = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D4"]
+position = Vector2(110, -2)
+texture = ExtResource("3_q442c")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D4"]
+position = Vector2(-61, -4)
+texture = ExtResource("4_0hd3x")
