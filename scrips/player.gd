@@ -1,7 +1,7 @@
 #
 #cd onedrive\documente\pirate-game
 #git add .
-#git commit -m "Bug fixing"
+#git commit -m "New level"
 #git push -u origin main
 
 # contrls 
