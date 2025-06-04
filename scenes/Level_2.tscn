@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=4 uid="uid://cnitwclwp2r6t"]
+[gd_scene load_steps=124 format=4 uid="uid://cnitwclwp2r6t"]
 
 [ext_resource type="Texture2D" uid="uid://biwipjgwidjah" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png" id="1_1c1lq"]
 [ext_resource type="Script" uid="uid://bficvu22dw7lt" path="res://scrips/level_2.gd" id="1_ffj4n"]
@@ -9,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://deas6tenrv4e7" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 02.png" id="3_n2x3i"]
 [ext_resource type="Texture2D" uid="uid://2y2dwbexy4m6" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Medium 01.png" id="4_wqmf1"]
 [ext_resource type="Texture2D" uid="uid://deg5h2mqt7y1t" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Additional Sky.png" id="5_4jlxj"]
+[ext_resource type="PackedScene" uid="uid://cqguo2n8fdmtb" path="res://scenes/final_menu.tscn" id="6_l1epd"]
 [ext_resource type="Texture2D" uid="uid://bm6f0vb4x00ms" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Additional Water.png" id="6_v8ygd"]
+[ext_resource type="FontFile" uid="uid://nut7abvtib5p" path="res://fonts/MedievalSharp-Regular.ttf" id="7_a4m2o"]
 [ext_resource type="Texture2D" uid="uid://b8xesay0ab0c0" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="7_fhowo"]
 [ext_resource type="PackedScene" uid="uid://crj65w7xn5m8q" path="res://scenes/red_potion.tscn" id="7_rbkpy"]
 [ext_resource type="Texture2D" uid="uid://dxp4ppiobcob0" path="res://sprites/Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Background/Big Clouds.png" id="8_7ocw6"]
@@ -1678,7 +1680,7 @@ position = Vector2(4738, -460)
 
 [node name="player" parent="." groups=["player"] instance=ExtResource("1_gkam7")]
 z_index = -1
-position = Vector2(4022, -15)
+position = Vector2(5849, -85)
 inv = ExtResource("14_j4rt8")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -1686,9 +1688,28 @@ scale = Vector2(0.7, 0.7)
 zoom = Vector2(4, 4)
 
 [node name="Menu" parent="player/Camera2D" instance=ExtResource("27_k0siu")]
+visible = false
 z_index = 10
 offset_top = -33.0
 offset_bottom = -33.0
+
+[node name="FinalMenu" parent="player/Camera2D" instance=ExtResource("6_l1epd")]
+z_index = 10
+offset_left = -62.8571
+offset_top = -51.4286
+offset_right = -62.8571
+offset_bottom = -51.4286
+
+[node name="Label2" type="Label" parent="player/Camera2D/FinalMenu"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 39.0
+offset_right = 96.0
+offset_bottom = 62.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_a4m2o")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
 
 [node name="Enemy2" parent="." groups=["Enemies"] instance=ExtResource("2_ffj4n")]
 position = Vector2(5517, -13)
@@ -2149,12 +2170,15 @@ frame_progress = 0.478793
 
 [node name="Chest" parent="Decorations" instance=ExtResource("23_2k3tv")]
 position = Vector2(4585, -464)
+collision_layer = 15
+collision_mask = 15
 
 [node name="Red_Potion" parent="." instance=ExtResource("7_rbkpy")]
 position = Vector2(4903, -78)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("35_l1epd")
+volume_db = -2.0
 autoplay = true
 
 [connection signal="area_entered" from="Objects/Stair" to="player" method="_on_ladder_body_entered"]
@@ -2175,3 +2199,4 @@ autoplay = true
 [connection signal="body_entered" from="Decorations/Ladder2/Stair" to="player" method="_on_stair_body_entered"]
 [connection signal="body_entered" from="Decorations/Ladder2/Stair" to="player" method="_on_ladder_body_entered"]
 [connection signal="body_exited" from="Decorations/Ladder2/Stair" to="player" method="_on_ladder_body_exited"]
+[connection signal="body_entered" from="Decorations/Chest" to="." method="_on_chest_body_entered"]

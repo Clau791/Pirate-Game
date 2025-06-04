@@ -1753,6 +1753,7 @@ position = Vector2(117, 18)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Objects"]
 stream = ExtResource("89_lfygk")
+volume_db = -2.0
 autoplay = true
 
 [node name="cannon" parent="." instance=ExtResource("69_i2ck2")]

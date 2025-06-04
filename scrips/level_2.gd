@@ -3,9 +3,13 @@ extends Node2D
 @export var cloud1 = preload("res://scenes/cloud1.tscn")
 @export var cloud2 = preload("res://scenes/cloud2.tscn")
 @export var cloud3 = preload("res://scenes/cloud3.tscn")
+@onready var final_menu = $player/Camera2D/FinalMenu
+@onready var final_label = $player/Camera2D/FinalMenu/Label2
+@onready var player = $player
 var clouds = [cloud1, cloud2, cloud3]
 var clouds_on_screen = []
-
+var level_started;
+var time_spent;
 var random; 
 var y;
 
@@ -30,10 +34,13 @@ func generate_cloud(x):
 		
 func delete_cloud(c):
 	c.queue_free()
-	
 
 func _ready() -> void:
-	$cannon2.scale.x = -1
+	level_started = true
+	time_spent = 0.0
+	final_menu.hide()
+	if get_tree().current_scene.name == "Level2":
+		$cannon2.scale.x = -1
 	$Cloud_Timer.start()
 	# generam 10 nori random in scena 
 	for i in range(9):
@@ -43,4 +50,22 @@ func _ready() -> void:
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if level_started:
+		time_spent += delta
+	
+func _on_chest_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		final_menu.show()
+		final_label.text = "Score: " + str(player.score)
+
+func _on_EndZone_body_entered(body):
+	if body.is_in_group("player"):
+		var time_bonus = max(0, round(200 - time_spent))
+		var health_bonus = player.health * 10
+		final_menu.show()
+		final_label.text = "Score: " + str(int (player.score + health_bonus + time_bonus))
+
+func _on_flag_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		final_menu.show()
+		final_label.text = "Score: " + str(player.score)
