@@ -12,6 +12,9 @@ var clouds_on_screen = []
 
 var random; 
 var y;
+var level_started;
+var time_spent;
+
 
 # se genereaza de la pozitia de start undeva unde userul nu vede posibil in perete
 func Cloud_Timer():
@@ -37,6 +40,8 @@ func delete_cloud(c):
 	
 
 func _ready() -> void:
+	level_started = true
+	time_spent = 0.0
 	final_menu.hide()
 	$Cloud_Timer.start()
 	# generam 10 nori random in scena 
@@ -47,10 +52,15 @@ func _ready() -> void:
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if level_started:
+		time_spent += delta
 
 func _on_EndZone_body_entered(body):
 	if body.is_in_group("player"):
+		var time_bonus = max(0, round(200 - time_spent))
+		var health_bonus = player.health * 10
 		final_menu.show()
-		final_label.text = "Score: " + str(player.score)
+		final_label.text = "Score: " + str(int (player.score + health_bonus + time_bonus))
+		
+	
 		

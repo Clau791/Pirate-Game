@@ -72,3 +72,9 @@ func _on_first_button_pressed():
 func _on_second_button_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/Level_2.tscn")
+
+
+func _on_button_3_pressed() -> void:
+	
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/Level_3.tscn")
