@@ -55,8 +55,10 @@ func _process(delta: float) -> void:
 	
 func _on_chest_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		var time_bonus = max(0, round(200 - time_spent))
+		var health_bonus = player.health * 10
 		final_menu.show()
-		final_label.text = "Score: " + str(player.score)
+		final_label.text = "Score: " + str(int (player.score + health_bonus + time_bonus))
 
 func _on_EndZone_body_entered(body):
 	if body.is_in_group("player"):
@@ -68,6 +70,7 @@ func _on_EndZone_body_entered(body):
 
 func _on_flag_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		
+		var time_bonus = max(0, round(200 - time_spent))
+		var health_bonus = player.health * 10
 		final_menu.show()
-		final_label.text = "Score: " + str(player.score)
+		final_label.text = "Score: " + str(int (player.score + health_bonus + time_bonus))

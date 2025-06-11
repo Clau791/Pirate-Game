@@ -59,21 +59,26 @@ func _ready() -> void:
 	$EnemyHealthBar.value = health
 	
 func go_left(s):
-	SPEED = s
-	velocity.x = - SPEED
-	if not anim_flag:
-		$Animatii.flip_h = false
-		$Animatii.play("run")
+	if health > 0 :
+		
+		SPEED = s
+		velocity.x = - SPEED
+		if not anim_flag:
+			$Animatii.flip_h = false
+			$Animatii.play("run")
 		
 func go_right(s):
-	SPEED = s
-	velocity.x = SPEED
-	if not anim_flag:
-		$Animatii.flip_h = true
-		$Animatii.play("run")
+	if health > 0 :	
+		SPEED = s
+		velocity.x = SPEED
+		if not anim_flag:
+			$Animatii.flip_h = true
+			$Animatii.play("run")
 		
 
 func _process(delta):
+	if not health > 0:
+		SPEED = 0
 	#not_on_ground = l_gdetector.is_colliding() or r_gdetector.is_colliding()
 	#if(not r_gdetector.is_colliding()):
 		#go_left(10)
@@ -91,7 +96,7 @@ func _process(delta):
 	# Detectăm dacă vedem playerul
 	sees_player = r_detector.is_colliding() or l_detector.is_colliding()
 
-	if sees_player:
+	if sees_player and health > 0 :
 		# Mergem spre player
 		var direction_to_player = sign(player.global_position.x - global_position.x)
 		var move_dir = direction_to_player
@@ -99,14 +104,15 @@ func _process(delta):
 			velocity.x = 0
 			$Animatii.play("default")
 		else:
-			if move_dir == -1 and l_gdetector.is_colliding():  
+			if move_dir == -1 and l_gdetector.is_colliding() and health > 0:  
 				go_left(40)
-			elif move_dir == 1 and r_gdetector.is_colliding():
+			elif move_dir == 1 and r_gdetector.is_colliding() and health > 0:
 				go_right(40)
 			else:
 				velocity.x = 0
-				$Animatii.play("default")
-	else:
+				if not $Animatii.is_playing():
+					$Animatii.play("default")
+	elif health >0 :
 		if wait_time:
 			random_direction = [-1, 0, 1][randi() % 3] # aleator stânga, dreapta sau stă
 			# Verificăm marginea si cand merge aleator
@@ -122,7 +128,8 @@ func _process(delta):
 					direction = 1
 					go_right(randi_range(10, 20))
 				else:
-					$Animatii.play("default")
+					if not $Animatii.is_playing():
+						$Animatii.play("default")
 					velocity.x = 0
 			wait_time = false
 			$change_timer.start()
@@ -194,6 +201,8 @@ func take_damage(amount, facing):
 		$Animatii.flip_h = false
 		
 	if health <= 0:
+		SPEED = 0
+		velocity.x = 0
 		if facing == 1:
 			$Animatii.flip_h = false
 			$Animatii.play("death")
@@ -212,6 +221,7 @@ func take_damage(amount, facing):
 func die():
 	print("Inamicul a murit!")
 	player.increase_score(500)
+	SPEED = 0
 	queue_free()
 
 func _on_body_entered(body):

@@ -2198,4 +2198,5 @@ autoplay = true
 [connection signal="body_entered" from="Decorations/Ladder2/Stair" to="player" method="_on_stair_body_entered"]
 [connection signal="body_entered" from="Decorations/Ladder2/Stair" to="player" method="_on_ladder_body_entered"]
 [connection signal="body_exited" from="Decorations/Ladder2/Stair" to="player" method="_on_ladder_body_exited"]
+[connection signal="body_entered" from="Decorations/Chest" to="." method="_on_flag_body_entered"]
 [connection signal="body_entered" from="Decorations/Chest" to="." method="_on_chest_body_entered"]
