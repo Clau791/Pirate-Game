@@ -499,6 +499,7 @@ position = Vector2(772, 579)
 texture = ExtResource("51_apa73")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="HealthBar"]
+layout_mode = 0
 offset_left = 754.0
 offset_top = 578.0
 offset_right = 804.0
