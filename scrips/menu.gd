@@ -4,12 +4,20 @@ extends Control
 
 var is_paused := false
 
+static var instance = null
+
 @onready var main_menu = $MainMenu
 @onready var help_menu = $HelpMenu
 @onready var settings_menu = $SettingsMenu
 @onready var level_menu = $LevelMenu
 
-func _ready():
+func _ready(): 
+	if instance == null:
+		instance = self
+	else:
+		assert(false, "Menu instance already exists!")
+		queue_free()
+	
 	if is_main_menu:
 		# În meniul principal vrem ca acesta să fie vizibil de la început
 		visible = true

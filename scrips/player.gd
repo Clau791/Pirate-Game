@@ -100,9 +100,11 @@ func attack_enemy(enemy):
 func _on_ladder_body_entered(body: Node2D) -> void:
 	on_ladder = true
 	
-
 func _on_ladder_body_exited(body: Node2D) -> void:
 	on_ladder = false
+		
+func can_jump():
+	return is_on_floor() 
 		
 func _physics_process(delta: float) -> void:
 		
@@ -122,7 +124,7 @@ func _physics_process(delta: float) -> void:
 		#animation_flag = false
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor() :
+	if Input.is_action_just_pressed("ui_accept") and can_jump() :
 		if has_sword:
 			dust_particles_flipped.visible = false
 			dust_particles.visible = false

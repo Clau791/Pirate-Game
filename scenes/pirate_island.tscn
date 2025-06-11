@@ -1767,7 +1767,7 @@ position = Vector2(5345, -15)
 
 [node name="player" parent="." groups=["player"] instance=ExtResource("1_gkam7")]
 z_index = -1
-position = Vector2(4051, -7)
+position = Vector2(4031, -12)
 inv = ExtResource("14_j4rt8")
 
 [node name="Camera2D" type="Camera2D" parent="player"]

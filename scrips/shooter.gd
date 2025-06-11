@@ -10,6 +10,7 @@ var direction;
 var knockback = false	
 var health = 100
 var damage = 10
+@onready var bar = $EnemyHealthBar
 @onready var player = $"../player"
 @onready var timer = $DamageTimer
 @export var shooter_projectile = preload("res://scenes/shooter_projectile.tscn")  # Scena sabiei fizice
@@ -20,8 +21,7 @@ var can_shoot = true # Intervalul de timp între aplicarea daunelor (în secunde
 var last_damage_time = 0.0  # Momentul în care s-a aplicat ultima dată daune
 
 func _ready() -> void:
-	$EnemyHealthBar.value = health
-	
+	bar.value = health
 
 func _process(delta):
 	if can_shoot and $player_Detector.is_colliding() :
